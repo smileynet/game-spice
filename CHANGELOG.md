@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Release automation script (`dev/release.py`) and GitHub Actions workflow
+- CHANGELOG, LICENSE (MIT), and .gitignore
+- Beads issue tracking
+
 ## [0.1.0] - 2026-02-11
 
 ### Added
