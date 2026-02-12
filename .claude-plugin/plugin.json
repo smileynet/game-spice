@@ -12,8 +12,5 @@
     "line-cook",
     "scoping",
     "core-loop"
-  ],
-  "claudeCode": {
-    "minVersion": "1.0.33"
-  }
+  ]
 }
