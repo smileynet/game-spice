@@ -1,0 +1,19 @@
+{
+  "name": "game-spice",
+  "description": "Game design spice for Line Cook — MLP scoping, core loop frameworks, and planning anti-patterns",
+  "version": "0.1.0",
+  "author": {
+    "name": "smileynet"
+  },
+  "license": "MIT",
+  "keywords": [
+    "game-design",
+    "spice",
+    "line-cook",
+    "scoping",
+    "core-loop"
+  ],
+  "claudeCode": {
+    "minVersion": "1.0.33"
+  }
+}

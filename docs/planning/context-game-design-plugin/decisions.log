@@ -1,0 +1,8 @@
+# Decisions Log
+# Append-only: date | context | decision | rationale
+# Seeded during brainstorm, updated during scope and finalize
+2026-02-11 | brainstorm | Skills-only plugin (no commands/agents) | Augments existing line-cook workflow without duplicating commands. Skills load on-demand into brainstorm/scope phases.
+2026-02-11 | brainstorm | Three focused skills: game-scoping, game-design-frameworks, game-antipatterns | Balances context budget with comprehensive coverage. Each skill ~800-1200 tokens. Aligns to planning concerns: what to build, how to think about it, what to avoid.
+2026-02-11 | brainstorm | Genre-agnostic approach | Premature genre specialization would cause duplication and maintenance burden. Core frameworks (MDA, core loops, MLP scoping) apply across all genres.
+2026-02-11 | brainstorm | Plugin follows godot-meta structure | Proven pattern for distributable Claude plugins with skills.
+2026-02-11 | brainstorm | Planning focus only (not implementation) | Clear boundary: plugin guides WHAT to build and in WHAT ORDER. HOW to build is handled by other tools (godot-meta, line-cook execution cycle).
