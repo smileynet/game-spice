@@ -16,8 +16,8 @@ Exit codes:
     1: Pre-flight check failed
     2: Version update failed
     3: CHANGELOG update failed
-    6: Commit failed
-    7: Push failed
+    4: Commit failed
+    5: Push failed
 """
 
 import argparse
@@ -33,7 +33,6 @@ from typing import Optional
 
 # ANSI colors for terminal output
 class Colors:
-    HEADER = "\033[95m"
     BLUE = "\033[94m"
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
@@ -138,8 +137,7 @@ def changelog_has_unreleased_content(repo_root: Path) -> bool:
     if not unreleased_match:
         return False
 
-    unreleased_content = unreleased_match.group(1).strip()
-    return len(unreleased_content) > 0
+    return bool(unreleased_match.group(1).strip())
 
 
 def preflight_checks(config: ReleaseConfig) -> bool:
@@ -281,7 +279,7 @@ def create_commit(config: ReleaseConfig) -> bool:
             return False
 
     commit_message = f"chore(release): v{config.version}"
-    code, output = run_git(["commit", "-m", commit_message])
+    code, _ = run_git(["commit", "-m", commit_message])
 
     if code != 0:
         print(f"  {color('✗', Colors.RED)} Failed to create commit")
@@ -439,7 +437,8 @@ def main():
     mode = " (DRY RUN)" if config.dry_run else ""
     print()
     print(color("╔══════════════════════════════════════════════════════════════╗", Colors.BOLD))
-    print(color(f"║  RELEASE: game-spice v{config.version}{mode:<29}║", Colors.BOLD))
+    content = f"  RELEASE: game-spice v{config.version}{mode}"
+    print(color(f"║{content:<62}║", Colors.BOLD))
     print(color("╚══════════════════════════════════════════════════════════════╝", Colors.BOLD))
     print()
 
@@ -490,7 +489,7 @@ def main():
     print("Commit:")
     if not create_commit(config):
         print(color("Commit failed.", Colors.RED))
-        return 6
+        return 4
 
     # Push if requested
     if config.push:
@@ -498,7 +497,7 @@ def main():
         print("Push:")
         if not push_to_remote(config):
             print(color("Push failed.", Colors.RED))
-            return 7
+            return 5
 
     # Success summary
     print()
