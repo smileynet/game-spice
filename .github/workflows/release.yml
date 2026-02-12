@@ -1,0 +1,90 @@
+name: Create Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.claude-plugin/plugin.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from plugin.json
+        id: version
+        run: |
+          VERSION=$(jq -r '.version' .claude-plugin/plugin.json)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Check if release exists
+        id: check
+        run: |
+          if gh release view "v${{ steps.version.outputs.version }}" &>/dev/null; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract changelog
+        if: steps.check.outputs.exists == 'false'
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          # Extract section for this version from CHANGELOG.md
+          # Uses awk variable to avoid regex injection issues with version string
+          CHANGES=$(awk -v ver="$VERSION" 'BEGIN{pat="^## \\[" ver "\\] -"} $0 ~ pat {flag=1; next} /^## \[/{flag=0} flag' CHANGELOG.md)
+
+          if [ -z "$CHANGES" ]; then
+            CHANGES="See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details."
+          fi
+
+          {
+            echo "changelog<<EOF"
+            echo "$CHANGES"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Create release
+        if: steps.check.outputs.exists == 'false'
+        run: |
+          cat > /tmp/release-notes.md << 'EOF'
+          ## game-spice ${{ steps.version.outputs.tag }}
+
+          ${{ steps.changelog.outputs.changelog }}
+
+          ## Installation
+
+          **First-time install:**
+          ```bash
+          /plugin marketplace add ${{ github.repository }}
+          /plugin install game-spice
+          ```
+
+          **Update existing:**
+          ```bash
+          /plugin update game-spice
+          ```
+
+          ## Documentation
+
+          - **[README](https://github.com/${{ github.repository }}#readme)** - Full documentation and skills reference
+          EOF
+
+          gh release create "${{ steps.version.outputs.tag }}" \
+            --title "${{ steps.version.outputs.tag }}" \
+            --notes-file /tmp/release-notes.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
