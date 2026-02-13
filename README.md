@@ -99,32 +99,16 @@ Each question comes from a different skill, but they flow as a natural conversat
 
 Skills load automatically when Line Cook commands detect game project context during `/mise` (brainstorm, scope, finalize). No configuration needed — skill descriptions contain trigger keywords that Claude matches against during planning sessions.
 
-```mermaid
-graph LR
-    subgraph brainstorm ["/brainstorm"]
-        A["game-design-frameworks"]
-        B["game-mechanics-palette"]
-        C["game-economy-design"]
-    end
-
-    subgraph scope ["/scope"]
-        D["game-scoping"]
-        E["game-economy-design"]
-        F["game-difficulty-design"]
-        G["game-content-planning"]
-        H["game-playtesting"]
-        I["game-scenario-walkthrough"]
-    end
-
-    subgraph review ["Plan Review"]
-        J["game-antipatterns"]
-    end
-
-    brainstorm --> scope --> review
-
-    style brainstorm fill:#4a1d6e,stroke:#9333ea,color:#e9d5ff
-    style scope fill:#134e4a,stroke:#14b8a6,color:#99f6e4
-    style review fill:#6b3a1f,stroke:#f59e0b,color:#fef3c7
+```
+ /brainstorm               /scope                        Plan Review
+┌────────────────────┐    ┌──────────────────────────┐    ┌──────────────────┐
+│ game-design-       │    │ game-scoping             │    │ game-antipatterns │
+│   frameworks       │    │ game-economy-design      │    └──────────────────┘
+│ game-mechanics-    │───>│ game-difficulty-design    │───>
+│   palette          │    │ game-content-planning    │
+│ game-economy-      │    │ game-playtesting         │
+│   design           │    │ game-scenario-walkthrough│
+└────────────────────┘    └──────────────────────────┘
 ```
 
 Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete.
