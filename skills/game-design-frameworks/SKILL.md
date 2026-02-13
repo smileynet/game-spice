@@ -1,6 +1,6 @@
 ---
 name: game-design-frameworks
-description: Game design analysis frameworks and thinking tools. Use when brainstorming game ideas, analyzing game mechanics, designing player experiences, evaluating engagement loops, or planning game narrative. Covers MDA framework, core loop design, player motivation, flow state, systems thinking, narrative integration, difficulty curves.
+description: Game design analysis frameworks and thinking tools. Use when brainstorming game ideas, analyzing game mechanics, designing player experiences, evaluating engagement loops, or planning game narrative. Covers MDA framework, core loop design, player motivation, systems thinking, narrative integration, progression systems.
 ---
 
 # Game Design Frameworks
@@ -16,7 +16,7 @@ Thinking tools for analyzing and designing game experiences.
 | Analyze why a mechanic is/isn't fun | MDA Framework |
 | Design what the player does repeatedly | Core Loop Design |
 | Understand what motivates players | Player Motivation (SDT) |
-| Balance challenge vs skill | Flow State & Difficulty |
+| Balance challenge vs skill | Difficulty & Challenge Design |
 | Design interconnected systems | Systems Thinking |
 | Integrate story with gameplay | Narrative Integration |
 | Make actions feel good | Game Feel & Juice |
@@ -142,47 +142,14 @@ Adding extrinsic rewards to an intrinsically fun activity can **reduce** motivat
 
 **Guideline:** Extrinsic rewards should amplify intrinsic fun, not replace it. If players wouldn't do the activity without the reward, the activity needs redesign.
 
-## Flow State & Difficulty
+## Difficulty & Challenge → see game-difficulty-design
 
-### The Flow Channel
+Flow state, difficulty curves, challenge types, accessibility, recovery mechanics, and boss design are covered in the dedicated difficulty skill. Key concepts:
 
-```
-Anxiety    ╱
-          ╱
-         ╱  FLOW
-        ╱  CHANNEL
-       ╱
-      ╱
-Boredom
-     Skill →
-```
-
-Players are in flow when challenge matches skill. As skill grows, challenge must grow too.
-
-### Difficulty Curve Patterns
-
-| Pattern | Shape | Best For |
-|---------|-------|----------|
-| **Linear** | Steady climb | Puzzle games, tutorials |
-| **Sawtooth** | Hard spike → breather → harder spike | Action games, roguelikes |
-| **Exponential** | Slow start, steep late game | Strategy, RPGs |
-| **Player-driven** | Player chooses difficulty | Open world, sandbox |
-
-<details><summary>Difficulty Design Guidelines</summary>
-
-**Sawtooth pattern (most versatile):**
-- Each "tooth" introduces one new challenge element
-- Breather sections let players consolidate skills
-- Boss encounters test mastery of recent skills
-- Each peak is slightly higher than the last
-
-**Common mistakes:**
-- Difficulty spike with no new skill to learn (frustrating)
-- Long plateaus with no challenge growth (boring)
-- Multiple new mechanics introduced simultaneously (overwhelming)
-- Difficulty that requires content knowledge, not skill (unfair)
-
-</details>
+- **Flow channel** — challenge must match skill; too easy = boredom, too hard = frustration
+- **Difficulty curve patterns** — linear, sawtooth, exponential, player-driven, sine wave
+- **Challenge types** — kinesthetic, strategic, puzzle, knowledge, social
+- **Accessibility** — removing barriers to reach challenge, not eliminating challenge
 
 ## Systems Thinking
 
@@ -194,6 +161,26 @@ Players are in flow when challenge matches skill. As skill grows, challenge must
 | **Negative (balancing)** | Rubber-banding, catch-up mechanics | Losing player gets better items → catches up |
 
 **Design guideline:** Positive feedback loops create decisive, dramatic moments. Negative feedback loops create tension and comebacks. Most games need both.
+
+<details><summary>When to Use Each Loop Type</summary>
+
+**Use positive feedback loops when:**
+- You want games/matches to end decisively (not drag on)
+- Snowballing creates exciting momentum (racing games, MOBAs)
+- Rewarding skilled play is a core aesthetic
+
+**Use negative feedback loops when:**
+- Comebacks should be possible (party games, casual multiplayer)
+- You want close matches that go down to the wire
+- New players need protection from experienced players
+
+**Balancing the two:**
+- Most competitive games use positive loops within a round but negative loops between rounds
+- Mario Kart: blue shells (negative) keep races close; boost pads (positive) reward good driving
+- If your game feels "predetermined after 2 minutes," you need more negative feedback
+- If your game "always drags to a stalemate," you need more positive feedback
+
+</details>
 
 ### Planning for Emergence
 
@@ -225,20 +212,73 @@ For each edge, ask:
 
 **Rule of thumb:** 3-4 interconnected systems create enough emergence for an MLP. More systems = exponentially more interactions to test.
 
+**Interaction complexity math:**
+- 2 systems = 1 interaction to test
+- 3 systems = 3 interactions
+- 4 systems = 6 interactions
+- 5 systems = 10 interactions
+- Each interaction can produce multiple emergent behaviors
+
+**The "interesting or exploitable?" decision:**
+
+| System Interaction | Interesting? | Exploitable? | Keep? |
+|---|---|---|---|
+| Fire + wind = fire spreads | Yes (tactical) | Mildly | Yes — emergent tactics |
+| Healing + damage = invincibility | No (bypasses game) | Severely | No — patch it |
+| Physics + inventory = item launching | Yes (creative) | Mildly | Yes — embrace it (BotW) |
+| Economy + combat = buy-to-win | No (skips gameplay) | Severely | No — cap or rebalance |
+
+**Emergence budget:** For each system interaction you keep, plan 1-2 extra testing sessions to discover unintended combinations. The combinatorial explosion of 4+ systems means some interactions WILL surprise you.
+
+**Do this / not that:**
+- DO: Fire spreads to wooden objects → players use torches tactically (simple rules, rich outcomes)
+- DON'T: 8 elemental types that each interact differently → 28 interaction pairs to balance
+- DO: Physics objects can be stacked → players build creative solutions
+- DON'T: Custom scripting for each physics interaction → brittle, untestable
+
 </details>
 
 ## Narrative Integration
 
 ### 4 Integration Levels
 
-| Level | Description | Example |
-|-------|-------------|---------|
-| **Separated** | Story and gameplay don't interact | Cutscene → gameplay → cutscene |
-| **Contextual** | Story gives meaning to gameplay | "You're fighting to save your sister" |
-| **Integrated** | Gameplay mechanics serve the story | Losing health = character getting weaker narratively |
-| **Emergent** | Gameplay creates unique stories | Dwarf Fortress, RimWorld, Hades |
+| Level | Description | Example | Scope Cost |
+|-------|-------------|---------|-----------|
+| **Separated** | Story and gameplay don't interact | Cutscene → gameplay → cutscene | Low |
+| **Contextual** | Story gives meaning to gameplay | "You're fighting to save your sister" | Low |
+| **Integrated** | Gameplay mechanics serve the story | Losing health = character getting weaker narratively | Medium |
+| **Emergent** | Gameplay creates unique stories | Dwarf Fortress, RimWorld, Hades | High |
 
 **For MLP:** Aim for Contextual at minimum. Integrated if your game is narrative-driven. Emergent only if systems support it naturally.
+
+<details><summary>Choosing Integration Level</summary>
+
+**How to decide based on game type and team size:**
+
+| Game Type | Recommended Level | Why |
+|---|---|---|
+| Puzzle, rhythm, arcade | Separated or Contextual | Story isn't the draw — keep scope low |
+| Action, platformer | Contextual | Context motivates without adding scope |
+| RPG, adventure | Integrated | Story IS the product — invest here |
+| Sandbox, sim | Emergent (if systems support it) | Player-created stories are the point |
+
+**Team size considerations:**
+- Solo dev → Separated or Contextual. Integrated narrative requires writing + implementation + testing = significant solo effort
+- Small team with a writer → Integrated is achievable
+- Emergent narrative comes from systems design, not writing — requires systems-first development
+
+**Branching narrative as scope multiplier:**
+- Each meaningful branch doubles content (dialogue, consequences, testing)
+- 3 branches with 2 choices each = 8 possible paths to write and test
+- For MLP: linear narrative with contextual integration. Branch ONLY if branching IS the core mechanic (visual novels, choice-driven RPGs)
+
+**Environmental storytelling as low-cost alternative:**
+- Tell stories through the environment (scattered notes, visual details, item placement)
+- No dialogue trees, no voice acting, no branching paths
+- Players who want story find it; players who don't can ignore it
+- Examples: Dark Souls item descriptions, Gone Home environmental details, BioShock audio logs
+
+</details>
 
 ### Ludonarrative Dissonance Test
 
@@ -301,17 +341,40 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 
 ## Progression Systems
 
-| Type | Mechanism | Risk |
-|------|-----------|------|
-| **Skill-based** | Player gets better at the game | Can hit ceiling without external help |
-| **Character-based** | Stats/abilities increase over time | Can mask boring core loop |
-| **Content-based** | New levels, areas, enemies unlock | Expensive to produce, consumed quickly |
-| **Narrative-based** | Story unfolds with progress | Can feel like carrot-on-stick |
-| **Social-based** | Rankings, sharing, competition | Requires player base |
+| Type | Mechanism | Risk | Scope Cost |
+|------|-----------|------|-----------|
+| **Skill-based** | Player gets better at the game | Can hit ceiling without external help | Free |
+| **Character-based** | Stats/abilities increase over time | Can mask boring core loop | Medium |
+| **Content-based** | New levels, areas, enemies unlock | Expensive to produce, consumed quickly | High |
+| **Narrative-based** | Story unfolds with progress | Can feel like carrot-on-stick | Medium |
+| **Social-based** | Rankings, sharing, competition | Requires player base | Low-Medium |
 
 **For MLP:** Skill-based progression is free (no content cost) and validates core loop strength. If your game isn't fun without character/content progression, the core loop needs work. Resource-based progression requires balance planning `(see game-economy-design → Progression Curves)`.
 
 <details><summary>Progression Design Guidelines</summary>
+
+**Horizontal vs vertical progression:**
+
+| Type | What Changes | When to Use |
+|------|-------------|-------------|
+| **Vertical** | Player gets stronger (more HP, more damage) | When power fantasy is the aesthetic |
+| **Horizontal** | Player gets different options (new abilities, tools) | When variety and expression are the aesthetic |
+
+- Vertical is simpler to implement but has a ceiling — eventually numbers become meaningless
+- Horizontal is harder to balance but scales better — new options don't obsolete old ones
+- Best approach for most games: primarily horizontal with light vertical (new sword types, not just +1 sword)
+
+**Progression as scope:**
+- Skill-based = zero content cost (player improves, game doesn't need new content)
+- Character-based = medium cost (need upgrade trees, balance passes)
+- Content-based = high cost (every new level/area/enemy requires production)
+- Plan progression type based on your production capacity, not just design preference
+
+**Meta-progression planning:**
+- Meta-progression = persistent unlocks across runs/sessions (Hades mirror, roguelike unlocks)
+- Unlocks should expand options, not just increase power (variety > stats)
+- Collection mechanics (unlock all characters, find all items) provide long-term goals cheaply
+- Prestige systems (reset for permanent bonus) extend endgame but require careful economy balance `(see game-economy-design → Genre-Specific Economy Patterns)`
 
 **Layering progression:**
 - Start with skill-based (core loop mastery)
@@ -323,6 +386,7 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 - Players need progression to tolerate gameplay → fix the gameplay
 - Progression makes the game easier instead of different → adjust curve
 - All progression is numeric (+5 damage) → add qualitative variety
+- Progression masks a boring core loop — the most dangerous anti-pattern. If you remove all progression and the game isn't fun for 5 minutes, no amount of unlocks will save it
 
 </details>
 
@@ -333,3 +397,5 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 - **game-economy-design** — Resource systems, taps & sinks, progression curves
 - **game-playtesting** — Validate design decisions with real players
 - **game-scenario-walkthrough** — Narrate the player experience to test framework application
+- **game-difficulty-design** — Flow state, difficulty curves, challenge types, accessibility, boss design
+- **game-content-planning** — Level design, pacing, content scope estimation, procedural vs handcrafted

@@ -145,3 +145,5 @@ After playtest results, decide what to do:
 - **game-design-frameworks** — Onboarding patterns for fixing "didn't understand" results `(see game-design-frameworks → Onboarding Patterns)`
 - **game-economy-design** — What to playtest for economy balance `(see game-economy-design → MLP Economy Checklist)`
 - **game-scenario-walkthrough** — Walkthrough as a testable artifact to compare against real play
+- **game-difficulty-design** — Testing for difficulty fairness, developer blind spot `(see game-difficulty-design → Difficulty Anti-Patterns)`
+- **game-content-planning** — Content batching and playtest cadence `(see game-content-planning → Content Sequencing in Development)`

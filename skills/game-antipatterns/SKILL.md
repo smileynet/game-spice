@@ -264,3 +264,5 @@ Run this AFTER planning is complete:
 - **game-economy-design** — Economy anti-patterns and balance planning
 - **game-playtesting** — The antidote to Design in Isolation
 - **game-scenario-walkthrough** — Bridge between paper design and building
+- **game-difficulty-design** — Difficulty-specific anti-patterns (fake difficulty, number inflation, developer blind spot)
+- **game-content-planning** — Content-specific anti-patterns (filler, content treadmill, premature production)

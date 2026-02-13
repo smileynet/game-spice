@@ -276,3 +276,5 @@ Watch for these during planning:
 - **game-economy-design** — Plan resource systems and balance before building
 - **game-playtesting** — Structure your playtest plan and iteration methodology
 - **game-scenario-walkthrough** — Narrate the player experience before implementation
+- **game-difficulty-design** — Difficulty modes as a scope decision, accessibility planning costs
+- **game-content-planning** — Content scope estimation, world structure decisions, procedural vs handcrafted

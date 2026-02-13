@@ -105,7 +105,7 @@ For each cycle, describe:
 
 Narrate:
 - What changes to make the game harder (new obstacle, faster enemies, resource scarcity)
-- The first time the player fails — what do they see? `(see game-design-frameworks → Flow State & Difficulty)`
+- The first time the player fails — what do they see? `(see game-difficulty-design → Flow State & Difficulty)`
 - How they recover (respawn? restart? lose progress?)
 - What they learn from failure (skill growth signal)
 
@@ -157,8 +157,10 @@ At any point in the walkthrough, you can add a **visual snapshot** to increase s
 
 ## See Also
 
-- **game-design-frameworks** — Onboarding (Beat 2), core loop design (Beat 3), flow and difficulty (Beat 4), game feel (feedback mapping)
+- **game-design-frameworks** — Onboarding (Beat 2), core loop design (Beat 3), game feel (feedback mapping)
 - **game-scoping** — Tracer bullet as the technical equivalent of a walkthrough `(see game-scoping → Tracer Bullet Methodology)`
 - **game-playtesting** — Use the walkthrough as a testable artifact `(see game-playtesting → The 3-Question Framework)`
 - **game-antipatterns** — Design in Isolation and GDD Tome — walkthroughs help avoid both
 - **game-economy-design** — Narrate economy decisions within the walkthrough
+- **game-difficulty-design** — Flow and difficulty for Beat 4 (Rising Stakes) `(see game-difficulty-design → Flow State & Difficulty)`
+- **game-content-planning** — Narrate content pacing and level progression before building `(see game-content-planning → Pacing Through Content)`
