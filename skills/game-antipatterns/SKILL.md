@@ -100,7 +100,7 @@ These are different problems with different fixes:
 3. Playtest with someone who isn't you
 4. Let prototype results drive design iteration
 
-**Rule:** No design decision survives first contact with a playtester. Plan less, test more.
+**Rule:** No design decision survives first contact with a playtester. Plan less, test more `(see game-playtesting → Minimum Viable Playtest (MVPt))`. A scenario walkthrough is a lightweight step between pure paper planning and building `(see game-scenario-walkthrough → The 5-Beat Structure)`.
 
 ### Juice Addiction
 
@@ -261,3 +261,6 @@ Run this AFTER planning is complete:
 
 - **game-scoping** — MLP process, tracer bullets, and cutting heuristics referenced throughout
 - **game-design-frameworks** — Frameworks for making better design decisions (MDA, SDT, flow)
+- **game-economy-design** — Economy anti-patterns and balance planning
+- **game-playtesting** — The antidote to Design in Isolation
+- **game-scenario-walkthrough** — Bridge between paper design and building

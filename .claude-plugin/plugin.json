@@ -1,7 +1,7 @@
 {
   "name": "game-spice",
-  "description": "Game design spice for Line Cook \u2014 MLP scoping, core loop frameworks, and planning anti-patterns",
-  "version": "0.1.1",
+  "description": "Game design spice for Line Cook \u2014 MLP scoping, core loop frameworks, economy design, playtesting methodology, scenario walkthroughs, and planning anti-patterns",
+  "version": "0.2.0",
   "author": {
     "name": "smileynet"
   },
@@ -11,6 +11,9 @@
     "spice",
     "line-cook",
     "scoping",
-    "core-loop"
+    "core-loop",
+    "economy",
+    "playtesting",
+    "balance"
   ]
 }

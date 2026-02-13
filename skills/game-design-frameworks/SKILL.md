@@ -22,6 +22,8 @@ Thinking tools for analyzing and designing game experiences.
 | Make actions feel good | Game Feel & Juice |
 | Teach the player how to play | Onboarding Patterns |
 | Design long-term engagement | Progression Systems |
+| Design resource economy | Game Economy Design |
+| Visualize the player experience | Game Scenario Walkthrough |
 
 ### One-Liner Summaries
 
@@ -307,7 +309,7 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 | **Narrative-based** | Story unfolds with progress | Can feel like carrot-on-stick |
 | **Social-based** | Rankings, sharing, competition | Requires player base |
 
-**For MLP:** Skill-based progression is free (no content cost) and validates core loop strength. If your game isn't fun without character/content progression, the core loop needs work.
+**For MLP:** Skill-based progression is free (no content cost) and validates core loop strength. If your game isn't fun without character/content progression, the core loop needs work. Resource-based progression requires balance planning `(see game-economy-design → Progression Curves)`.
 
 <details><summary>Progression Design Guidelines</summary>
 
@@ -328,3 +330,6 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 
 - **game-scoping** — Apply these frameworks to scope decisions (MLP, tracer bullets, feature cutting)
 - **game-antipatterns** — Common mistakes when applying these frameworks incorrectly
+- **game-economy-design** — Resource systems, taps & sinks, progression curves
+- **game-playtesting** — Validate design decisions with real players
+- **game-scenario-walkthrough** — Narrate the player experience to test framework application

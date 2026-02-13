@@ -255,6 +255,7 @@ Watch for these during planning:
 - [ ] Target play session length defined (5 min? 30 min? 2 hours?)
 - [ ] Platform/input constraints known (keyboard? controller? touch?)
 - [ ] Solo dev or team? (drastically affects achievable scope)
+- [ ] Economy complexity level identified (none / single resource / dual currency / full economy) `(see game-economy-design)`
 
 ### Scope Review
 
@@ -265,9 +266,13 @@ Watch for these during planning:
 - [ ] No features that require "new systems" to support
 - [ ] No content-heavy items in MLP (those come later)
 - [ ] Scope fits target timeline (be honest)
-- [ ] Playtest plan: who will test, when, what you're testing for
+- [ ] Playtest plan: who will test, when, what you're testing for `(see game-playtesting → Playtest Planning Checklist)`
+- [ ] MLP scenario walkthrough written `(see game-scenario-walkthrough)`
 
 ## See Also
 
 - **game-design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions)
 - **game-antipatterns** — Common planning mistakes to avoid during scoping
+- **game-economy-design** — Plan resource systems and balance before building
+- **game-playtesting** — Structure your playtest plan and iteration methodology
+- **game-scenario-walkthrough** — Narrate the player experience before implementation
