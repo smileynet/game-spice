@@ -157,10 +157,10 @@ At any point in the walkthrough, you can add a **visual snapshot** to increase s
 
 ## See Also
 
-- **game-design-frameworks** — Onboarding (Beat 2), core loop design (Beat 3), game feel (feedback mapping)
+- **game-design-frameworks** — Onboarding (Beat 2), core loop design (Beat 3), game feel (feedback mapping) `(see game-design-frameworks → Core Loop Design, Onboarding Patterns)`
 - **game-scoping** — Tracer bullet as the technical equivalent of a walkthrough `(see game-scoping → Tracer Bullet Methodology)`
 - **game-playtesting** — Use the walkthrough as a testable artifact `(see game-playtesting → The 3-Question Framework)`
-- **game-antipatterns** — Design in Isolation and GDD Tome — walkthroughs help avoid both
-- **game-economy-design** — Narrate economy decisions within the walkthrough
+- **game-antipatterns** — Design in Isolation and GDD Tome — walkthroughs help avoid both `(see game-antipatterns → Design in Isolation)`
+- **game-economy-design** — Narrate economy decisions within the walkthrough `(see game-economy-design → Economy Flow Mapping)`
 - **game-difficulty-design** — Flow and difficulty for Beat 4 (Rising Stakes) `(see game-difficulty-design → Flow State & Difficulty)`
 - **game-content-planning** — Narrate content pacing and level progression before building `(see game-content-planning → Pacing Through Content)`

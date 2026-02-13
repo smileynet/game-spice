@@ -260,8 +260,8 @@ Most games should start with one currency and add complexity only when proven ne
 
 - **game-design-frameworks** — Feedback loops, systems thinking, and progression system types `(see game-design-frameworks → Systems Thinking, Progression Systems)`
 - **game-scoping** — Cutting heuristics for economy features `(see game-scoping → Ruthless Cutting Heuristics)`
-- **game-playtesting** — Validate economy decisions with real players
-- **game-antipatterns** — Economy-related planning mistakes and the "Should I Add This Feature?" decision table
-- **game-scenario-walkthrough** — Narrate how the economy feels during play
+- **game-playtesting** — Validate economy decisions with real players `(see game-playtesting → Pivot vs Persevere Decision)`
+- **game-antipatterns** — Economy-related planning mistakes `(see game-antipatterns → Should I Add This Feature?)`
+- **game-scenario-walkthrough** — Narrate how the economy feels during play `(see game-scenario-walkthrough → The 5-Beat Structure)`
 - **game-difficulty-design** — Economy difficulty curves and resource scarcity as challenge `(see game-difficulty-design → Challenge Types)`
 - **game-content-planning** — Content as economy scope and production cost `(see game-content-planning → Content Scope Estimation)`

@@ -23,6 +23,7 @@ Thinking tools for analyzing and designing game experiences.
 | Teach the player how to play | Onboarding Patterns |
 | Design long-term engagement | Progression Systems |
 | Design resource economy | Game Economy Design |
+| Plan content scope and level pacing | Content & Level Planning |
 | Visualize the player experience | Game Scenario Walkthrough |
 
 ### One-Liner Summaries
@@ -392,10 +393,10 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 
 ## See Also
 
-- **game-scoping** — Apply these frameworks to scope decisions (MLP, tracer bullets, feature cutting)
-- **game-antipatterns** — Common mistakes when applying these frameworks incorrectly
-- **game-economy-design** — Resource systems, taps & sinks, progression curves
-- **game-playtesting** — Validate design decisions with real players
-- **game-scenario-walkthrough** — Narrate the player experience to test framework application
-- **game-difficulty-design** — Flow state, difficulty curves, challenge types, accessibility, boss design
-- **game-content-planning** — Level design, pacing, content scope estimation, procedural vs handcrafted
+- **game-scoping** — Apply these frameworks to scope decisions `(see game-scoping → MLP Scoping Process)`
+- **game-antipatterns** — Common mistakes when applying these frameworks incorrectly `(see game-antipatterns → Kitchen Sink Design)`
+- **game-economy-design** — Resource systems, taps & sinks, progression curves `(see game-economy-design → Taps & Sinks Framework)`
+- **game-playtesting** — Validate design decisions with real players `(see game-playtesting → The 3-Question Framework)`
+- **game-scenario-walkthrough** — Narrate the player experience to test framework application `(see game-scenario-walkthrough → The 5-Beat Structure)`
+- **game-difficulty-design** — Flow state, difficulty curves, challenge types, accessibility, boss design `(see game-difficulty-design → Flow State & Difficulty)`
+- **game-content-planning** — Level design, pacing, content scope estimation, procedural vs handcrafted `(see game-content-planning → Pacing Through Content)`

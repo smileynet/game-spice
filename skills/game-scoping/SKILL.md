@@ -271,10 +271,10 @@ Watch for these during planning:
 
 ## See Also
 
-- **game-design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions)
-- **game-antipatterns** — Common planning mistakes to avoid during scoping
-- **game-economy-design** — Plan resource systems and balance before building
-- **game-playtesting** — Structure your playtest plan and iteration methodology
-- **game-scenario-walkthrough** — Narrate the player experience before implementation
-- **game-difficulty-design** — Difficulty modes as a scope decision, accessibility planning costs
-- **game-content-planning** — Content scope estimation, world structure decisions, procedural vs handcrafted
+- **game-design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions) `(see game-design-frameworks → MDA Framework, Core Loop Design)`
+- **game-antipatterns** — Common planning mistakes to avoid during scoping `(see game-antipatterns → Scope Anti-Patterns)`
+- **game-economy-design** — Plan resource systems and balance before building `(see game-economy-design → Economy Complexity Decision)`
+- **game-playtesting** — Structure your playtest plan and iteration methodology `(see game-playtesting → Playtest Planning Checklist)`
+- **game-scenario-walkthrough** — Narrate the player experience before implementation `(see game-scenario-walkthrough → The 5-Beat Structure)`
+- **game-difficulty-design** — Difficulty modes as a scope decision, accessibility planning costs `(see game-difficulty-design → Difficulty Approach Selection)`
+- **game-content-planning** — Content scope estimation, world structure decisions, procedural vs handcrafted `(see game-content-planning → World Structure Decision)`

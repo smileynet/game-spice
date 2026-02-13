@@ -283,6 +283,6 @@ Bosses aren't just hard enemies — they're difficulty pacing tools that test ma
 - **game-playtesting** — Testing for difficulty specifically, observation methodology `(see game-playtesting → Observation vs Asking)`
 - **game-scoping** — Difficulty modes as a scope decision `(see game-scoping → MoSCoW Prioritization for Games)`
 - **game-content-planning** — Difficulty pacing through content `(see game-content-planning → Pacing Through Content)`
-- **game-antipatterns** — Premature Content and Core Loop Neglect apply to difficulty tuning
+- **game-antipatterns** — Premature Content and Core Loop Neglect apply to difficulty tuning `(see game-antipatterns → Core Loop Neglect)`
 - **game-economy-design** — Resource scarcity as difficulty lever, economy progression curves `(see game-economy-design → Progression Curves)`
 - **game-scenario-walkthrough** — Narrate difficulty moments in Beat 4 (Rising Stakes) `(see game-scenario-walkthrough → The 5-Beat Structure)`

@@ -259,10 +259,10 @@ Run this AFTER planning is complete:
 
 ## See Also
 
-- **game-scoping** — MLP process, tracer bullets, and cutting heuristics referenced throughout
-- **game-design-frameworks** — Frameworks for making better design decisions (MDA, SDT, flow)
-- **game-economy-design** — Economy anti-patterns and balance planning
-- **game-playtesting** — The antidote to Design in Isolation
-- **game-scenario-walkthrough** — Bridge between paper design and building
-- **game-difficulty-design** — Difficulty-specific anti-patterns (fake difficulty, number inflation, developer blind spot)
-- **game-content-planning** — Content-specific anti-patterns (filler, content treadmill, premature production)
+- **game-scoping** — MLP process, tracer bullets, and cutting heuristics referenced throughout `(see game-scoping → Scope Management)`
+- **game-design-frameworks** — Frameworks for making better design decisions (MDA, SDT, flow) `(see game-design-frameworks → MDA Framework)`
+- **game-economy-design** — Economy anti-patterns and balance planning `(see game-economy-design → Economy Anti-Patterns)`
+- **game-playtesting** — The antidote to Design in Isolation `(see game-playtesting → Minimum Viable Playtest (MVPt))`
+- **game-scenario-walkthrough** — Bridge between paper design and building `(see game-scenario-walkthrough → The 5-Beat Structure)`
+- **game-difficulty-design** — Difficulty-specific anti-patterns (fake difficulty, number inflation, developer blind spot) `(see game-difficulty-design → Difficulty Anti-Patterns)`
+- **game-content-planning** — Content-specific anti-patterns (filler, content treadmill, premature production) `(see game-content-planning → Content Anti-Patterns)`
