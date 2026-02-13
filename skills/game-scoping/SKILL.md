@@ -278,3 +278,4 @@ Watch for these during planning:
 - **game-scenario-walkthrough** — Narrate the player experience before implementation `(see game-scenario-walkthrough → The 5-Beat Structure)`
 - **game-difficulty-design** — Difficulty modes as a scope decision, accessibility planning costs `(see game-difficulty-design → Difficulty Approach Selection)`
 - **game-content-planning** — Content scope estimation, world structure decisions, procedural vs handcrafted `(see game-content-planning → World Structure Decision)`
+- **game-mechanics-palette** — Browse mechanics during brainstorming before scoping to MLP `(see game-mechanics-palette → Guided Exploration Prompts)`

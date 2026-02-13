@@ -286,3 +286,4 @@ Bosses aren't just hard enemies — they're difficulty pacing tools that test ma
 - **game-antipatterns** — Premature Content and Core Loop Neglect apply to difficulty tuning `(see game-antipatterns → Core Loop Neglect)`
 - **game-economy-design** — Resource scarcity as difficulty lever, economy progression curves `(see game-economy-design → Progression Curves)`
 - **game-scenario-walkthrough** — Narrate difficulty moments in Beat 4 (Rising Stakes) `(see game-scenario-walkthrough → The 5-Beat Structure)`
+- **game-mechanics-palette** — Mechanic choices that determine challenge type `(see game-mechanics-palette → Mechanics Palette)`

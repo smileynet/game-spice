@@ -24,6 +24,7 @@ Thinking tools for analyzing and designing game experiences.
 | Design long-term engagement | Progression Systems |
 | Design resource economy | Game Economy Design |
 | Plan content scope and level pacing | Content & Level Planning |
+| Discover and combine mechanics | Game Mechanics Palette |
 | Visualize the player experience | Game Scenario Walkthrough |
 
 ### One-Liner Summaries
@@ -400,3 +401,4 @@ Juice makes a fun game feel amazing. Juice does NOT make an unfun game fun.
 - **game-scenario-walkthrough** — Narrate the player experience to test framework application `(see game-scenario-walkthrough → The 5-Beat Structure)`
 - **game-difficulty-design** — Flow state, difficulty curves, challenge types, accessibility, boss design `(see game-difficulty-design → Flow State & Difficulty)`
 - **game-content-planning** — Level design, pacing, content scope estimation, procedural vs handcrafted `(see game-content-planning → Pacing Through Content)`
+- **game-mechanics-palette** — Browse and combine mechanics from a curated catalog `(see game-mechanics-palette → Mechanics Palette)`

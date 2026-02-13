@@ -265,3 +265,4 @@ Most games should start with one currency and add complexity only when proven ne
 - **game-scenario-walkthrough** — Narrate how the economy feels during play `(see game-scenario-walkthrough → The 5-Beat Structure)`
 - **game-difficulty-design** — Economy difficulty curves and resource scarcity as challenge `(see game-difficulty-design → Challenge Types)`
 - **game-content-planning** — Content as economy scope and production cost `(see game-content-planning → Content Scope Estimation)`
+- **game-mechanics-palette** — Collection & resource mechanics that feed economy systems `(see game-mechanics-palette → Collection & Resource)`
