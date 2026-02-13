@@ -186,3 +186,4 @@ Engine-agnostic principles above apply everywhere. For engine-specific guidance:
 - **game-scoping** — MLP scope determines acceptable technical debt levels `(see game-scoping → Tracer Bullet Methodology)`
 - **game-antipatterns** — Design anti-patterns that manifest as architecture problems `(see game-antipatterns → Core Loop Neglect)`
 - **game-design-frameworks** — Systems thinking for architecture decisions `(see game-design-frameworks → Systems Thinking)`
+- **game-playtesting** — Playtest methodology for validating architecture decisions `(see game-playtesting → Playtest Planning Checklist)`

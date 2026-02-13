@@ -140,7 +140,7 @@ After playtest results, decide what to do:
 
 <details><summary>RITE Method (Rapid Iterative Testing and Evaluation)</summary>
 
-From Microsoft Game Studios (developed during Age of Empires II). The key insight: fix problems immediately after each participant, verify the fix with the next participant.
+From Microsoft (Medlock et al., developed for game usability testing). The key insight: fix problems immediately after each participant, verify the fix with the next participant.
 
 **Process:**
 1. Test with participant 1 → identify critical problems
@@ -197,18 +197,9 @@ From Microsoft Game Studios (developed during Age of Empires II). The key insigh
 
 <details><summary>FFWWDD Framework</summary>
 
-Six essential open-ended questions. Ask in this exact order — overlap between answers reveals priorities.
+Six essential open-ended questions — **F**rustrating, **F**avorite, **W**anted, **W**and, **D**oing, **D**escribe. Ask in this exact order during debrief. Overlap between answers reveals true priorities: when the same theme appears in 3+ answers from one player, it's their top concern. When it appears across 3+ players, it's a pattern worth acting on.
 
-| # | Letter | Question | What It Reveals |
-|---|--------|----------|-----------------|
-| 1 | **F** | "What was the most **frustrating** thing?" | Pain points (captured while memory is fresh) |
-| 2 | **F** | "What was your **favorite** moment?" | Delight signals |
-| 3 | **W** | "What did you **want** to do that you couldn't?" | Expectation gaps |
-| 4 | **W** | "If you had a magic **wand**, what one thing would you change?" | Forces single-priority decision |
-| 5 | **D** | "What were you actually **doing** most of the time?" | Reveals true gameplay vs intended |
-| 6 | **D** | "How would you **describe** this game to a friend?" | Player's mental model of your game |
-
-**Analysis:** When the same theme appears in 3+ answers from one player, it's their top priority. When the same theme appears across 3+ players, it's a pattern worth acting on.
+`(see game-plan-audit/questionnaires.md → FFWWDD Deep Dive for full question list, ordering rationale, and analysis tips)`
 
 </details>
 

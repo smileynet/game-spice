@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+### Added — Audit Skills (0.3.0)
 - Game Plan Audit skill — plan completeness scorecard, core loop validation tests, GDD quality audit, MLP scope complexity scoring, economy/balance design audit, difficulty curve assessment, playtest readiness audit, data strategy audit
 - Game Architecture Audit skill — game loop patterns (fixed update + variable render), state management audit (FSM patterns), entity architecture audit, input handling audit, performance smells, frame budget reference, game-specific technical debt timing
 - Playtest questionnaire frameworks — validated instruments (GEQ, PENS, GUESS-18, SUS, FFWWDD) and targeted mini-questionnaires for core loop, onboarding, difficulty, economy, UI/UX
@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Godot-specific architecture patterns — scene tree organization, "call down signal up", process vs physics_process, autoload patterns, GDScript vs C# decision, performance patterns
 - Rust/Bevy-specific architecture patterns — ECS best practices, plugin architecture, resource vs component, system ordering, Bevy antipatterns, performance techniques
 - Expanded game-playtesting skill with RITE method, session structure (4-phase), FFWWDD framework, sample size guidelines, data-driven decision workflow
+
+### Added — Content Skills
 - Game Mechanics Palette skill — curated catalog of 54 mechanics organized by verb/action category (movement, combat, building, collection, cards, management, social, puzzle, temporal, progression), mashup patterns with real-game examples, and guided exploration prompts for creative combination during brainstorming
 - Difficulty & Challenge Design skill — flow state, difficulty curves, challenge types, accessibility/assist modes, recovery mechanics, boss design, fake difficulty taxonomy
 - Content & Level Planning skill — world structure decisions, content scope estimation, pacing (kishōtenketsu, beat-based), environment-as-teacher, procedural vs handcrafted, content reuse, content sequencing
@@ -25,10 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bumped plugin version to 0.3.0 with audit keywords
 - Added cross-references from game-antipatterns to game-plan-audit
 - Restructured README with Quick Start, What It Looks Like, When to Use, skills table, FAQ, and Learn More sections
-- Updated install.sh to list all 9 skills
+- Updated install.sh to list all 11 skills
 - Expanded game-economy-design with genre-specific patterns (roguelike, idle, TD, RPG, survival), balance heuristics, design-phase validation, and economy scaling guidance
 - Refactored game-design-frameworks: extracted difficulty section to new skill, deepened systems thinking (interaction decisions, emergence budget), narrative integration (scope costs, environmental storytelling), and progression systems (horizontal vs vertical, meta-progression)
-- Cross-references now span all nine skills with bidirectional links where relevant
+- Cross-references now span all eleven skills with bidirectional links where relevant
 
 ## [0.2.0] - 2026-02-12
 ### Added
