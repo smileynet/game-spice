@@ -92,12 +92,14 @@ Each question comes from a different skill, but they flow as a natural conversat
 | **game-playtesting** | `/scope`, plan review | 3-question framework, MVPt, build-test-learn, pivot decisions |
 | **game-scenario-walkthrough** | `/scope`, `/finalize` | 5-beat template, input/feedback mapping, experience narration |
 | **game-antipatterns** | Plan review, scope audits | Top 10 anti-patterns, over-scoped rubric, pre/post-planning audits |
+| **game-plan-audit** | `/plan-audit`, plan review | Plan completeness, GDD quality, scope scoring, economy/difficulty/playtest readiness |
+| **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot + Rust/Bevy patterns |
 
-9 skills, 2400+ lines of game design guidance.
+11 skills, 3400+ lines of game design guidance. Audit skills include engine-specific sub-files for Godot and Rust/Bevy.
 
 ## How It Works
 
-Skills load automatically when Line Cook commands detect game project context during `/mise` (brainstorm, scope, finalize). No configuration needed — skill descriptions contain trigger keywords that Claude matches against during planning sessions.
+Skills load automatically when Line Cook commands detect game project context. Planning skills activate during `/mise` (brainstorm, scope, finalize). Audit skills activate during `/plan-audit` and `/architecture-audit`. No configuration needed — skill descriptions contain trigger keywords that Claude matches against.
 
 ```
  /brainstorm               /scope                        Plan Review
@@ -109,9 +111,16 @@ Skills load automatically when Line Cook commands detect game project context du
 │ game-economy-      │    │ game-playtesting         │
 │   design           │    │ game-scenario-walkthrough│
 └────────────────────┘    └──────────────────────────┘
+
+ /plan-audit                /architecture-audit
+┌────────────────────┐    ┌──────────────────────────┐
+│ game-plan-audit    │    │ game-architecture-audit   │
+│   questionnaires.md│    │   godot.md               │
+│   telemetry.md     │    │   rust.md                │
+└────────────────────┘    └──────────────────────────┘
 ```
 
-Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete.
+Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot or Rust/Bevy context is detected.
 
 ## FAQ
 
@@ -128,7 +137,7 @@ The frameworks are genre-agnostic. MDA, core loops, difficulty curves, and econo
 MVP (minimum viable product) asks "what's the least we can ship?" MLP (minimum lovable product) asks "what's the least that's *worth playing*?" Games need to be fun, not just functional. Game-spice uses MLP throughout because a game that works but isn't fun has failed.
 
 **Does game-spice help during implementation?**
-No — it's planning-phase only. Once you move from `/mise` to `/run` (prep → cook → serve → tidy), game-spice has done its job. The plans and beads it helped create guide your implementation, but the skills don't activate during coding.
+Game-spice primarily activates during planning (`/mise`), but the audit skills also activate during `/plan-audit` and `/architecture-audit`. This means you can audit your game plan for completeness and your code architecture for game-specific patterns at any time. The plans and beads created during `/mise` guide your implementation.
 
 ## Learn More
 

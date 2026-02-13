@@ -267,3 +267,4 @@ Run this AFTER planning is complete:
 - **game-difficulty-design** — Difficulty-specific anti-patterns (fake difficulty, number inflation, developer blind spot) `(see game-difficulty-design → Difficulty Anti-Patterns)`
 - **game-content-planning** — Content-specific anti-patterns (filler, content treadmill, premature production) `(see game-content-planning → Content Anti-Patterns)`
 - **game-mechanics-palette** — Focused mechanic selection to avoid Kitchen Sink Design `(see game-mechanics-palette → Guided Exploration Prompts)`
+- **game-plan-audit** — Comprehensive plan auditing beyond antipattern detection `(see game-plan-audit → Game Plan Completeness Scorecard)`
