@@ -1,6 +1,6 @@
 # Game Spice
 
-Game design spice for [Line Cook](https://github.com/smileynet/line-cook) — MLP scoping, core loop frameworks, economy design, playtesting methodology, scenario walkthroughs, and planning anti-patterns.
+Game design spice for [Line Cook](https://github.com/smileynet/line-cook) — MLP scoping, core loop frameworks, economy design, difficulty design, content planning, playtesting methodology, scenario walkthroughs, and planning anti-patterns.
 
 ## Installation
 
@@ -35,8 +35,8 @@ Covers:
 - MDA Framework (Mechanics → Dynamics → Aesthetics)
 - Core loop design (Action → Reward → Reinvestment)
 - Player motivation (Self-Determination Theory)
-- Flow state and difficulty curve patterns
-- Systems thinking (feedback loops, emergence)
+- Difficulty & challenge redirect (→ game-difficulty-design)
+- Systems thinking (feedback loops, emergence, interaction planning)
 - Narrative integration levels and ludonarrative dissonance
 - Game feel and juice guidelines
 - Onboarding patterns
@@ -53,7 +53,9 @@ Covers:
 - Economy flow mapping (node graph analysis)
 - Progression curves (linear, exponential, logarithmic, stepped)
 - Loot & reward planning (rarity tier design intent)
-- Economy anti-patterns
+- Genre-specific economy patterns (roguelike, idle, tower defense, RPG, survival)
+- Balance tuning heuristics and economy validation
+- Economy anti-patterns and scaling guidance
 
 ### game-playtesting
 
@@ -79,6 +81,33 @@ Covers:
 - Visual snapshot prompts
 - Walkthrough anti-patterns
 
+### game-difficulty-design
+
+**Activates during:** `/line:scope` (difficulty decisions), `/line:brainstorm` (challenge design).
+
+Covers:
+- Difficulty approach selection (fixed curve, player-driven, DDA, assist mode)
+- Flow state and difficulty curve patterns (sawtooth, sine wave)
+- Challenge type taxonomy (kinesthetic, strategic, puzzle, knowledge, social)
+- Difficulty modes and accessibility planning (Celeste assist model, Big 5 features)
+- Recovery mechanics (instant respawn, checkpoint, run restart, rewind, soft fail)
+- Boss design as difficulty punctuation
+- Difficulty anti-patterns (fake difficulty taxonomy)
+
+### game-content-planning
+
+**Activates during:** `/line:scope` (content estimation), `/line:brainstorm` (world structure decisions).
+
+Covers:
+- World structure decision (linear, hub-and-spoke, open world, Metroidvania, procedural)
+- Content scope estimation (production ratios by content type)
+- Content-to-mechanic quality test
+- Pacing through content (kishōtenketsu, beat-based pacing)
+- Environment-as-teacher level design
+- Procedural vs handcrafted decision framework
+- Content reuse strategies
+- Content anti-patterns and development sequencing
+
 ### game-antipatterns
 
 **Activates during:** Plan review, scope audits, feature list evaluation.
@@ -98,8 +127,9 @@ Skills load automatically when Line Cook commands detect game project context du
 
 Typical workflow:
 1. `/line:brainstorm` — game-design-frameworks + game-economy-design activate for idea and resource analysis
-2. `/line:scope` — game-scoping + game-playtesting + game-scenario-walkthrough activate for MLP definition, playtest planning, and experience narration
-3. Review plan — game-antipatterns activates for scope audit
+2. `/line:scope` — game-scoping + game-economy-design + game-difficulty-design + game-content-planning activate for MLP definition and scope planning
+3. `/line:scope` — game-playtesting + game-scenario-walkthrough activate for playtest planning and experience narration
+4. Review plan — game-antipatterns activates for scope audit
 
 ## Local Development
 

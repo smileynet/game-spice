@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Difficulty & Challenge Design skill — flow state, difficulty curves, challenge types, accessibility/assist modes, recovery mechanics, boss design, fake difficulty taxonomy
+- Content & Level Planning skill — world structure decisions, content scope estimation, pacing (kishōtenketsu, beat-based), environment-as-teacher, procedural vs handcrafted, content reuse, content sequencing
+
+### Changed
+- Expanded game-economy-design with genre-specific patterns (roguelike, idle, TD, RPG, survival), balance heuristics, design-phase validation, and economy scaling guidance
+- Refactored game-design-frameworks: extracted difficulty section to new skill, deepened systems thinking (interaction decisions, emergence budget), narrative integration (scope costs, environmental storytelling), and progression systems (horizontal vs vertical, meta-progression)
+- Cross-references now span all eight skills bidirectionally
+
 ## [0.2.0] - 2026-02-12
 ### Added
 - Game Economy & Balance skill — resource system planning, taps & sinks framework, progression curves, loot design, economy anti-patterns

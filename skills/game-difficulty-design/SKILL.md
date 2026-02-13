@@ -171,7 +171,7 @@ How a player recovers from failure shapes perceived difficulty more than the cha
 | Recovery Type | Time Lost | Tension | Best For |
 |---------------|-----------|---------|----------|
 | **Instant respawn** | Seconds | Low | Platformers (Celeste, Super Meat Boy) |
-| **Checkpoint** | 1-5 minutes | Medium | Action-adventure, metroidvania |
+| **Checkpoint** | 1-5 minutes | Medium | Action-adventure, Metroidvania |
 | **Run restart** | 5-30 minutes | High | Roguelikes, permadeath games |
 | **Rewind** | None (undo) | Low | Puzzle, strategy (Braid, Into the Breach) |
 | **Soft fail** | Variable | Low-Medium | Story games (fail forward) |
@@ -284,3 +284,5 @@ Bosses aren't just hard enemies — they're difficulty pacing tools that test ma
 - **game-scoping** — Difficulty modes as a scope decision `(see game-scoping → MoSCoW Prioritization for Games)`
 - **game-content-planning** — Difficulty pacing through content `(see game-content-planning → Pacing Through Content)`
 - **game-antipatterns** — Premature Content and Core Loop Neglect apply to difficulty tuning
+- **game-economy-design** — Resource scarcity as difficulty lever, economy progression curves `(see game-economy-design → Progression Curves)`
+- **game-scenario-walkthrough** — Narrate difficulty moments in Beat 4 (Rising Stakes) `(see game-scenario-walkthrough → The 5-Beat Structure)`

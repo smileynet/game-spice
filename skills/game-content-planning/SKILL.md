@@ -14,7 +14,7 @@ Plan content scope before building. Content is the most expensive part of most g
 | Structure | Player Freedom | Scope Cost | Best For |
 |---|---|---|---|
 | **Linear** | Low — one path forward | Low | Platformer, puzzle, narrative |
-| **Hub-and-spoke** | Medium — choose order within hub | Medium | Zelda-style, RPG, metroidvania-lite |
+| **Hub-and-spoke** | Medium — choose order within hub | Medium | Zelda-style, RPG, Metroidvania-lite |
 | **Open world** | High — go anywhere | Very High | Sandbox, exploration, RPG |
 | **Metroidvania** | Medium — gated by abilities | High | Exploration, ability-based progression |
 | **Procedural** | Variable | High (to do well) | Roguelike, survival, infinite runners |
@@ -289,3 +289,4 @@ The most polished games reuse content intelligently. Players don't notice reuse 
 - **game-economy-design** — Content as economy scope `(see game-economy-design → Economy Validation)`
 - **game-antipatterns** — Premature Content anti-pattern `(see game-antipatterns → Premature Content)`
 - **game-design-frameworks** — Onboarding patterns for tutorial level design `(see game-design-frameworks → Onboarding Patterns)`
+- **game-playtesting** — Content batching should match playtest cadence `(see game-playtesting → Iteration Cadence)`
