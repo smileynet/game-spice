@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-02-14
+
+### Added — Active Game Tools
+- `/game:walkthrough` command — interactive 5-beat scenario walkthrough generator for visualizing player experience before building
+- `/game:balance-check` command — on-demand economy balance and difficulty curve audit
+- `game-reviewer` agent — game-specific architecture review during `/line:serve` with 8-category health scorecard, engine detection, and game-specific smell detection
+- Game Implementation skill — prescriptive coding patterns for game loop setup, state management, input handling, frame budget, entity architecture, and delta time during `/line:cook`
+
+### Changed
+- Plugin renamed from `game-spice` to `game` for `/game:*` command prefix
+- Updated README with Commands, Agents sections, workflow diagram, FAQ, and skill count (11 → 12)
+- Bumped plugin version to 0.4.0
+
 ### Added — Audit Skills (0.3.0)
 - Game Plan Audit skill — plan completeness scorecard, core loop validation tests, GDD quality audit, MLP scope complexity scoring, economy/balance design audit, difficulty curve assessment, playtest readiness audit, data strategy audit
 - Game Architecture Audit skill — game loop patterns (fixed update + variable render), state management audit (FSM patterns), entity architecture audit, input handling audit, performance smells, frame budget reference, game-specific technical debt timing
@@ -26,15 +39,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Content & Level Planning skill — world structure decisions, content scope estimation, pacing (kishōtenketsu, beat-based), environment-as-teacher, procedural vs handcrafted, content reuse, content sequencing
 - Tutorial — complete roguelike dungeon crawler planning walkthrough (`docs/tutorial.md`)
 
-### Changed
+### Changed — Earlier in 0.4.0 cycle
 - Updated README with audit phase documentation, skill table rows, diagram, and FAQ
-- Bumped plugin version to 0.3.0 with audit keywords
 - Added cross-references from game-antipatterns to game-plan-audit
 - Restructured README with Quick Start, What It Looks Like, When to Use, skills table, FAQ, and Learn More sections
-- Updated install.sh to list all 11 skills
+- Updated install.sh to list all 12 skills
 - Expanded game-economy-design with genre-specific patterns (roguelike, idle, TD, RPG, survival), balance heuristics, design-phase validation, and economy scaling guidance
 - Refactored game-design-frameworks: extracted difficulty section to new skill, deepened systems thinking (interaction decisions, emergence budget), narrative integration (scope costs, environmental storytelling), and progression systems (horizontal vs vertical, meta-progression)
-- Cross-references now span all eleven skills with bidirectional links where relevant
+- Cross-references now span all twelve skills with bidirectional links where relevant
 
 ## [0.2.0] - 2026-02-12
 ### Added
@@ -63,7 +75,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Planning anti-patterns skill for common game design pitfalls
 - Marketplace distribution via Line Cook spice rack
 
-[Unreleased]: https://github.com/smileynet/game-spice/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/smileynet/game-spice/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.4.0
 [0.2.0]: https://github.com/smileynet/game-spice/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/smileynet/game-spice/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/smileynet/game-spice/releases/tag/v0.1.0
