@@ -118,7 +118,7 @@ MLP includes: Core + up to 3 Amplifiers. Everything else waits.
 ## See Also
 
 - **game-design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions) `(see game-design-frameworks → MDA Framework)`
-- **game-antipatterns** — Common planning mistakes to avoid during scoping `(see game-antipatterns → Scope Anti-Patterns)`
+- **game-antipatterns** — Common planning mistakes to avoid during scoping `(see game-antipatterns/scope-antipatterns.md)`
 - **game-economy-design** — Plan resource systems and balance before building `(see game-economy-design)`
 - **game-playtesting** — Structure your playtest plan and iteration methodology `(see game-playtesting → Playtest Planning Checklist)`
 - **game-scenario-walkthrough** — Narrate the player experience before implementation `(see game-scenario-walkthrough → The 5-Beat Structure)`

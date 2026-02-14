@@ -44,6 +44,6 @@ Named strategies for combining mechanics from different categories. Each creates
 
 - **game-design-frameworks** — MDA for evaluating mechanic combinations, core loop design for integration testing `(see game-design-frameworks → MDA Framework)`
 - **game-scoping** — Turn mechanic selections into an MLP scope `(see game-scoping → MLP Scoping Process)`
-- **game-antipatterns** — Kitchen Sink warning: too many mechanics without integration `(see game-antipatterns → Kitchen Sink Design)`
+- **game-antipatterns** — Kitchen Sink warning: too many mechanics without integration `(see game-antipatterns/design-antipatterns.md → Kitchen Sink Design)`
 - **game-economy-design** — Resource mechanics need economy planning `(see game-economy-design)`
 - **game-difficulty-design** — Challenge type selection follows from mechanic choices `(see game-difficulty-design → Challenge Types)`

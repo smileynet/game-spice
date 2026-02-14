@@ -14,7 +14,7 @@
 3. Playtest with someone who isn't you
 4. Let prototype results drive design iteration
 
-**Rule:** No design decision survives first contact with a playtester. Plan less, test more `(see game-playtesting → Minimum Viable Playtest (MVPt))`. A scenario walkthrough is a lightweight step between pure paper planning and building `(see game-scenario-walkthrough → The 5-Beat Structure)`.
+**Rule:** No design decision survives first contact with a playtester. Plan less, test more `(see game-playtesting/methodology.md → Minimum Viable Playtest (MVPt))`. A scenario walkthrough is a lightweight step between pure paper planning and building `(see game-scenario-walkthrough → The 5-Beat Structure)`.
 
 ## Juice Addiction
 

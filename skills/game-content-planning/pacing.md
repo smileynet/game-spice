@@ -17,7 +17,7 @@ Every mechanic in your game needs sufficient meaningful application — not a ra
 
 **MLP content target:** Minimum needed to prove core loop is fun. Usually 1-3 levels or zones.
 
-**Critical rule:** If core loop isn't fun with minimum content, more content won't save it. Fix the loop first, then build content around the proven loop `(see game-antipatterns → Premature Content)`.
+**Critical rule:** If core loop isn't fun with minimum content, more content won't save it. Fix the loop first, then build content around the proven loop `(see game-antipatterns/scope-antipatterns.md → Premature Content)`.
 
 ## Kishōtenketsu (Nintendo Pacing)
 

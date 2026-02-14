@@ -1,5 +1,7 @@
 # Progression Systems
 
+## Progression Types
+
 | Type | Mechanism | Risk | Scope Cost |
 |------|-----------|------|-----------|
 | **Skill-based** | Player gets better at the game | Can hit ceiling without external help | Free |
@@ -8,7 +10,7 @@
 | **Narrative-based** | Story unfolds with progress | Can feel like carrot-on-stick | Medium |
 | **Social-based** | Rankings, sharing, competition | Requires player base | Low-Medium |
 
-**For MLP:** Skill-based progression is free (no content cost) and validates core loop strength. If your game isn't fun without character/content progression, the core loop needs work. Resource-based progression requires balance planning `(see game-economy-design → Progression Curves)`.
+**For MLP:** Skill-based progression is free (no content cost) and validates core loop strength. If your game isn't fun without character/content progression, the core loop needs work. Resource-based progression requires balance planning `(see game-economy-design/frameworks.md → Progression Curves)`.
 
 ## Horizontal vs Vertical Progression
 

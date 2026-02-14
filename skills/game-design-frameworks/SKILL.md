@@ -134,7 +134,7 @@ Flow state, difficulty curves, challenge types, accessibility, recovery mechanic
 ## See Also
 
 - **game-scoping** — Apply these frameworks to scope decisions `(see game-scoping → MLP Scoping Process)`
-- **game-antipatterns** — Common mistakes when applying these frameworks incorrectly `(see game-antipatterns → Kitchen Sink Design)`
+- **game-antipatterns** — Common mistakes when applying these frameworks incorrectly `(see game-antipatterns/design-antipatterns.md → Kitchen Sink Design)`
 - **game-economy-design** — Resource systems, taps & sinks, progression curves `(see game-economy-design)`
 - **game-playtesting** — Validate design decisions with real players `(see game-playtesting → The 3-Question Framework)`
 - **game-scenario-walkthrough** — Narrate the player experience to test framework application `(see game-scenario-walkthrough → The 5-Beat Structure)`
