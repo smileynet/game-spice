@@ -72,166 +72,6 @@ Your MLP gets **three features** beyond the core loop. Choose wisely.
 
 MLP includes: Core + up to 3 Amplifiers. Everything else waits.
 
-## Tracer Bullet Methodology
-
-### 5-Layer Vertical Slice
-
-A tracer bullet proves your game works end-to-end through all layers:
-
-```
-┌─────────────────────────────────────┐
-│  Layer 1: INPUT                     │
-│  Player presses button / clicks     │
-├─────────────────────────────────────┤
-│  Layer 2: CORE MECHANIC             │
-│  Game responds (character jumps,    │
-│  card plays, piece moves)           │
-├─────────────────────────────────────┤
-│  Layer 3: GAME STATE                │
-│  World updates (health, position,   │
-│  score, inventory)                  │
-├─────────────────────────────────────┤
-│  Layer 4: FEEDBACK                  │
-│  Player sees/hears result (screen   │
-│  shake, sound, animation)           │
-├─────────────────────────────────────┤
-│  Layer 5: OUTPUT / CONSEQUENCE      │
-│  Game state creates new situation   │
-│  (new challenge, reward, game over) │
-└─────────────────────────────────────┘
-```
-
-**Rule:** Your first build should touch all 5 layers for ONE action. Don't build Layer 1 for all actions before starting Layer 2.
-
-### Tracer Bullet Examples
-
-| Genre | Tracer Bullet (First Build Target) |
-|-------|-----------------------------------|
-| Platformer | Player runs and jumps on one platform, falls and respawns |
-| Roguelike | Player enters one room, fights one enemy, picks up one item |
-| Puzzle | Player manipulates one puzzle element, solves one puzzle |
-| Tower Defense | Player places one tower, one enemy walks the path |
-| Card Game | Player draws a hand, plays one card, sees its effect |
-
-### What a Tracer Bullet is NOT
-
-- Not a polished demo (programmer art is fine)
-- Not feature-complete (one path through the game)
-- Not balanced (numbers can be wrong)
-- Not content-rich (one level, one enemy type, one item)
-
-## MoSCoW Prioritization for Games
-
-Adapted from standard MoSCoW with game-specific criteria.
-
-### Must Have (MLP-blocking)
-- Core loop mechanics
-- One complete path from start to "one more round"
-- Minimum feedback (player knows what happened)
-- Win/loss or progress/regress state
-
-### Should Have (First update after MLP)
-- 2-3 content variations (enemy types, level layouts)
-- Basic progression (something carries over between sessions)
-- Audio feedback for core actions
-- Pause/resume
-
-### Could Have (Polish phase)
-- Settings menu
-- Multiple difficulty levels
-- Achievements/unlocks
-- Detailed tutorial
-
-### Won't Have (Not this project phase)
-- Multiplayer (unless it IS the core loop)
-- Level editor
-- Mod support
-- Localization
-
-## Scope Management
-
-### The 30% Rule
-
-Whatever scope you think the MLP needs, cut 30%. Then you're close to right.
-
-**Why:** First-time scoping for games is always optimistic because:
-- "Simple" mechanics have hidden complexity (collision, edge cases, feel)
-- Fun requires iteration time you didn't budget for
-- Integration between systems takes longer than building them separately
-- Playtest feedback will change your priorities
-
-### Ruthless Cutting Heuristics
-
-Ask these questions about every feature. If any answer is "yes," cut it.
-
-| Question | If Yes → Cut |
-|----------|-------------|
-| Can the core loop function without this? | Cut |
-| Is this adding content rather than mechanics? | Defer |
-| Does this require a new system/architecture? | Cut from MLP |
-| Am I adding this because other games have it? | Cut |
-| Would a player miss this in a 5-minute playtest? | If no → Cut |
-| Does this feature serve MY game's core loop? | If no → Cut |
-
-### Scope Creep Signals
-
-Watch for these during planning:
-
-- "While we're at it, we could also..." → Stop. Separate issue.
-- "This would only take a day" → It won't. Defer it.
-- "Players expect this in [genre]" → Maybe. After MLP.
-- Feature list growing between planning sessions → Freeze and re-evaluate.
-- Excitement about a feature unrelated to core loop → Parking lot it.
-- "We need this for the trailer/demo" → Marketing scope ≠ MLP scope.
-
-<details><summary>Genre-Specific Scoping Tips: Platformer</summary>
-
-**MLP must have:** Run, jump, land on platforms, one hazard type, one level.
-
-**Common over-scope:** Wall jump, double jump, dash, multiple worlds. Pick ONE movement verb beyond run+jump for MLP.
-
-**Tracer bullet:** Character moves left/right, jumps, lands on a platform, falls into a pit, respawns.
-
-**Hidden complexity:** Jump feel (coyote time, jump buffering, variable height) can consume as much time as building 5 levels. Budget for it.
-
-</details>
-
-<details><summary>Genre-Specific Scoping Tips: Roguelike</summary>
-
-**MLP must have:** One floor, one enemy type, one item/upgrade, permadeath + restart.
-
-**Common over-scope:** Meta-progression, 10+ enemy types, complex inventory, procedural generation before fun is proven. Handcraft your first 3 rooms.
-
-**Tracer bullet:** Enter room, fight enemy, pick up item, die, restart with nothing.
-
-**Hidden complexity:** Procedural generation that feels good (not random) is a project unto itself. Use handcrafted rooms for MLP.
-
-</details>
-
-<details><summary>Genre-Specific Scoping Tips: Puzzle Game</summary>
-
-**MLP must have:** One puzzle mechanic, 5-10 handcrafted puzzles, clear win state per puzzle.
-
-**Common over-scope:** Procedural puzzle generation, hint system, multiple mechanics in MLP.
-
-**Tracer bullet:** Player sees puzzle, manipulates elements, puzzle solves, next puzzle loads.
-
-**Hidden complexity:** Difficulty curves in puzzles require extensive playtesting. Your "easy" puzzle won't be easy for everyone.
-
-</details>
-
-<details><summary>Genre-Specific Scoping Tips: Tower Defense</summary>
-
-**MLP must have:** One enemy path, one tower type, waves, win/lose condition.
-
-**Common over-scope:** Tech trees, multiple maps, hero units, special abilities.
-
-**Tracer bullet:** Enemy walks path, player places tower, tower shoots enemy, enemy dies or reaches end.
-
-**Hidden complexity:** Balancing tower cost vs enemy health vs wave difficulty is iterative. Don't try to get numbers right in planning.
-
-</details>
-
 ## Post-MLP Iteration Phases
 
 | Phase | Focus | Duration Target |
@@ -269,13 +109,19 @@ Watch for these during planning:
 - [ ] Playtest plan: who will test, when, what you're testing for `(see game-playtesting → Playtest Planning Checklist)`
 - [ ] MLP scenario walkthrough written `(see game-scenario-walkthrough)`
 
+## Deep Dives
+
+- `(see game-scoping/tracer-bullets.md for Tracer Bullet Methodology: 5-layer vertical slice, genre examples, what it's NOT)`
+- `(see game-scoping/prioritization.md for MoSCoW Prioritization, 30% Rule, cutting heuristics, scope creep signals)`
+- `(see game-scoping/genre-tips.md for Genre-Specific Scoping Tips: Platformer, Roguelike, Puzzle, Tower Defense)`
+
 ## See Also
 
-- **game-design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions) `(see game-design-frameworks → MDA Framework, Core Loop Design)`
+- **game-design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions) `(see game-design-frameworks → MDA Framework)`
 - **game-antipatterns** — Common planning mistakes to avoid during scoping `(see game-antipatterns → Scope Anti-Patterns)`
-- **game-economy-design** — Plan resource systems and balance before building `(see game-economy-design → Economy Complexity Decision)`
+- **game-economy-design** — Plan resource systems and balance before building `(see game-economy-design)`
 - **game-playtesting** — Structure your playtest plan and iteration methodology `(see game-playtesting → Playtest Planning Checklist)`
 - **game-scenario-walkthrough** — Narrate the player experience before implementation `(see game-scenario-walkthrough → The 5-Beat Structure)`
-- **game-difficulty-design** — Difficulty modes as a scope decision, accessibility planning costs `(see game-difficulty-design → Difficulty Approach Selection)`
-- **game-content-planning** — Content scope estimation, world structure decisions, procedural vs handcrafted `(see game-content-planning → World Structure Decision)`
-- **game-mechanics-palette** — Browse mechanics during brainstorming before scoping to MLP `(see game-mechanics-palette → Guided Exploration Prompts)`
+- **game-difficulty-design** — Difficulty modes as a scope decision, accessibility planning costs `(see game-difficulty-design)`
+- **game-content-planning** — Content scope estimation, world structure decisions, procedural vs handcrafted `(see game-content-planning)`
+- **game-mechanics-palette** — Browse mechanics during brainstorming before scoping to MLP `(see game-mechanics-palette)`
