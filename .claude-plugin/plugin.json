@@ -1,7 +1,7 @@
 {
-  "name": "game-spice",
+  "name": "game",
   "description": "Game design spice for Line Cook \u2014 MLP scoping, core loop frameworks, economy design, difficulty design, content planning, mechanics palette, playtesting methodology, scenario walkthroughs, planning anti-patterns, and game-specific plan and architecture auditing",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "smileynet"
   },
@@ -23,6 +23,9 @@
     "audit",
     "architecture",
     "plan-audit",
-    "code-quality"
+    "code-quality",
+    "commands",
+    "agents",
+    "implementation"
   ]
 }

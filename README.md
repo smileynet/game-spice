@@ -8,13 +8,13 @@ After [installing Line Cook](https://github.com/smileynet/line-cook#installation
 
 ```bash
 /plugin marketplace add smileynet/line-cook
-/plugin install game-spice@line-cook
+/plugin install game@line-cook
 /line:mise                                    # Plan a game
 ```
 
 > **New here?** See the [tutorial](docs/tutorial.md) for a complete walkthrough planning a roguelike dungeon crawler.
 
-Update: `/plugin update game-spice`
+Update: `/plugin update game`
 
 ## What It Looks Like
 
@@ -72,12 +72,28 @@ Each question comes from a different skill, but they flow as a natural conversat
 - Planning a new game project with `/line:mise`
 - Scoping an MLP and need to cut features ruthlessly
 - Designing core loops, economies, or difficulty curves
-- Checking your plan for common game design anti-patterns
-- Auditing game plan completeness or code architecture
+- Implementing game systems (game loop, state machines, input handling)
+- Reviewing game code for architecture issues
+- Running `/game:walkthrough` to visualize player experience
+- Running `/game:balance-check` to audit economy and difficulty
+- Auditing your plan for anti-patterns, completeness, or architecture issues
 
 **Skip it when:**
 - Building non-game software (game-spice only adds game concepts)
 - Working on a game engine or tooling project (not game design)
+
+## Commands
+
+| Command | Description | When to Use |
+|---------|-------------|-------------|
+| `/game:walkthrough` | Generate a structured 5-beat scenario walkthrough | Visualize player experience before building |
+| `/game:balance-check` | Audit economy balance and difficulty curves | Catch design issues before they become code problems |
+
+## Agents
+
+| Agent | Description |
+|-------|-------------|
+| **game-reviewer** | Game-specific architecture review during `/line:serve`. Detects game engine/framework, applies an 8-category health scorecard, and flags game-specific smells (physics in render loops, missing delta time, god update functions, per-frame allocations). |
 
 ## What's Inside
 
@@ -94,12 +110,13 @@ Each question comes from a different skill, but they flow as a natural conversat
 | **game-antipatterns** | Plan review, scope audits | Top 10 anti-patterns, over-scoped rubric, pre/post-planning audits |
 | **game-plan-audit** | `/plan-audit`, plan review | Plan completeness, GDD quality, scope scoring, economy/difficulty/playtest readiness |
 | **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
+| **game-implementation** | `/line:cook`, coding game systems | Game loop setup, state management, input handling, frame budget, entity architecture, delta time |
 
-11 skills, 3800+ lines of game design guidance. Audit skills include engine-specific sub-files for Godot, Rust/Bevy, Unity, Unreal, Python, and TypeScript.
+12 skills, 2 commands, 1 agent.
 
 ## How It Works
 
-Skills load automatically when Line Cook commands detect game project context. Planning skills activate during `/mise` (brainstorm, scope, finalize). Audit skills activate during `/plan-audit` and `/architecture-audit`. No configuration needed — skill descriptions contain trigger keywords that Claude matches against.
+Skills load automatically when Line Cook commands detect game project context. No configuration needed — skill descriptions contain trigger keywords that Claude matches against.
 
 ```
  /brainstorm               /scope                        Plan Review
@@ -122,6 +139,18 @@ Skills load automatically when Line Cook commands detect game project context. P
                           │   python.md              │
                           │   typescript.md          │
                           └──────────────────────────┘
+
+ /line:cook                 /line:serve
+┌────────────────────┐    ┌──────────────────────────┐
+│ game-implementation│    │ game-reviewer (agent)     │
+│   (coding guidance)│    │   (architecture review)   │
+└────────────────────┘    └──────────────────────────┘
+
+ /game:walkthrough          /game:balance-check
+┌────────────────────┐    ┌──────────────────────────┐
+│ Scenario generation│    │ Economy & difficulty      │
+│   (5-beat template)│    │   audit on demand         │
+└────────────────────┘    └──────────────────────────┘
 ```
 
 Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot, Rust/Bevy, Unity, Unreal, Python, or TypeScript context is detected.
@@ -140,8 +169,8 @@ The frameworks are genre-agnostic. MDA, core loops, difficulty curves, and econo
 **MLP vs MVP — what's the difference?**
 MVP (minimum viable product) asks "what's the least we can ship?" MLP (minimum lovable product) asks "what's the least that's *worth playing*?" Games need to be fun, not just functional. Game-spice uses MLP throughout because a game that works but isn't fun has failed.
 
-**Does game-spice help during implementation?**
-Game-spice primarily activates during planning (`/mise`), but the audit skills also activate during `/plan-audit` and `/architecture-audit`. This means you can audit your game plan for completeness and your code architecture for game-specific patterns at any time. The plans and beads created during `/mise` guide your implementation.
+**Does game-spice only work during planning?**
+No. Skills activate throughout the development cycle: planning (`/mise`), implementation (`/line:cook`), review (`/line:serve`), and auditing (`/plan-audit`, `/architecture-audit`). Commands like `/game:walkthrough` and `/game:balance-check` are available on demand.
 
 ## Learn More
 

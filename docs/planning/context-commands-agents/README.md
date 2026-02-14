@@ -1,6 +1,6 @@
 # Planning Context: Commands & Agents (v0.4.0)
 
-**Status:** finalized
+**Status:** archived
 **Created:** 2026-02-13
 
 ## Problem
