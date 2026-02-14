@@ -272,13 +272,32 @@ If any issues are found, note them in the output artifact under a "Review Notes"
 
 ### Step 8: Write Artifact
 
-Ensure the output directory exists:
+**Check output directory:**
 ```
 Glob(pattern="docs/planning/")
 ```
 
-Write the complete walkthrough to `docs/planning/walkthrough-<name>.md`:
+If `docs/planning/` does not exist, create it by writing the artifact directly (the Write tool creates parent directories).
 
+**Check for existing walkthrough:**
+```
+Glob(pattern="docs/planning/walkthrough-<name>.md")
+```
+
+If a walkthrough with this name already exists, ask the user:
+```
+AskUserQuestion(questions=[{
+  question: "A walkthrough named '<name>' already exists. What should we do?",
+  header: "Conflict",
+  options: [
+    {label: "Overwrite", description: "Replace the existing walkthrough with this new one"},
+    {label: "Rename", description: "Save with a different name (e.g. walkthrough-<name>-v2.md)"}
+  ],
+  multiSelect: false
+}])
+```
+
+**Write the artifact:**
 ```
 Write(file_path="docs/planning/walkthrough-<name>.md", content=<assembled walkthrough>)
 ```
