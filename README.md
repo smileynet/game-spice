@@ -1,6 +1,6 @@
 # Game Spice
 
-Game design spice for [Line Cook](https://github.com/smileynet/line-cook) — MLP scoping, core loop frameworks, economy design, difficulty curves, content planning, mechanics palette, playtesting methodology, scenario walkthroughs, and planning anti-patterns.
+Game design spice for [Line Cook](https://github.com/smileynet/line-cook) — MLP scoping, core loop frameworks, economy design, difficulty curves, content planning, mechanics palette, playtesting methodology, scenario walkthroughs, planning anti-patterns, and architecture auditing.
 
 ## Quick Start
 
@@ -73,10 +73,10 @@ Each question comes from a different skill, but they flow as a natural conversat
 - Scoping an MLP and need to cut features ruthlessly
 - Designing core loops, economies, or difficulty curves
 - Checking your plan for common game design anti-patterns
+- Auditing game plan completeness or code architecture
 
 **Skip it when:**
 - Building non-game software (game-spice only adds game concepts)
-- Already past planning into implementation (skills are planning-phase only)
 - Working on a game engine or tooling project (not game design)
 
 ## What's Inside
@@ -93,9 +93,9 @@ Each question comes from a different skill, but they flow as a natural conversat
 | **game-scenario-walkthrough** | `/scope`, `/finalize` | 5-beat template, input/feedback mapping, experience narration |
 | **game-antipatterns** | Plan review, scope audits | Top 10 anti-patterns, over-scoped rubric, pre/post-planning audits |
 | **game-plan-audit** | `/plan-audit`, plan review | Plan completeness, GDD quality, scope scoring, economy/difficulty/playtest readiness |
-| **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot + Rust/Bevy patterns |
+| **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
 
-11 skills, 3400+ lines of game design guidance. Audit skills include engine-specific sub-files for Godot and Rust/Bevy.
+11 skills, 3800+ lines of game design guidance. Audit skills include engine-specific sub-files for Godot, Rust/Bevy, Unity, Unreal, Python, and TypeScript.
 
 ## How It Works
 
@@ -117,10 +117,14 @@ Skills load automatically when Line Cook commands detect game project context. P
 │ game-plan-audit    │    │ game-architecture-audit   │
 │   questionnaires.md│    │   godot.md               │
 │   telemetry.md     │    │   rust.md                │
-└────────────────────┘    └──────────────────────────┘
+└────────────────────┘    │   unity.md               │
+                          │   unreal.md              │
+                          │   python.md              │
+                          │   typescript.md          │
+                          └──────────────────────────┘
 ```
 
-Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot or Rust/Bevy context is detected.
+Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot, Rust/Bevy, Unity, Unreal, Python, or TypeScript context is detected.
 
 ## FAQ
 

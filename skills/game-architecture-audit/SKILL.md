@@ -148,7 +148,7 @@ Not all debt is bad. Some debt is correct to take early and pay later.
 
 | Debt | Accept During | Pay Before |
 |------|-------------|-----------|
-| Magic numbers | Tracer bullet, MLP prototyping | Content production |
+| Magic numbers | Tracer bullet, MLP | Content production |
 | No save architecture | Tracer bullet | Meta-progression implementation |
 | Monolithic scenes | Tracer bullet | Second level/area |
 | Missing event/signal system | MLP (<4 system interactions) | 4th system interaction |
@@ -167,6 +167,10 @@ Engine-agnostic principles above apply everywhere. For engine-specific guidance:
 
 - `(see game-architecture-audit/godot.md for Godot/GDScript scene tree, signals, and process patterns)`
 - `(see game-architecture-audit/rust.md for Rust/Bevy ECS, plugin architecture, and system ordering)`
+- `(see game-architecture-audit/unity.md for Unity/C# MonoBehaviour lifecycle, ScriptableObjects, and component architecture)`
+- `(see game-architecture-audit/unreal.md for Unreal/C++ Actor model, Gameplay Framework, and Blueprint vs C++ patterns)`
+- `(see game-architecture-audit/python.md for Python/Pygame game loop management, sprite groups, and performance constraints)`
+- `(see game-architecture-audit/typescript.md for TypeScript/Phaser browser game patterns, asset loading, and typed event systems)`
 
 ## Architecture Health Checklist
 

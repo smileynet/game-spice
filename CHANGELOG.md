@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Telemetry and data analysis methods — essential telemetry events, analytics tiers for indies, quantitative/qualitative analysis methods, prioritization matrix, evidence chain template
 - Godot-specific architecture patterns — scene tree organization, "call down signal up", process vs physics_process, autoload patterns, GDScript vs C# decision, performance patterns
 - Rust/Bevy-specific architecture patterns — ECS best practices, plugin architecture, resource vs component, system ordering, Bevy antipatterns, performance techniques
+- Unity/C# architecture patterns — MonoBehaviour lifecycle, component architecture, ScriptableObjects, communication patterns, Assembly Definitions, performance patterns
+- Unreal Engine architecture patterns — Actor/Component model, Gameplay Framework, Blueprint vs C++ decision, Gameplay Tags, UObject lifecycle, GAS, performance patterns
+- Python game architecture patterns — Pygame/Arcade/Pyglet framework comparison, scene stack, sprite groups, Python-specific performance constraints, GIL considerations
+- TypeScript browser game architecture patterns — Phaser/PixiJS/Excalibur framework comparison, browser constraints, typed event systems, asset loading, object pooling
 - Expanded game-playtesting skill with RITE method, session structure (4-phase), FFWWDD framework, sample size guidelines, data-driven decision workflow
 
 ### Added — Content Skills
