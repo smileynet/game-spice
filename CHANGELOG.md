@@ -35,31 +35,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Plugin prefix is now `/game:*` (renamed from `game-spice` to `game`)
 
 ## [0.2.0] - 2026-02-12
-### Added
-- Game Economy & Balance skill — resource system planning, taps & sinks framework, progression curves, loot design, economy anti-patterns
-- Playtesting & Iteration skill — playtest type selection, 3-question framework, observation methodology, minimum viable playtest, pivot vs persevere decisions
-- MLP Scenario Walkthrough skill — 5-beat walkthrough template, input/feedback mapping, visual snapshot prompts, walkthrough anti-patterns
-- Cross-references between all six skills for progressive disclosure
 
-### Changed
-- Updated game-scoping with economy checklist item and playtest/walkthrough references in Scope Review
-- Updated game-design-frameworks with Framework Selection Guide rows for economy and walkthrough skills
-- Updated game-antipatterns with playtesting and walkthrough references in Design in Isolation section
-- Bumped plugin version to 0.2.0 with expanded description and keywords
+### New Knowledge
+
+- **Economy & Balance Planning** — Plan resource systems that create meaningful choices. Includes a complexity ladder (zero economy → full multi-currency), taps & sinks framework, progression curve planning, loot design, and an MLP economy checklist so you ship the minimum viable economy first.
+- **Playtesting & Iteration** — Close the gap between your design and what players actually experience. Playtest type selector, the 3-question framework (understand → engage → retain), observation methodology, minimum viable playtest, and pivot-vs-persevere decision criteria.
+- **Scenario Walkthrough** — Narrate the player's first five minutes before writing a line of code. A 5-beat structure (first contact → learning the verb → core loop → rising stakes → session end) with input/feedback mapping that turns abstract ideas into concrete, testable descriptions.
 
 ## [0.1.1] - 2026-02-11
-### Added
-- Release automation script (`dev/release.py`) and GitHub Actions workflow
-- CHANGELOG, LICENSE (MIT), and .gitignore
-- Beads issue tracking
+
+### Housekeeping
+
+- Release automation, CHANGELOG, LICENSE (MIT), and `.gitignore`
 
 ## [0.1.0] - 2026-02-11
 
-### Added
-- MLP scoping skill for minimum lovable product prioritization
-- Core loop framework skill for game system design patterns
-- Planning anti-patterns skill for common game design pitfalls
-- Marketplace distribution via Line Cook spice rack
+### Launch
+
+- **MLP Scoping** — Cut scope ruthlessly and build what matters. The 3-feature rule, MoSCoW prioritization, tracer bullet methodology for vertical slices, and genre-specific scoping tips keep your first playable small and focused.
+- **Core Loop & Design Frameworks** — Thinking tools for analyzing game experiences. MDA framework, core loop strength evaluation, nested loops (micro → macro), player motivation science, systems thinking for emergence, game feel checklist, and onboarding patterns.
+- **Planning Anti-Patterns** — An early warning system for the mistakes that kill games before they ship. Top 10 anti-pattern catalog, "Should I Add This Feature?" decision table, over-scope scoring, and pre/post-planning audit checklists.
+- Available on the Line Cook spice rack marketplace.
 
 [Unreleased]: https://github.com/smileynet/game-spice/compare/v0.4.0...HEAD
 [0.4.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.4.0
