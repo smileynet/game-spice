@@ -9,44 +9,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.4.0] - 2026-02-14
 
-### Added — Active Game Tools
-- `/game:walkthrough` command — interactive 5-beat scenario walkthrough generator for visualizing player experience before building
-- `/game:balance-check` command — on-demand economy balance and difficulty curve audit
-- `game-reviewer` agent — game-specific architecture review during `/line:serve` with 8-category health scorecard, engine detection, and game-specific smell detection
-- Game Implementation skill — prescriptive coding patterns for game loop setup, state management, input handling, frame budget, entity architecture, and delta time during `/line:cook`
+### Interactive Commands
+
+- **`/game:walkthrough`** — Walk through your game moment-by-moment before writing a line of code. Generates a 5-beat scenario that reveals gaps in input mapping, feedback loops, and pacing so you can fix design problems on paper instead of in a debugger.
+- **`/game:balance-check`** — Audit your economy and difficulty design on demand. Catches resource leaks, broken progression curves, and difficulty spikes early — before playtesters hit them.
+
+### Automated Code Review
+
+- **Game-aware reviewer** — During `/line:serve`, your code is now checked against game-specific architecture patterns. Detects engine/framework automatically (Godot, Unity, Unreal, Bevy, and more) and flags issues like physics in render loops, missing delta-time, god-class update functions, and per-frame allocations.
+
+### Implementation Guidance
+
+- **Coding patterns during `/line:cook`** — Get prescriptive, copy-ready patterns for game loops, state machines, input handling, frame budgeting, entity architecture, and delta-time management right when you're writing code.
+
+### Expanded Knowledge Base
+
+- **Mechanics Palette** — Browse 54 mechanics across 10 categories (movement, combat, building, puzzles, and more) with mashup patterns drawn from real games. Great for brainstorming sessions.
+- **Difficulty & Challenge Design** — Flow-state targeting, difficulty curve templates, accessibility/assist modes, recovery mechanics, and boss design guidance.
+- **Content & Level Planning** — World structure decisions, content scope estimation, pacing frameworks, procedural-vs-handcrafted trade-offs, and content reuse strategies.
+- **Plan & Architecture Audits** — Score your GDD completeness, validate core loops, audit economy balance, assess difficulty curves, and check playtest readiness — all from your plan files. Architecture audits cover game loops, state machines, entity systems, and performance with engine-specific guidance for Godot, Unity, Unreal, Bevy, Python, and TypeScript.
+- **Playtesting toolkit** — RITE method, structured session templates, validated questionnaires (GEQ, PENS, SUS), sample-size guidelines, and a data-driven decision workflow.
 
 ### Changed
-- Plugin renamed from `game-spice` to `game` for `/game:*` command prefix
-- Updated README with Commands, Agents sections, workflow diagram, FAQ, and skill count (11 → 12)
-- Bumped plugin version to 0.4.0
 
-### Added — Audit Skills (0.3.0)
-- Game Plan Audit skill — plan completeness scorecard, core loop validation tests, GDD quality audit, MLP scope complexity scoring, economy/balance design audit, difficulty curve assessment, playtest readiness audit, data strategy audit
-- Game Architecture Audit skill — game loop patterns (fixed update + variable render), state management audit (FSM patterns), entity architecture audit, input handling audit, performance smells, frame budget reference, game-specific technical debt timing
-- Playtest questionnaire frameworks — validated instruments (GEQ, PENS, GUESS-18, SUS, FFWWDD) and targeted mini-questionnaires for core loop, onboarding, difficulty, economy, UI/UX
-- Telemetry and data analysis methods — essential telemetry events, analytics tiers for indies, quantitative/qualitative analysis methods, prioritization matrix, evidence chain template
-- Godot-specific architecture patterns — scene tree organization, "call down signal up", process vs physics_process, autoload patterns, GDScript vs C# decision, performance patterns
-- Rust/Bevy-specific architecture patterns — ECS best practices, plugin architecture, resource vs component, system ordering, Bevy antipatterns, performance techniques
-- Unity/C# architecture patterns — MonoBehaviour lifecycle, component architecture, ScriptableObjects, communication patterns, Assembly Definitions, performance patterns
-- Unreal Engine architecture patterns — Actor/Component model, Gameplay Framework, Blueprint vs C++ decision, Gameplay Tags, UObject lifecycle, GAS, performance patterns
-- Python game architecture patterns — Pygame/Arcade/Pyglet framework comparison, scene stack, sprite groups, Python-specific performance constraints, GIL considerations
-- TypeScript browser game architecture patterns — Phaser/PixiJS/Excalibur framework comparison, browser constraints, typed event systems, asset loading, object pooling
-- Expanded game-playtesting skill with RITE method, session structure (4-phase), FFWWDD framework, sample size guidelines, data-driven decision workflow
-
-### Added — Content Skills
-- Game Mechanics Palette skill — curated catalog of 54 mechanics organized by verb/action category (movement, combat, building, collection, cards, management, social, puzzle, temporal, progression), mashup patterns with real-game examples, and guided exploration prompts for creative combination during brainstorming
-- Difficulty & Challenge Design skill — flow state, difficulty curves, challenge types, accessibility/assist modes, recovery mechanics, boss design, fake difficulty taxonomy
-- Content & Level Planning skill — world structure decisions, content scope estimation, pacing (kishōtenketsu, beat-based), environment-as-teacher, procedural vs handcrafted, content reuse, content sequencing
-- Tutorial — complete roguelike dungeon crawler planning walkthrough (`docs/tutorial.md`)
-
-### Changed — Earlier in 0.4.0 cycle
-- Updated README with audit phase documentation, skill table rows, diagram, and FAQ
-- Added cross-references from game-antipatterns to game-plan-audit
-- Restructured README with Quick Start, What It Looks Like, When to Use, skills table, FAQ, and Learn More sections
-- Updated install.sh to list all 12 skills
-- Expanded game-economy-design with genre-specific patterns (roguelike, idle, TD, RPG, survival), balance heuristics, design-phase validation, and economy scaling guidance
-- Refactored game-design-frameworks: extracted difficulty section to new skill, deepened systems thinking (interaction decisions, emergence budget), narrative integration (scope costs, environmental storytelling), and progression systems (horizontal vs vertical, meta-progression)
-- Cross-references now span all twelve skills with bidirectional links where relevant
+- Plugin prefix is now `/game:*` (renamed from `game-spice` to `game`)
 
 ## [0.2.0] - 2026-02-12
 ### Added
