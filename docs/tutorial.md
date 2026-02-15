@@ -2,7 +2,7 @@
 
 This tutorial walks through planning a complete game using Line Cook with game-spice. You'll go from a vague idea ("roguelike dungeon crawler") to a concrete, scoped MLP plan with beads ready for implementation.
 
-Game-spice doesn't add commands — it adds *knowledge*. Every question and framework shown below comes from game-spice skills activating automatically during Line Cook's `/mise` workflow.
+Game-spice adds game-specific knowledge, commands, and agents to Line Cook. This tutorial focuses on the planning phase — every question and framework shown below comes from game-spice skills activating automatically during `/mise`. For commands (`/game:walkthrough`, `/game:balance-check`) and the game-reviewer agent, see the [README](../README.md).
 
 ## Before You Begin
 
