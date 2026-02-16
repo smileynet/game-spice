@@ -172,3 +172,4 @@ Capture every design decision made during simulation. These become the design re
 - **game-antipatterns** — Design in Isolation is the anti-pattern that simulation prevents `(see game-antipatterns)`
 - **game-playtesting** — Simulation as pre-playtest validation `(see game-playtesting → The 3-Question Framework)`
 - **game-mechanics-palette** — Browse mechanics during simulation brainstorming `(see game-mechanics-palette)`
+- **ascii-wireframing** — ASCII wireframe toolkit used during simulation turns `(see ascii-wireframing)`
