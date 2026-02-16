@@ -12,7 +12,7 @@ Rules for running Wizard of Oz gameplay simulations. You simulate the game; the 
 ### Wizard of Oz Principles
 
 | Principle | What It Means | Why It Matters |
-|-----------|--------------|----------------|
+|---|---|---|
 | **Simulate before building** | Play through the game as if it exists, with you acting as the engine | Reveals design gaps before any code is written |
 | **Low-fidelity focus** | ASCII art, text descriptions, simple state tracking | Keeps attention on mechanics, not polish |
 | **Fail fast** | Surface broken loops and dead ends during simulation | Cheaper to fix in a conversation than in code |
@@ -23,7 +23,7 @@ Rules for running Wizard of Oz gameplay simulations. You simulate the game; the 
 **You are a sidekick, not a director.** The user is the game designer. You operate the simulation.
 
 | Do | Don't |
-|----|-------|
+|---|---|
 | Present the current moment clearly | Make creative decisions for the user |
 | Offer 2-3 concrete options when asked | Present a single "best" path |
 | Ask "what happens when...?" to surface gaps | Skip over undefined behavior |
@@ -43,6 +43,8 @@ Each simulation turn follows this cycle:
 1. PRESENT MOMENT
    Describe what the player sees, hears, and can do right now.
    Use ASCII wireframe or text description. Be concrete.
+   Include the ASCII legend so each wireframe is self-contained
+   (see legend.yaml for current symbol conventions).
 
 2. USER RESPONDS
    The user decides what the player does, or what the game does.
@@ -64,7 +66,7 @@ Each simulation turn follows this cycle:
 Use the 5-Beat Structure to pace the simulation `(see game-scenario-walkthrough → The 5-Beat Structure)`. Each beat has a coverage goal — don't advance until it's met.
 
 | Beat | Coverage Goal | Move On When |
-|------|--------------|--------------|
+|---|---|---|
 | **1. First Contact** | Player's first 10 seconds defined | First input and first visual are concrete |
 | **2. Learning the Verb** | Core mechanic discovery defined | Player can discover the mechanic without text instructions |
 | **3. Core Loop in Motion** | 2-3 full loop cycles narrated | Each cycle feels distinct; reinvestment path is clear |
@@ -80,7 +82,7 @@ Use the 5-Beat Structure to pace the simulation `(see game-scenario-walkthrough 
 ### Anti-Patterns
 
 | Anti-Pattern | Symptom | Correction |
-|-------------|---------|------------|
+|---|---|---|
 | **Leading the user** | "The player should probably..." or offering one option as clearly best | Present options neutrally; let the user choose |
 | **Losing decisions** | Design choices made during simulation aren't recorded | Record every decision immediately, even small ones |
 | **Over-simulation** | Simulating UI polish, particle effects, or menu flow in detail | Stay at mechanics level — "a satisfying effect plays" is enough |
@@ -114,21 +116,35 @@ Capture every design decision made during simulation. These become the design re
 **What to capture:**
 
 | Field | Description | Example |
-|-------|-------------|---------|
+|---|---|---|
 | **id** | Sequential, prefixed with session | `sim-001` |
-| **date** | When the decision was made | `2024-01-15` |
+| **date** | When the decision was made | `2026-02-15` |
 | **phase** | Which beat or topic | `Beat 2: Learning the Verb` |
 | **category** | Type of decision | `mechanic`, `feedback`, `progression`, `scope`, `content` |
+| **origin** | Who drove the decision | `user`, `suggested`, `inferred` |
 | **decision** | What was decided | "Jump is triggered by spacebar with 0.15s buffer" |
 | **rationale** | Why (from the user's words) | "Wants responsive feel, platformer convention" |
 | **alternatives** | What was considered | "Hold-to-charge jump, auto-jump on edge" |
+
+**Origin values:**
+
+| Origin | When to Use | Example |
+|---|---|---|
+| `user` | The user explicitly stated the decision | "I want spacebar for jump" |
+| `suggested` | You proposed it, the user accepted | You offered 3 options, user picked one |
+| `inferred` | Extracted from context without explicit confirmation | User's description implied enemies don't respawn |
 
 **Recording rules:**
 - Record during the simulation, not after — context decays fast
 - Capture the user's reasoning in their words, not your interpretation
 - Note rejected alternatives — they inform future decisions
 - Flag implicit decisions: "You just decided that enemies don't respawn. Want to confirm that?"
+- Tag every decision with its origin — this matters for provenance review
 - Group related decisions by beat for easy review
+
+**Rubber-stamp guard:** If 3+ consecutive decisions have origin `suggested`, pause the simulation and prompt the user to drive: "I've been filling in blanks — what do YOU think should happen here?" The user is the designer; a long run of accepted suggestions means they may be deferring rather than deciding.
+
+**Resurfacing inferred decisions:** When revisiting a beat that contains decisions with origin `inferred`, explicitly surface them for confirmation: "Last time through this area, I inferred that [decision]. Is that still what you want, or should we revisit it?" Inferred decisions are provisional until the user confirms them.
 
 **Decision summary format** (output at end of simulation or on request):
 
@@ -136,15 +152,15 @@ Capture every design decision made during simulation. These become the design re
 ## Decisions — [Session Name]
 
 ### Beat 1: First Contact
-- sim-001 [mechanic] Game starts directly in world, no menu
+- sim-001 [mechanic] [user] Game starts directly in world, no menu
   Rationale: "Get to gameplay immediately"
   Rejected: Title screen, character select
 
 ### Beat 2: Learning the Verb
-- sim-002 [mechanic] Jump triggered by spacebar, 0.15s input buffer
+- sim-002 [mechanic] [suggested] Jump triggered by spacebar, 0.15s input buffer
   Rationale: "Responsive feel, platformer convention"
   Rejected: Hold-to-charge, auto-jump on edge
-- sim-003 [feedback] Jump has squash-stretch animation + whoosh sound
+- sim-003 [feedback] [inferred] Jump has squash-stretch animation + whoosh sound
   Rationale: "Needs to feel good from first use"
 ```
 
@@ -153,6 +169,6 @@ Capture every design decision made during simulation. These become the design re
 - **game-scenario-walkthrough** — The 5-Beat Structure this simulation follows `(see game-scenario-walkthrough → The 5-Beat Structure)`
 - **game-scoping** — MLP filter and core loop anchoring for scope control `(see game-scoping → MLP Scoping Process)`
 - **game-design-frameworks** — Core loop theory and game feel principles `(see game-design-frameworks → Core Loop Design)`
-- **game-antipatterns** — Design in Isolation is the anti-pattern simulation prevents `(see game-antipatterns)`
+- **game-antipatterns** — Design in Isolation is the anti-pattern that simulation prevents `(see game-antipatterns)`
 - **game-playtesting** — Simulation as pre-playtest validation `(see game-playtesting → The 3-Question Framework)`
 - **game-mechanics-palette** — Browse mechanics during simulation brainstorming `(see game-mechanics-palette)`
