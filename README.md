@@ -82,7 +82,38 @@ Each question comes from a different skill, but they flow as a natural conversat
 - Building non-game software (game-spice only adds game concepts)
 - Working on a game engine or tooling project (not game design)
 
+## Interactive Game Design
+
+Game-spice includes an interactive design workflow that takes you from idea to implementation plan through structured conversation. Each phase builds on the previous one, with persistent state tracking and decision provenance throughout.
+
+```
+/game:start → /game:brainstorm → /game:simulate → /game:build-plan
+    │              │                    │                  │
+    │              │                    │                  └─ GDD + Tech Spec
+    │              │                    └─ Wizard of Oz playtest
+    │              └─ Concept definition
+    └─ Session creation
+```
+
+Start a session, brainstorm your concept through natural conversation, prove the core loop works with an interactive simulation, then generate production-ready design documents. Use `/game:status` to check progress and `/game:decisions` to review the decision trail at any point.
+
+`/game:walkthrough` and `/game:balance-check` are complementary tools — use them at any stage to stress-test your design. Walkthroughs reveal gaps in moment-to-moment experience; balance checks catch economy and difficulty issues.
+
 ## Commands
+
+### Interactive Design Workflow
+
+| Command | Description | When to Use |
+|---------|-------------|-------------|
+| `/game:start` | Start a new session or resume an existing one | Beginning a new game design |
+| `/game:brainstorm` | Explore and define a game concept through conversation | Turning an idea into a structured concept |
+| `/game:simulate` | Run a Wizard of Oz gameplay simulation with ASCII wireframes | Proving the core loop works before coding |
+| `/game:build-plan` | Generate a GDD and Technical Specification from simulation data | Turning design into implementation documents |
+| `/game:status` | Show current session state and progress | Checking where you are in the workflow |
+| `/game:decisions` | Browse and search design decisions with provenance | Reviewing what was decided and why |
+| `/game:help` | Command reference and workflow overview | Quick orientation |
+
+### On-Demand Tools
 
 | Command | Description | When to Use |
 |---------|-------------|-------------|
@@ -112,9 +143,30 @@ Each question comes from a different skill, but they flow as a natural conversat
 | **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
 | **game-implementation** | `/line:cook`, coding game systems | Game loop setup, state management, input handling, frame budget, entity architecture, delta time |
 
-12 skills, 2 commands, 1 agent.
+12 skills, 9 commands, 1 agent.
 
 ## How It Works
+
+Game-spice has two layers: **interactive commands** that guide you through game design, and **passive skills** that enrich Line Cook phases with game knowledge.
+
+### Interactive Design Commands
+
+The `/game:*` commands form a linear workflow with utility commands available at any point:
+
+```
+ /game:start ──> /game:brainstorm ──> /game:simulate ──> /game:build-plan
+     │                │                     │                    │
+     │                │                     │                    └─ GDD + Tech Spec
+     │                │                     └─ Wizard of Oz playtest
+     │                └─ Concept + decision log
+     └─ Session + state tracking
+
+ Available anytime:
+   /game:status    /game:decisions    /game:help
+   /game:walkthrough    /game:balance-check
+```
+
+### Passive Skills
 
 Skills load automatically when Line Cook commands detect game project context. No configuration needed — skill descriptions contain trigger keywords that Claude matches against.
 

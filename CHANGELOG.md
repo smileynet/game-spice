@@ -7,19 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Phase 2: Brainstorm & Simulation (game-spice-6ua)
+## [0.5.0] - 2026-02-16
 
-- **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
-- **`/game:simulate`** — Prove your core loop works before writing code. Wizard of Oz gameplay simulation presents ASCII wireframes and narrative descriptions of gameplay moments, asks concrete design questions, and records every decision with provenance tracking. Coverage-driven pacing walks through the 5-Beat Structure (First Contact, Learning the Verb, Core Loop in Motion, Rising Stakes, Session End) with quantitative confidence scoring to determine when simulation is thorough enough to proceed.
+### Interactive Game Design Workflow
 
-### Phase 1: Foundation & Session Lifecycle (game-spice-7dq)
-
-Session management, state persistence, help command, and new skills for later phases. Three features: session lifecycle commands, help reference, and simulation knowledge skills.
-
-### Interactive Commands
+A complete idea-to-implementation pipeline through structured conversation.
 
 - **`/game:start`** — Start a new game design session or resume an existing one. Creates a persistent `.game-design/` directory with state tracking, decision logging, and session indexing. Supports multiple concurrent sessions with resume flow.
+- **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
+- **`/game:simulate`** — Prove your core loop works before writing code. Wizard of Oz gameplay simulation presents ASCII wireframes and narrative descriptions of gameplay moments, asks concrete design questions, and records every decision with provenance tracking. Coverage-driven pacing walks through the 5-Beat Structure (First Contact, Learning the Verb, Core Loop in Motion, Rising Stakes, Session End) with quantitative confidence scoring to determine when simulation is thorough enough to proceed.
+- **`/game:build-plan`** — Transform simulation data into production-ready documents. Reads all session data (concept, turns, wireframes, decisions, coverage) and generates a Game Design Document and Technical Specification. The GDD includes design pillars, mechanics with simulation turn references, all ASCII wireframes organized by screen, content requirements, and an Assumptions to Validate section that flags AI-suggested decisions for playtesting. The tech spec provides architecture recommendations, a 4-phase implementation plan (tracer bullet → core loop → content → polish) with vertical-slice task breakdowns, and a risk register. Runs the game-plan-audit quality review (completeness scorecard, core loop validation, GDD actionability) before finalizing.
 - **`/game:status`** — Inspect your current session at a glance. Shows phase, simulation progress, 5-beat coverage scores, recent decisions, and session flags — proving state persistence works across conversations.
+- **`/game:decisions`** — Browse and search past design decisions with provenance visibility. Lists all decisions from the active session's decisions.log with filtering by category, phase, or origin. Shows decision ID, date, category, origin, rationale, and provenance markers ([suggested], [inferred]) so designers can distinguish their own decisions from AI-proposed ones. Includes summary statistics with category/origin/phase breakdowns and a provenance advisory when >50% of decisions are AI-proposed.
 - **`/game:help`** — Command reference showing the full design workflow, all 9 commands with descriptions, quick start guide, and passive skill overview.
 
 ### New Knowledge
@@ -77,7 +76,8 @@ Session management, state persistence, help command, and new skills for later ph
 - **Planning Anti-Patterns** — An early warning system for the mistakes that kill games before they ship. Top 10 anti-pattern catalog, "Should I Add This Feature?" decision table, over-scope scoring, and pre/post-planning audit checklists.
 - Available on the Line Cook spice rack marketplace.
 
-[Unreleased]: https://github.com/smileynet/game-spice/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/smileynet/game-spice/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/smileynet/game-spice/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.4.0
 [0.2.0]: https://github.com/smileynet/game-spice/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/smileynet/game-spice/compare/v0.1.0...v0.1.1
