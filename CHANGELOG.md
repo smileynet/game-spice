@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Phase 1: Foundation & Session Lifecycle (game-spice-7dq)
+
+Session management, state persistence, help command, and new skills for later phases. Three features: session lifecycle commands, help reference, and simulation knowledge skills.
+
+### Interactive Commands
+
+- **`/game:start`** — Start a new game design session or resume an existing one. Creates a persistent `.game-design/` directory with state tracking, decision logging, and session indexing. Supports multiple concurrent sessions with resume flow.
+- **`/game:status`** — Inspect your current session at a glance. Shows phase, simulation progress, 5-beat coverage scores, recent decisions, and session flags — proving state persistence works across conversations.
+- **`/game:help`** — Command reference showing the full design workflow, all 9 commands with descriptions, quick start guide, and passive skill overview.
+
+### New Knowledge
+
+- **ASCII Wireframing Toolkit** — Starter patterns for low-fidelity game wireframes: box-drawing characters, common primitives, genre-specific examples (platformer, top-down RPG, HUD, inventory, flow diagrams), and the legend.yaml workflow for per-project symbol conventions.
+- **Simulation Facilitation Guide** — Rules for running Wizard of Oz gameplay simulations: facilitator stance (sidekick not director), turn structure, coverage-driven pacing via 5-Beat Structure, decision recording with provenance tracking, anti-patterns, and scope control.
+
 ## [0.4.0] - 2026-02-14
 
 ### Interactive Commands

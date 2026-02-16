@@ -112,6 +112,7 @@ MLP includes: Core + up to 3 Amplifiers. Everything else waits.
 ## Deep Dives
 
 - `(see game-scoping/tracer-bullets.md for Tracer Bullet Methodology: 5-layer vertical slice, genre examples, what it's NOT)`
+- `(see game-scoping/vertical-slices.md for Vertical Slice Decomposition: best practices, antipatterns, SPIDR technique, 5-beat slicing)`
 - `(see game-scoping/prioritization.md for MoSCoW Prioritization, 30% Rule, cutting heuristics, scope creep signals)`
 - `(see game-scoping/genre-tips.md for Genre-Specific Scoping Tips: Platformer, Roguelike, Puzzle, Tower Defense)`
 
