@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Phase 1: Foundation & Session Lifecycle (game-spice-7dq)
+
+Session management, state persistence, help command, and new skills for later phases. Three features: session lifecycle commands, help reference, and simulation knowledge skills.
+
 ### Interactive Commands
 
 - **`/game:start`** — Start a new game design session or resume an existing one. Creates a persistent `.game-design/` directory with state tracking, decision logging, and session indexing. Supports multiple concurrent sessions with resume flow.
