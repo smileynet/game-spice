@@ -4,7 +4,7 @@
 
 A vertical slice is a thin, end-to-end implementation that touches every layer of your game for one specific player action. Where a horizontal slice builds an entire system (all physics, all rendering, all UI), a vertical slice builds one complete path through the game that a player can actually experience.
 
-**Relationship to tracer bullets:** A tracer bullet is your *first* vertical slice — the one that proves the architecture works. Subsequent vertical slices widen the game by adding new paths through the same 5 layers `(see game-scoping/tracer-bullets.md for the 5-Layer model)`.
+**Relationship to tracer bullets:** A tracer bullet is your *first* vertical slice — the one that proves the architecture works. Subsequent vertical slices widen the game by adding new paths through the same 5 layers `(see game-scoping/tracer-bullets.md for the 5-Layer Vertical Slice model)`.
 
 **Relationship to MLP:** Your MLP is the thinnest horizontal cut across the story map — the minimum set of vertical slices needed to validate that the core loop is fun.
 
@@ -78,7 +78,7 @@ Each slice is a hamburger: UI (bun) + mechanic (patty) + state (condiments). You
 
 **The trap:** Nothing is deep enough to evaluate for fun. Players can't tell if combat is engaging when it has one attack with no feedback. You end up with 10 systems to maintain and zero fun to show for it.
 
-**The fix:** Follow the 3-Feature MLP rule. Make the core loop slice genuinely fun before adding more slices `(see game-scoping/SKILL.md → The 3-Feature Rule)`.
+**The fix:** Follow the 3-Feature MLP rule. Make the core loop slice genuinely fun before adding more slices `(see game-scoping → The 3-Feature Rule)`.
 
 ### THE PERFECTIONIST SLICE — Each slice polished before the next
 
@@ -88,7 +88,7 @@ Each slice is a hamburger: UI (bun) + mechanic (patty) + state (condiments). You
 
 **The trap:** You're polishing mechanics that will change after playtesting. That perfect jump feel? It'll need retuning when you add double-jump. Those particles? They'll need new ones for the new surfaces.
 
-**The fix:** Each slice gets "good enough" feel, then you move on. Save the polish pass for after the MLP is fun `(see game-scoping/SKILL.md → Post-MLP Iteration Phases)`.
+**The fix:** Each slice gets "good enough" feel, then you move on. Save the polish pass for after the MLP is fun `(see game-scoping → Post-MLP Iteration Phases)`.
 
 ### THE INVISIBLE SLICE — "Implement save system" (no player-facing result)
 
