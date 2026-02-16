@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Phase 2: Brainstorm & Simulation (game-spice-6ua)
+
+- **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
+
 ### Phase 1: Foundation & Session Lifecycle (game-spice-7dq)
 
 Session management, state persistence, help command, and new skills for later phases. Three features: session lifecycle commands, help reference, and simulation knowledge skills.
