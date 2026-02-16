@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.5.0] - 2026-02-16
 
-### Interactive Game Design Workflow
+### Added
 
-A complete idea-to-implementation pipeline through structured conversation.
+**Interactive Game Design Workflow** — A complete idea-to-implementation pipeline through structured conversation.
 
 - **`/game:start`** — Start a new game design session or resume an existing one. Creates a persistent `.game-design/` directory with state tracking, decision logging, and session indexing. Supports multiple concurrent sessions with resume flow.
 - **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
@@ -21,27 +21,29 @@ A complete idea-to-implementation pipeline through structured conversation.
 - **`/game:decisions`** — Browse and search past design decisions with provenance visibility. Lists all decisions from the active session's decisions.log with filtering by category, phase, or origin. Shows decision ID, date, category, origin, rationale, and provenance markers ([suggested], [inferred]) so designers can distinguish their own decisions from AI-proposed ones. Includes summary statistics with category/origin/phase breakdowns and a provenance advisory when >50% of decisions are AI-proposed.
 - **`/game:help`** — Command reference showing the full design workflow, all 9 commands with descriptions, quick start guide, and passive skill overview.
 
-### New Knowledge
+**New Knowledge**
 
 - **ASCII Wireframing Toolkit** — Starter patterns for low-fidelity game wireframes: box-drawing characters, common primitives, genre-specific examples (platformer, top-down RPG, HUD, inventory, flow diagrams), and the legend.yaml workflow for per-project symbol conventions.
 - **Simulation Facilitation Guide** — Rules for running Wizard of Oz gameplay simulations: facilitator stance (sidekick not director), turn structure, coverage-driven pacing via 5-Beat Structure, decision recording with provenance tracking, anti-patterns, and scope control.
 
 ## [0.4.0] - 2026-02-14
 
-### Interactive Commands
+### Added
+
+**Interactive Commands**
 
 - **`/game:walkthrough`** — Walk through your game moment-by-moment before writing a line of code. Generates a 5-beat scenario that reveals gaps in input mapping, feedback loops, and pacing so you can fix design problems on paper instead of in a debugger.
 - **`/game:balance-check`** — Audit your economy and difficulty design on demand. Catches resource leaks, broken progression curves, and difficulty spikes early — before playtesters hit them.
 
-### Automated Code Review
+**Automated Code Review**
 
 - **Game-aware reviewer** — During `/line:serve`, your code is now checked against game-specific architecture patterns. Detects engine/framework automatically (Godot, Unity, Unreal, Bevy, and more) and flags issues like physics in render loops, missing delta-time, god-class update functions, and per-frame allocations.
 
-### Implementation Guidance
+**Implementation Guidance**
 
 - **Coding patterns during `/line:cook`** — Get prescriptive, copy-ready patterns for game loops, state machines, input handling, frame budgeting, entity architecture, and delta-time management right when you're writing code.
 
-### Expanded Knowledge Base
+**Expanded Knowledge Base**
 
 - **Mechanics Palette** — Browse 54 mechanics across 10 categories (movement, combat, building, puzzles, and more) with mashup patterns drawn from real games. Great for brainstorming sessions.
 - **Difficulty & Challenge Design** — Flow-state targeting, difficulty curve templates, accessibility/assist modes, recovery mechanics, and boss design guidance.
@@ -55,7 +57,9 @@ A complete idea-to-implementation pipeline through structured conversation.
 
 ## [0.2.0] - 2026-02-12
 
-### New Knowledge
+### Added
+
+**New Knowledge**
 
 - **Economy & Balance Planning** — Plan resource systems that create meaningful choices. Includes a complexity ladder (zero economy → full multi-currency), taps & sinks framework, progression curve planning, loot design, and an MLP economy checklist so you ship the minimum viable economy first.
 - **Playtesting & Iteration** — Close the gap between your design and what players actually experience. Playtest type selector, the 3-question framework (understand → engage → retain), observation methodology, minimum viable playtest, and pivot-vs-persevere decision criteria.
@@ -63,13 +67,13 @@ A complete idea-to-implementation pipeline through structured conversation.
 
 ## [0.1.1] - 2026-02-11
 
-### Housekeeping
+### Changed
 
 - Release automation, CHANGELOG, LICENSE (MIT), and `.gitignore`
 
 ## [0.1.0] - 2026-02-11
 
-### Launch
+### Added
 
 - **MLP Scoping** — Cut scope ruthlessly and build what matters. The 3-feature rule, MoSCoW prioritization, tracer bullet methodology for vertical slices, and genre-specific scoping tips keep your first playable small and focused.
 - **Core Loop & Design Frameworks** — Thinking tools for analyzing game experiences. MDA framework, core loop strength evaluation, nested loops (micro → macro), player motivation science, systems thinking for emergence, game feel checklist, and onboarding patterns.
