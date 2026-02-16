@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Interactive Commands
+
+- **`/game:start`** — Start a new game design session or resume an existing one. Creates a persistent `.game-design/` directory with state tracking, decision logging, and session indexing. Supports multiple concurrent sessions with resume flow.
+- **`/game:status`** — Inspect your current session at a glance. Shows phase, simulation progress, 5-beat coverage scores, recent decisions, and session flags — proving state persistence works across conversations.
+
 ### New Knowledge
 
 - **ASCII Wireframing Toolkit** — Starter patterns for low-fidelity game wireframes: box-drawing characters, common primitives, genre-specific examples (platformer, top-down RPG, HUD, inventory, flow diagrams), and the legend.yaml workflow for per-project symbol conventions.
