@@ -80,11 +80,15 @@ QUICK START
   Check progress any time:
        /game:status
 
+  Run a walkthrough or balance audit any time:
+       /game:walkthrough first-session
+       /game:balance-check --report
+
 ───────────────────────────────────────────
 SKILLS (PASSIVE)
 ───────────────────────────────────────────
 
-  Game-spice also includes 12 skills that activate automatically
+  Game-spice also includes 14 skills that activate automatically
   during Line Cook phases (/line:brainstorm, /line:scope, /line:cook,
   /line:serve). No commands needed — they inject game-specific
   frameworks and questions into the conversation.
