@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Phase 2: Brainstorm & Simulation (game-spice-6ua)
 
 - **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
+- **`/game:simulate`** — Prove your core loop works before writing code. Wizard of Oz gameplay simulation presents ASCII wireframes and narrative descriptions of gameplay moments, asks concrete design questions, and records every decision with provenance tracking. Coverage-driven pacing walks through the 5-Beat Structure (First Contact, Learning the Verb, Core Loop in Motion, Rising Stakes, Session End) with quantitative confidence scoring to determine when simulation is thorough enough to proceed.
 
 ### Phase 1: Foundation & Session Lifecycle (game-spice-7dq)
 
