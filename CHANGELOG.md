@@ -49,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Difficulty & Challenge Design** — Flow-state targeting, difficulty curve templates, accessibility/assist modes, recovery mechanics, and boss design guidance.
 - **Content & Level Planning** — World structure decisions, content scope estimation, pacing frameworks, procedural-vs-handcrafted trade-offs, and content reuse strategies.
 - **Plan & Architecture Audits** — Score your GDD completeness, validate core loops, audit economy balance, assess difficulty curves, and check playtest readiness — all from your plan files. Architecture audits cover game loops, state machines, entity systems, and performance with engine-specific guidance for Godot, Unity, Unreal, Bevy, Python, and TypeScript.
-- **Playtesting toolkit** — RITE method, structured session templates, validated questionnaires (GEQ, PENS, SUS), sample-size guidelines, and a data-driven decision workflow.
+- **Playtesting Toolkit** — RITE method, structured session templates, validated questionnaires (GEQ, PENS, SUS), sample-size guidelines, and a data-driven decision workflow.
 
 ### Changed
 
