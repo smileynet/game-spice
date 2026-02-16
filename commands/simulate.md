@@ -75,6 +75,7 @@ Read(file_path=".game-design/<slug>/decisions.log")
 ```
 Glob(pattern=".game-design/<slug>/simulation/game-state.yaml")
 Glob(pattern=".game-design/<slug>/simulation/legend.yaml")
+Glob(pattern=".game-design/<slug>/simulation/coverage.yaml")
 Glob(pattern=".game-design/<slug>/simulation/turns/turn-*.md")
 ```
 
@@ -191,6 +192,15 @@ collectible: "*"
 ```
 
 Keep it minimal — the legend grows organically during simulation.
+
+Create initial `coverage.yaml` from the template:
+
+```
+Read(file_path="templates/coverage.yaml")
+Write(file_path=".game-design/<slug>/simulation/coverage.yaml", content=<coverage template contents>)
+```
+
+This initializes the detailed coverage tracking schema with 5-Beat and System coverage areas, all starting at `uncovered` with confidence `0.0`.
 
 **If turn files exist (continuing):**
 
@@ -488,12 +498,48 @@ Update:
 Write(file_path=".game-design/<slug>/simulation/game-state.yaml", content=<updated game state>)
 ```
 
-**7e: Update coverage in state.yaml**
+**7e: Update coverage**
 
-Assess whether the current beat's coverage goal has been met:
+Update both the detailed `coverage.yaml` and the summary in `state.yaml`.
 
-- `uncovered` → `partial`: The beat has been touched but coverage goals are not fully met
-- `partial` → `covered`: All coverage goals for the beat are met (see Step 3 table)
+```
+Read(file_path=".game-design/<slug>/simulation/coverage.yaml")
+```
+
+**Calculate confidence for the current beat:**
+
+For each beat explored this turn:
+1. Add the turn number to the beat's `turns` list
+2. Recalculate confidence:
+   - Base: `+0.2` per turn that explores the beat (from `turns` list length)
+   - Bonus: `+0.1` per decision with origin `user` recorded in the beat
+   - Bonus: `+0.05` per decision with origin `suggested`
+   - No bonus for `inferred` decisions (unconfirmed)
+   - Cap at `1.0`
+3. Derive status from confidence:
+   - `confidence < 0.3` → `uncovered`
+   - `confidence 0.3–0.69` → `partial`
+   - `confidence >= 0.7` → `covered`
+
+**Update system coverage** if the turn touched any cross-cutting systems:
+
+For each system explored this turn:
+1. Add the turn number to the system's `turns` list
+2. Recalculate confidence:
+   - Base: `+0.15` per turn that touches the system
+   - Bonus: `+0.1` per decision related to the system
+   - Cap at `1.0`
+3. Derive status using the same thresholds as beats
+
+```
+Write(file_path=".game-design/<slug>/simulation/coverage.yaml", content=<updated coverage>)
+```
+
+**Check transition criteria** from coverage.yaml:
+- **Minimum** met: all beats have confidence `>= 0.3` (all at least `partial`)
+- **Recommended** met: all beats have confidence `>= 0.7` (all `covered`) and all systems `>= 0.3`
+
+**Update state.yaml summary:**
 
 ```
 Read(file_path=".game-design/<slug>/state.yaml")
@@ -503,7 +549,7 @@ Update:
 - `progress.turn_count`: increment by 1
 - `progress.last_turn`: filename of the turn just completed
 - `progress.beats_covered`: count of beats at `covered` status
-- `coverage.<beat>`: update the current beat's coverage status
+- `coverage.<beat>`: sync status from coverage.yaml (derived from confidence)
 - `decisions.total`: new total count
 - `decisions.by_origin.user`: updated count
 - `decisions.by_origin.suggested`: updated count
@@ -634,6 +680,7 @@ Files written:
   .game-design/<slug>/simulation/wireframes/  (<count> wireframe files)
   .game-design/<slug>/simulation/game-state.yaml
   .game-design/<slug>/simulation/legend.yaml
+  .game-design/<slug>/simulation/coverage.yaml
   .game-design/<slug>/decisions.log           (<total> entries)
   .game-design/<slug>/state.yaml              (updated)
   .game-design/sessions.yaml                  (updated)

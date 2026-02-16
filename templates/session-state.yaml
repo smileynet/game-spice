@@ -21,9 +21,9 @@ progress:
   beats_covered: 0            # Count of 5-Beat areas at "covered" status
   beats_total: 5              # Fixed: First Contact, Learning the Verb, Core Loop in Motion, Rising Stakes, Session End
 
-# Coverage scores per 5-Beat area (updated by /game:simulate)
-# Note: This is the canonical coverage location — no separate coverage.yaml file
-# Values: uncovered | partial | covered
+# Coverage summary per 5-Beat area (updated by /game:simulate)
+# Detailed coverage with confidence scores lives in simulation/coverage.yaml
+# Values: uncovered | partial | covered (derived from confidence thresholds)
 coverage:
   first_contact: uncovered
   learning_the_verb: uncovered
@@ -44,10 +44,3 @@ flags:
   concept_complete: false     # concept.yaml has all required fields
   simulation_ready: false     # Enough brainstorm data to start simulation
   plan_ready: false           # Enough simulation data to generate plan
-
-# Decision log reference (actual log lives in decisions.log, counts tracked above)
-# Row format: id|date|phase|category|origin|decision|rationale|alternatives
-# Origins:
-#   user      — explicitly stated by the user
-#   suggested — agent proposed, user accepted
-#   inferred  — agent extracted from conversation, not explicitly confirmed
