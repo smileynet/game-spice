@@ -2,7 +2,7 @@
 
 ## What Makes a Good Vertical Slice?
 
-A vertical slice is a thin, end-to-end cut through all 5 game layers — from player input down to consequence. `(see game-scoping/tracer-bullets.md for the 5-layer model)`
+A vertical slice is a thin, end-to-end cut through all 5 game layers — from player input down to consequence. `(see game-scoping/tracer-bullets.md → 5-Layer Vertical Slice)`
 
 **How the terms relate:**
 - **Tracer bullet** = your first vertical slice. Proves the architecture works.
@@ -70,7 +70,7 @@ A slice that nobody plays isn't validating anything. After each slice:
 
 ### 7. Hamburger Method
 
-Every slice must contain all three hamburger layers (a simplified lens on the 5-layer model), however thin:
+Every slice must contain all three hamburger layers (a simplified lens on the 5-Layer Vertical Slice), however thin:
 
 | Layer | Thin | Thick |
 |---|---|---|
@@ -167,7 +167,7 @@ SPIDR (Spike, Paths, Interfaces, Data, Rules) adapted for game features:
 
 ### The 5-Beat Slice
 
-Maps directly to the tracer bullet 5-layer model. For any new feature, define all five beats:
+Maps directly to the 5-Layer Vertical Slice model. For any new feature, define all five beats:
 
 1. **Input** — What does the player press/click?
 2. **Mechanic** — What happens in the game?
@@ -186,7 +186,7 @@ Starting feature: "Between rooms, the player chooses upgrades that modify their 
 | Slice | Input | Mechanic | State | Feedback | Consequence |
 |---|---|---|---|---|---|
 | 1. Basic pick | Choose 1 of 3 | Stat boost applied | Player stats update | UI shows new value | Next room is slightly easier |
-| 2. Rarity tiers | Same | Upgrades have rarity | Rarity affects magnitude | Color-coded cards | Rare upgrades feel impactful |
+| 2. Rarity tiers | Same | Upgrades have rarity | Rarity affects magnitude | Color-coded cards | Rare upgrades shift stat balance more |
 | 3. Synergies | Same | Some upgrades combo | Synergy tracker | "Combo!" notification | Build strategies emerge |
 | 4. Trade-offs | Choose 1, lose 1 | Upgrade + downgrade | Two stats change | Risk/reward UI | Meaningful decisions |
 
