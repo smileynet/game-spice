@@ -178,6 +178,39 @@ Legend: <symbol> <meaning>
 | <!-- e.g. Enemy types --> | <!-- count --> | <!-- count --> | <!-- count --> | <!-- count --> |
 | <!-- e.g. Items --> | <!-- count --> | <!-- count --> | <!-- count --> | <!-- count --> |
 
+## Assumptions to Validate
+
+<!-- Decisions made by the AI (suggested or inferred) during brainstorm and simulation.
+     These should be validated during playtesting — the designer did not explicitly confirm them.
+     Populated by /game:build-plan Step 4 from decisions.log.
+     Omit empty priority subsections. -->
+
+**<!-- count --> assumptions flagged** (<!-- suggested_count --> suggested, <!-- inferred_count --> inferred)
+
+### High Priority (Mechanic Assumptions)
+
+<!-- Assumptions about how game systems work — incorrect assumptions here break gameplay -->
+
+| ID | Decision | Origin | Source Turn |
+|----|----------|--------|-------------|
+| <!-- id --> | <!-- decision --> | <!-- origin --> | <!-- Turn NNN or Brainstorm --> |
+
+### Medium Priority (Feedback & Progression)
+
+<!-- Assumptions about what the player sees/feels — wrong assumptions hurt experience -->
+
+| ID | Decision | Origin | Source Turn |
+|----|----------|--------|-------------|
+| <!-- id --> | <!-- decision --> | <!-- origin --> | <!-- Turn NNN or Brainstorm --> |
+
+### Low Priority (Content & Scope)
+
+<!-- Assumptions about content details — easy to change later -->
+
+| ID | Decision | Origin | Source Turn |
+|----|----------|--------|-------------|
+| <!-- id --> | <!-- decision --> | <!-- origin --> | <!-- Turn NNN or Brainstorm --> |
+
 ## Appendix
 
 ### Decision Log Summary

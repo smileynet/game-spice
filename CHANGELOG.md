@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Phase 3: Plan Generation & Utilities (game-spice-6qz)
+
+- **`/game:build-plan`** — Transform simulation data into production-ready documents. Reads all session data (concept, turns, wireframes, decisions, coverage) and generates a Game Design Document and Technical Specification. The GDD includes design pillars, mechanics with simulation turn references, all ASCII wireframes organized by screen, content requirements, and an Assumptions to Validate section that flags AI-suggested decisions for playtesting. The tech spec provides architecture recommendations, a 4-phase implementation plan (tracer bullet → core loop → content → polish) with vertical-slice task breakdowns, and a risk register. Runs the game-plan-audit quality review (completeness scorecard, core loop validation, GDD actionability) before finalizing.
+
 ### Phase 2: Brainstorm & Simulation (game-spice-6ua)
 
 - **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
