@@ -29,6 +29,8 @@ A tracer bullet proves your game works end-to-end through all layers:
 
 **Rule:** Your first build should touch all 5 layers for ONE action. Don't build Layer 1 for all actions before starting Layer 2.
 
+A tracer bullet is your *first* vertical slice. Subsequent slices widen the game by adding new paths through these same 5 layers. `(see game-scoping/vertical-slices.md for decomposition techniques and antipatterns)`
+
 ## Tracer Bullet Examples
 
 | Genre | Tracer Bullet (First Build Target) |
