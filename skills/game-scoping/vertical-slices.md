@@ -1,160 +1,219 @@
-# Vertical Slice Decomposition for Games
+# Vertical Slice Decomposition
 
-## What Is a Vertical Slice?
+## What Makes a Good Vertical Slice?
 
-A vertical slice is a thin, end-to-end implementation that touches every layer of your game for one specific player action. Where a horizontal slice builds an entire system (all physics, all rendering, all UI), a vertical slice builds one complete path through the game that a player can actually experience.
+A vertical slice is a thin, end-to-end cut through all 5 game layers — from player input down to consequence. `(see game-scoping/tracer-bullets.md for the 5-layer model)`
 
-**Relationship to tracer bullets:** A tracer bullet is your *first* vertical slice — the one that proves the architecture works. Subsequent vertical slices widen the game by adding new paths through the same 5 layers `(see game-scoping/tracer-bullets.md for the 5-Layer Vertical Slice model)`.
+**How the terms relate:**
+- **Tracer bullet** = your first vertical slice. Proves the architecture works.
+- **Vertical slice** = any subsequent end-to-end cut that adds a new player-facing path.
+- **MLP** = the thinnest playable set of slices. When slices combine into a fun loop, you have an MLP.
 
-**Relationship to MLP:** Your MLP is the thinnest horizontal cut across the story map — the minimum set of vertical slices needed to validate that the core loop is fun.
+**The playtester test:** A good slice passes when a playtester can experience it in isolation and give useful feedback. If you can't playtest it, it's not a slice — it's a layer.
 
 ## Best Practices
 
-### DO: Start with the core loop as your Walking Skeleton
+### 1. Core Loop as Walking Skeleton
 
-Your first vertical slice should be the core loop itself — the thing the player does every 30-60 seconds. Everything else hangs on this skeleton.
+Build one complete pass through the core loop before anything else. This is your tracer bullet. Every subsequent slice widens the skeleton. Prove fun before building breadth.
 
-### DO: Slice by player outcome, not by system layer
+### 2. Slice by Player Outcome, Not System
 
-**Good slice:** "Player defeats one enemy and gets a reward"
-**Bad slice:** "Implement the combat system"
+| Good Slice | Bad Slice |
+|---|---|
+| "Player defeats an enemy" | "Build combat system" |
+| "Player buys an item from a shop" | "Implement economy backend" |
+| "Player unlocks a new area" | "Create progression framework" |
 
-The good slice forces you to build input, mechanics, state, feedback, and consequence together. The bad slice lets you build combat for 3 weeks without knowing if it's fun.
+**The verb test:** If your slice description doesn't start with "Player [verb]s...", it's probably a system, not a slice.
 
-### DO: Defer polish with intentional stubs
+### 3. Intentional Stubs
 
-Programmer art, placeholder sounds, and hardcoded values are fine in a vertical slice. The goal is to prove the *experience* works, not to ship the *assets*. A white rectangle that jumps and lands on a grey rectangle tells you more about fun than a detailed sprite sheet with no gameplay.
+Early slices should use:
+- Hardcoded values instead of config files
+- Programmer art instead of final assets
+- Simplified AI (move toward player) instead of behavior trees
+- One handcrafted level instead of procedural generation
 
-### DO: Slice along gameplay variations
+Stubs are not tech debt. They're a decision to validate fun before investing in infrastructure.
 
-After the core loop works, add variations *through* it:
-- One enemy type → a second enemy type with different behavior
-- One level → a second level with a new obstacle
-- One card → a second card with a different effect
+### 4. Slice Along Gameplay Variations
 
-Each variation is a new vertical slice that reuses your existing layers.
+Each variation of a mechanic is its own slice:
 
-### DO: Slice along progression stages
+| Mechanic | Slice 1 | Slice 2 | Slice 3 |
+|---|---|---|---|
+| Combat | Melee enemy | Ranged enemy | Boss |
+| Movement | Walk + jump | Wall jump | Dash |
+| Cards | Attack cards | Defense cards | Combo cards |
+| Towers | Basic turret | Slow tower | Area damage |
 
-Progression systems are vertical slices too:
-- Core loop (slice 1) → meta-game currency (slice 2) → upgrade shop (slice 3)
-- Each slice adds a new complete experience, not just a new backend system
+Don't build all enemy types before any enemy is fightable.
 
-### DO: Validate fun at every slice
+### 5. Slice Along Progression Stages
 
-Every vertical slice should be playtestable. If you complete a slice and can't hand it to someone to play, you've built a horizontal slice in disguise.
+Work through the game experience in order:
 
-### DO: Use the Hamburger Method
+1. **Core loop** — one cycle of play (tracer bullet)
+2. **Session arc** — a reason to keep playing for 10 minutes
+3. **Meta-game** — progression between sessions
+4. **Persistence** — saves, unlocks, long-term goals
 
-Each slice is a hamburger: UI (bun) + mechanic (patty) + state (condiments). You build one complete hamburger at a time, not all buns first, then all patties.
+Each stage is a slice boundary. Don't build meta-game before the core loop is fun.
+
+### 6. Playtest Each Slice
+
+A slice that nobody plays isn't validating anything. After each slice:
+- Have someone play it (even yourself counts for early slices)
+- Ask: "Is this part fun yet?" and "What's confusing?"
+- Let answers influence the next slice
+
+### 7. Hamburger Method
+
+Every slice must contain all three hamburger layers (a simplified lens on the 5-layer model), however thin:
+
+| Layer | Thin | Thick |
+|---|---|---|
+| **UI** | Health bar as a number | Animated hearts with screen shake |
+| **Mechanic** | Press button, enemy takes damage | Combo system with timing windows |
+| **State** | Enemy health decrements | Status effects, resistances, damage types |
+
+Build one complete hamburger at a time, not all buns first, then all patties. If your slice is missing a layer, it's not a vertical slice.
+
+## Don'ts
+
+1. **Don't build entire systems before any feature works end-to-end.** A physics engine with no game using it proves nothing about fun.
+2. **Don't slice by engine subsystem.** "All physics first, then all rendering, then all audio" is horizontal work wearing a vertical hat.
+3. **Don't make content-only slices.** Adding 10 levels with no new mechanics is horizontal. Each slice should introduce or deepen a mechanic.
+4. **Don't wait for perfect architecture before your first playable.** You will refactor. Budget for it. Don't prevent it.
 
 ## Antipatterns
 
-### THE LAYER CAKE — "Let's build the whole physics engine first"
+### THE LAYER CAKE
 
-**What it looks like:** Spending weeks on a single system layer before any other layer exists. "We need a solid foundation" becomes a reason to defer anything player-facing.
+Building complete systems one horizontal layer at a time.
 
-**Why it's tempting:** Feels like solid, rigorous engineering. You can measure progress in code written. No messy creative questions to answer.
+**Looks like:** "First we build the full physics engine, then the full rendering pipeline, then the full audio system, then we assemble a game."
 
-**The trap:** Weeks of invisible progress. No fun validation. When you finally connect the layers, you discover the physics engine you built doesn't serve the game feel you need — but now you're invested in it.
+**Why it's tempting:** Each layer feels complete and testable in isolation. It maps cleanly to specializations. Feels like solid engineering.
 
-**The fix:** Build the thinnest possible version of each layer simultaneously. Prove the path works, then deepen individual layers.
+**What goes wrong:** Integration is where the surprises live. You discover at month 3 that the physics engine doesn't support the mechanic you need — but now you're invested in it. No one has played the game because there's been nothing to play.
 
-### THE DEMO REEL — Vertical slice that's all UI with mocked gameplay
+**Do instead:** Build the thinnest possible version of each layer simultaneously. Prove the path works, then deepen individual layers.
 
-**What it looks like:** A pretty menu, animated transitions, and a gameplay screen where everything is hardcoded or scripted. It *looks* like a game in a screenshot.
+### THE DEMO REEL
 
-**Why it's tempting:** Stakeholders love it. Screenshots look great. UI work is satisfying and visible.
+A polished front-end with no real game behind it.
 
-**The trap:** The mock hides whether the real mechanics are fun. When you replace mocks with actual gameplay, the experience changes completely. You optimized for the wrong thing.
+**Looks like:** Beautiful menus, animated transitions, a title screen with a logo — but pressing "Play" leads to a grey box or a barely interactive prototype.
 
-**The fix:** The slice must include real game state changes driven by real player input. Ugly but real beats pretty but fake.
+**Why it's tempting:** UI work produces visible, shareable progress. Screenshots look great. Stakeholders love it.
 
-### THE FEATURE BUFFET — 10 thin slices before any one is fun
+**What goes wrong:** The demo reel creates an illusion of progress. When you replace mocks with actual gameplay, the UI needs to change anyway because it was designed without knowing how the game actually plays.
 
-**What it looks like:** "We have movement, combat, inventory, crafting, dialogue, and trading!" — but each is a bare skeleton that isn't satisfying to use.
+**Do instead:** Programmer art UI that serves real mechanics. Polish the UI after the mechanics are stable.
 
-**Why it's tempting:** Breadth feels like progress. You can list more features on your plan. Each day adds something "new."
+### THE FEATURE BUFFET
 
-**The trap:** Nothing is deep enough to evaluate for fun. Players can't tell if combat is engaging when it has one attack with no feedback. You end up with 10 systems to maintain and zero fun to show for it.
+Many thin slices, but none deep enough to evaluate fun.
 
-**The fix:** Follow the 3-Feature MLP rule. Make the core loop slice genuinely fun before adding more slices `(see game-scoping → The 3-Feature Rule)`.
+**Looks like:** "We have movement, combat, inventory, crafting, dialogue, and trading!" — but each is a bare skeleton that isn't satisfying to use.
 
-### THE PERFECTIONIST SLICE — Each slice polished before the next
+**Why it's tempting:** Breadth creates excitement. Each new feature is a dopamine hit for the developer. It's more fun to start things than to finish them.
 
-**What it looks like:** The jump feels perfect. The landing particles are beautiful. The one platform is textured. ...And that's all you have after a month.
+**What goes wrong:** Nothing is deep enough for meaningful playtesting. Players can't tell if combat is engaging when it has one attack with no feedback. You end up with 10 systems to maintain and zero fun to show for it.
 
-**Why it's tempting:** "Do it right the first time." Polish is rewarding work with visible results. It feels professional.
+**Do instead:** Depth before breadth. Make one mechanic feel great, then add the next. Follow the 3-Feature MLP rule `(see game-scoping/SKILL.md → The 3-Feature Rule)`.
 
-**The trap:** You're polishing mechanics that will change after playtesting. That perfect jump feel? It'll need retuning when you add double-jump. Those particles? They'll need new ones for the new surfaces.
+### THE PERFECTIONIST SLICE
 
-**The fix:** Each slice gets "good enough" feel, then you move on. Save the polish pass for after the MLP is fun `(see game-scoping → Post-MLP Iteration Phases)`.
+Polishing each slice to final quality before starting the next.
 
-### THE INVISIBLE SLICE — "Implement save system" (no player-facing result)
+**Looks like:** The first enemy type has 12 animations, hand-tuned AI, a custom death effect, and sound design — but there's only one enemy in the game, and the player can only attack in one direction.
 
-**What it looks like:** A "vertical slice" that's actually infrastructure: save/load, networking layer, asset pipeline, analytics.
+**Why it's tempting:** "Do it right the first time." Polish is rewarding work with visible results. Leaving placeholder work behind feels uncomfortable.
 
-**Why it's tempting:** You genuinely need this infrastructure. It's real work that takes real time.
+**What goes wrong:** You invest 40 hours in an enemy that might get cut when playtesting reveals the combat system needs rework. Polish is wasted on unstable mechanics.
 
-**The trap:** It's not a vertical slice — it's a horizontal layer. A slice must be player-experienceable. A save system with nothing to save isn't a slice.
+**Do instead:** Get each slice to "playtest quality" — functional, testable, ugly is fine. Save the polish pass for after the MLP is fun `(see game-scoping/SKILL.md → Post-MLP Iteration Phases)`.
 
-**The fix:** Embed infrastructure in a real feature. Don't build "save system" — build "player completes a run and their high score persists." The save system emerges from a real slice.
+### THE INVISIBLE SLICE
+
+Infrastructure work with no player-facing result.
+
+**Looks like:** "This sprint we built the save system, refactored the entity component system, and set up the asset pipeline." Nothing changed from the player's perspective.
+
+**Why it's tempting:** You genuinely need this infrastructure. It feels essential. It scratches an engineering itch.
+
+**What goes wrong:** You can't playtest infrastructure. You don't know if the architecture is right until features use it. Weeks pass with zero player feedback. You might be building the wrong abstractions.
+
+**Do instead:** Embed infrastructure in a real feature. Don't build "save system" — build "player completes a run and their high score persists." The save system emerges from a vertical slice.
 
 ## Decomposition Techniques
 
-### The 5-Beat Slice
-
-Every vertical slice should touch all 5 beats:
-
-1. **One input** — player presses/clicks/taps something
-2. **One mechanic** — game responds with a rule
-3. **One state change** — world updates
-4. **One feedback** — player sees/hears the result
-5. **One consequence** — new situation emerges
-
-If your planned slice doesn't have all 5, it's not a vertical slice.
-
 ### SPIDR for Games
 
-Borrowed from agile story splitting, adapted for games:
+SPIDR (Spike, Paths, Interfaces, Data, Rules) adapted for game features:
 
-| Technique | Game Application | Example |
-|-----------|-----------------|---------|
-| **Spike** | Prototype one risky unknown | "Can we make grappling feel good?" |
-| **Paths** | Split by player choice/route | "Melee path" vs "Ranged path" |
-| **Interfaces** | Split by input method | "Keyboard controls" then "Controller support" |
-| **Data** | Split by content variation | "Skeleton enemy" then "Ghost enemy" |
-| **Rules** | Split by mechanic complexity | "Basic attack" then "Combo system" |
+| Dimension | Software Meaning | Game Meaning | Example (Roguelike Upgrade System) |
+|---|---|---|---|
+| **Spike** | Research unknowns | Prototype to test fun | Prototype: are upgrades satisfying? |
+| **Paths** | User workflows | Player choices | Path 1: offensive upgrades. Path 2: defensive. Path 3: utility. |
+| **Interfaces** | API boundaries | How player interacts | UI: selection screen vs auto-apply vs shop |
+| **Data** | Data variations | Content variations | 3 upgrades → 10 upgrades → 30 upgrades |
+| **Rules** | Business logic | Mechanic complexity | Simple stat boosts → synergies → build-defining combos |
 
-### Genre-Specific Slice Patterns
+**How to use it:** Take a feature. Ask which SPIDR dimension is riskiest. Slice along that dimension first. For games, start with Spike (is it fun?) then Paths (what choices does the player have?).
 
-Different genres have natural slice boundaries `(see game-scoping/genre-tips.md)`:
+### The 5-Beat Slice
 
-- **Platformer:** Slice by movement verb (run → jump → wall-slide → dash)
-- **Roguelike:** Slice by room encounter type (combat → shop → event → boss)
-- **Puzzle:** Slice by mechanic (rotate → swap → gravity → portals)
-- **Tower Defense:** Slice by tower type (shooter → slower → area → support)
-- **Card Game:** Slice by card effect type (damage → draw → buff → combo)
+Maps directly to the tracer bullet 5-layer model. For any new feature, define all five beats:
+
+1. **Input** — What does the player press/click?
+2. **Mechanic** — What happens in the game?
+3. **State** — What changes?
+4. **Feedback** — What does the player see/hear?
+5. **Consequence** — What's different going forward?
+
+If you can't fill in all 5, you don't have a slice yet. If any beat says "reuse existing," that's fine — the slice is thinner there but still end-to-end.
+
+### Worked Example: Roguelike Upgrade System
+
+Starting feature: "Between rooms, the player chooses upgrades that modify their abilities."
+
+**Decomposed into slices:**
+
+| Slice | Input | Mechanic | State | Feedback | Consequence |
+|---|---|---|---|---|---|
+| 1. Basic pick | Choose 1 of 3 | Stat boost applied | Player stats update | UI shows new value | Next room is slightly easier |
+| 2. Rarity tiers | Same | Upgrades have rarity | Rarity affects magnitude | Color-coded cards | Rare upgrades feel impactful |
+| 3. Synergies | Same | Some upgrades combo | Synergy tracker | "Combo!" notification | Build strategies emerge |
+| 4. Trade-offs | Choose 1, lose 1 | Upgrade + downgrade | Two stats change | Risk/reward UI | Meaningful decisions |
+
+Each row is independently playtestable. Slice 1 alone proves whether the upgrade loop is satisfying. Don't build slice 4 until slice 1 is fun.
 
 ## Context Matters
 
-### When horizontal work IS appropriate
+### When Horizontal Work IS Appropriate
 
-Not everything can be a vertical slice. Infrastructure work is valid when:
-- You literally cannot build any slice without it (engine setup, build pipeline)
-- The horizontal work takes less than a day
-- You're unblocking multiple future slices, not deferring them
+Not everything can be a vertical slice. Some work is genuinely foundational:
+- **Build pipeline and CI** — you need this before any slice ships
+- **Engine/framework setup** — choosing and configuring your tools
+- **Asset pipeline** — how art gets from tool to game
+- **Core input handling** — you'll use this in every slice
 
-Even then, keep it minimal. Build the thinnest infrastructure that lets you get to your first slice.
+**Rule of thumb:** If it takes less than a day AND every future slice needs it, build it horizontally. Otherwise, embed it in a slice.
 
-### Solo dev vs team
+### Solo Dev vs Team
 
 Solo devs can tolerate slightly thicker slices because context-switching cost is lower — you hold the whole game in your head. But don't use this as an excuse to build Layer Cakes. The principle still holds: end-to-end beats depth-first.
 
-### Jam games vs production
+### Jam Games vs Production
 
-Game jams reward fewer, thicker slices. You have 48 hours — you get 1-2 vertical slices at most. Make the first one the core loop and make it fun. The second slice is polish on that same loop, not a new feature.
+Game jams reward fewer, thicker slices. A 48-hour jam gets 2-3 big slices, not 15 thin ones. Make the first one the core loop and make it fun. Production games benefit from thin slices because iteration happens over weeks, not hours.
 
-### Early access and iterative release
+### Cross-References
 
-If you're planning early access, each release milestone should be a set of vertical slices that form a complete (if thin) experience. Don't release "the combat update" (horizontal) — release "the dungeon update" (vertical: new rooms + new enemies + new loot + new boss).
+- **Scope antipatterns:** "Premature Content" is what happens when you build horizontal content instead of vertical slices. "Everything Sounds Fun" leads to The Feature Buffet. `(see game-antipatterns/scope-antipatterns.md)`
+- **MoSCoW prioritization:** Vertical slices help you identify what's truly Must Have vs Should Have — if a Must Have feature can't be expressed as a playtestable slice, it might be a system masquerading as a feature. `(see game-scoping/prioritization.md)`
+- **Tracer bullets:** Your first slice. Start here. `(see game-scoping/tracer-bullets.md)`
