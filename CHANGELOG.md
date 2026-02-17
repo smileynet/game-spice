@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-02-16
 ### Fixed
 
 - install.sh now copies templates/ directory needed by runtime commands
@@ -109,7 +110,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Planning Anti-Patterns** — An early warning system for the mistakes that kill games before they ship. Top 10 anti-pattern catalog, "Should I Add This Feature?" decision table, over-scope scoring, and pre/post-planning audit checklists.
 - Available on the Line Cook spice rack marketplace.
 
-[Unreleased]: https://github.com/smileynet/game-spice/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/smileynet/game-spice/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/smileynet/game-spice/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/smileynet/game-spice/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/smileynet/game-spice/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.3.0
