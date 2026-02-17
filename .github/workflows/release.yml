@@ -69,13 +69,13 @@ jobs:
 
           **First-time install:**
           ```bash
-          /plugin marketplace add ${{ github.repository }}
-          /plugin install game-spice
+          /plugin marketplace add smileynet/line-cook
+          /plugin install game@line-cook
           ```
 
           **Update existing:**
           ```bash
-          /plugin update game-spice
+          /plugin update game
           ```
 
           ## Documentation

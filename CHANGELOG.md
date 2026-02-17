@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- install.sh now copies templates/ directory needed by runtime commands
+- Release workflow install instructions corrected to match README (line-cook marketplace model)
+- Added missing v0.3.0 changelog entry
+- Fixed v0.4.0 comparison link to reference v0.3.0 instead of v0.2.0
+
 ## [0.5.0] - 2026-02-16
 
 ### Added
@@ -55,6 +62,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Plugin prefix is now `/game:*` (renamed from `game-spice` to `game`)
 
+## [0.3.0] - 2026-02-13
+
+### Added
+
+**New Knowledge**
+
+- **Mechanics Palette** — 54 mechanics across 10 categories (movement, combat, building, puzzles, and more) with mashup patterns drawn from real games for brainstorming sessions.
+- **Difficulty & Challenge Design** — Flow-state targeting, difficulty curve templates, accessibility/assist modes, recovery mechanics, and boss design guidance.
+- **Content & Level Planning** — World structure decisions, content scope estimation, pacing frameworks, procedural-vs-handcrafted trade-offs, and content reuse strategies.
+- **Plan Audit** — GDD completeness scoring, core loop validation, economy balance auditing, difficulty curve assessment, and playtest readiness checks.
+- **Architecture Audit** — Game loop, state machine, entity architecture, and performance patterns with engine-specific guidance.
+
+**Expanded Skills**
+
+- Economy design deepened with genre-specific patterns and balance checklist
+- Design frameworks expanded with systems thinking and game feel
+
+### Changed
+
+- README restructured with example conversation, tutorial, and ASCII diagrams
+- Cross-reference annotations standardized across all skill See Also sections
+
 ## [0.2.0] - 2026-02-12
 
 ### Added
@@ -82,7 +111,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/smileynet/game-spice/compare/v0.5.0...HEAD
 [0.5.0]: https://github.com/smileynet/game-spice/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.4.0
+[0.4.0]: https://github.com/smileynet/game-spice/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/smileynet/game-spice/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/smileynet/game-spice/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/smileynet/game-spice/releases/tag/v0.1.0
