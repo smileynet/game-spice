@@ -143,7 +143,7 @@ Start a session, brainstorm your concept through natural conversation, prove the
 | **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
 | **game-implementation** | `/line:cook`, coding game systems | Game loop setup, state management, input handling, frame budget, entity architecture, delta time |
 | **ascii-wireframing** | `/game:simulate`, wireframe creation | Box-drawing toolkit, common primitives, genre-specific starter patterns, legend.yaml conventions |
-| **simulation-guide** | `/game:simulate`, gameplay simulation | Facilitator stance, turn structure, coverage pacing, decision recording, anti-patterns |
+| **simulation-guide** | `/game:simulate`, gameplay simulation | Facilitator stance, turn structure, coverage pacing, scope control, decision recording |
 
 14 skills, 9 commands, 1 agent.
 
@@ -210,7 +210,6 @@ Skills load automatically when Line Cook commands detect game project context. N
 ┌────────────────────┐
 │ ascii-wireframing  │
 │ simulation-guide   │
-│   (knowledge base) │
 └────────────────────┘
 ```
 
