@@ -21,18 +21,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Interactive Game Design Workflow** — A complete idea-to-implementation pipeline through structured conversation.
 
-- **`/game:start`** — Start a new game design session or resume an existing one. Creates a persistent `.game-design/` directory with state tracking, decision logging, and session indexing. Supports multiple concurrent sessions with resume flow.
-- **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces concept.yaml, a design brief, and a decision log with full provenance tracking (user/suggested/inferred). References game-mechanics-palette, game-scoping, and game-design-frameworks for enrichment and validation.
-- **`/game:simulate`** — Prove your core loop works before writing code. Wizard of Oz gameplay simulation presents ASCII wireframes and narrative descriptions of gameplay moments, asks concrete design questions, and records every decision with provenance tracking. Coverage-driven pacing walks through the 5-Beat Structure (First Contact, Learning the Verb, Core Loop in Motion, Rising Stakes, Session End) with quantitative confidence scoring to determine when simulation is thorough enough to proceed.
-- **`/game:build-plan`** — Transform simulation data into production-ready documents. Reads all session data (concept, turns, wireframes, decisions, coverage) and generates a Game Design Document and Technical Specification. The GDD includes design pillars, mechanics with simulation turn references, all ASCII wireframes organized by screen, content requirements, and an Assumptions to Validate section that flags AI-suggested decisions for playtesting. The tech spec provides architecture recommendations, a 4-phase implementation plan (tracer bullet → core loop → content → polish) with vertical-slice task breakdowns, and a risk register. Runs the game-plan-audit quality review (completeness scorecard, core loop validation, GDD actionability) before finalizing.
+- **`/game:start`** — Start a new game design session or resume an existing one. Supports multiple concurrent sessions with resume flow.
+- **`/game:brainstorm`** — Turn a game idea into a structured design through conversation, not questionnaires. Describe your game freely and the agent extracts genre, core loop, mechanics, and aesthetics from your natural language. Produces a design brief and tracks every decision with provenance (yours vs. suggested vs. inferred).
+- **`/game:simulate`** — Prove your core loop works before writing code. Plays through your game moment-by-moment with ASCII wireframes, asks concrete design questions, and records decisions. Coverage-driven pacing walks through five beats (first contact → learning the verb → core loop → rising stakes → session end) so you know when the design is solid enough to build.
+- **`/game:build-plan`** — Generate a Game Design Document and Technical Specification from your simulation session. The GDD covers design pillars, mechanics, wireframes, and content requirements — with an Assumptions to Validate section flagging AI-suggested decisions for playtesting. The tech spec provides architecture recommendations and a phased implementation plan with vertical-slice task breakdowns.
 - **`/game:status`** — Inspect your current session at a glance. Shows phase, simulation progress, 5-beat coverage scores, recent decisions, and session flags — proving state persistence works across conversations.
-- **`/game:decisions`** — Browse and search past design decisions with provenance visibility. Lists all decisions from the active session's decisions.log with filtering by category, phase, or origin. Shows decision ID, date, category, origin, rationale, and provenance markers ([suggested], [inferred]) so designers can distinguish their own decisions from AI-proposed ones. Includes summary statistics with category/origin/phase breakdowns and a provenance advisory when >50% of decisions are AI-proposed.
-- **`/game:help`** — Command reference showing the full design workflow, all 9 commands with descriptions, quick start guide, and passive skill overview.
-
-**New Knowledge**
-
-- **ASCII Wireframing Toolkit** — Starter patterns for low-fidelity game wireframes: box-drawing characters, common primitives, genre-specific examples (platformer, top-down RPG, HUD, inventory, flow diagrams), and the legend.yaml workflow for per-project symbol conventions.
-- **Simulation Facilitation Guide** — Rules for running Wizard of Oz gameplay simulations: facilitator stance (sidekick not director), turn structure, coverage-driven pacing via 5-Beat Structure, decision recording with provenance tracking, anti-patterns, and scope control.
+- **`/game:decisions`** — Browse and search past design decisions with provenance visibility. Filter by category, phase, or origin to distinguish your own decisions from AI-suggested ones.
+- **`/game:help`** — Command reference showing the full design workflow, quick start guide, and passive skill overview.
+- Simulations now include ASCII wireframes with genre-specific starter patterns (platformer, top-down RPG, HUD, inventory, flow diagrams) and per-project symbol conventions.
 
 ## [0.4.0] - 2026-02-14
 
@@ -55,7 +51,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Architecture Audit** expanded with engine-specific guidance for Unity, Unreal, Python, and TypeScript (joining Godot and Bevy patterns from v0.3.0).
 - **Playtesting Toolkit** expanded with RITE method, structured session templates, validated questionnaires (GEQ, PENS, SUS), sample-size guidelines, and a data-driven decision workflow.
-- All skills restructured with file-based lazy loading for better performance.
 
 ### Changed
 
@@ -78,11 +73,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Economy design deepened with genre-specific patterns and balance checklist
 - Design frameworks expanded with systems thinking and game feel
 
-### Changed
-
-- README restructured with example conversation, tutorial, and ASCII diagrams
-- Cross-reference annotations standardized across all skill See Also sections
-
 ## [0.2.0] - 2026-02-12
 
 ### Added
@@ -92,12 +82,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Economy & Balance Planning** — Plan resource systems that create meaningful choices. Includes a complexity ladder (zero economy → full multi-currency), taps & sinks framework, progression curve planning, loot design, and an MLP economy checklist so you ship the minimum viable economy first.
 - **Playtesting & Iteration** — Close the gap between your design and what players actually experience. Playtest type selector, the 3-question framework (understand → engage → retain), observation methodology, minimum viable playtest, and pivot-vs-persevere decision criteria.
 - **Scenario Walkthrough** — Narrate the player's first five minutes before writing a line of code. A 5-beat structure (first contact → learning the verb → core loop → rising stakes → session end) with input/feedback mapping that turns abstract ideas into concrete, testable descriptions.
-
-## [0.1.1] - 2026-02-11
-
-### Changed
-
-- Release automation, CHANGELOG, LICENSE (MIT), and `.gitignore`
 
 ## [0.1.0] - 2026-02-11
 
@@ -113,6 +97,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.5.0]: https://github.com/smileynet/game-spice/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/smileynet/game-spice/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/smileynet/game-spice/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/smileynet/game-spice/compare/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/smileynet/game-spice/compare/v0.1.0...v0.1.1
+[0.2.0]: https://github.com/smileynet/game-spice/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/smileynet/game-spice/releases/tag/v0.1.0
