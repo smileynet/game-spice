@@ -142,8 +142,10 @@ Start a session, brainstorm your concept through natural conversation, prove the
 | **game-plan-audit** | `/plan-audit`, plan review | Plan completeness, GDD quality, scope scoring, economy/difficulty/playtest readiness |
 | **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
 | **game-implementation** | `/line:cook`, coding game systems | Game loop setup, state management, input handling, frame budget, entity architecture, delta time |
+| **ascii-wireframing** | `/game:simulate`, wireframe creation | Box-drawing toolkit, common primitives, genre-specific starter patterns, legend.yaml conventions |
+| **simulation-guide** | `/game:simulate`, gameplay simulation | Facilitator stance, turn structure, coverage pacing, decision recording, anti-patterns |
 
-12 skills, 9 commands, 1 agent.
+14 skills, 9 commands, 1 agent.
 
 ## How It Works
 
@@ -203,6 +205,13 @@ Skills load automatically when Line Cook commands detect game project context. N
 │ Scenario generation│    │ Economy & difficulty      │
 │   (5-beat template)│    │   audit on demand         │
 └────────────────────┘    └──────────────────────────┘
+
+ /game:simulate
+┌────────────────────┐
+│ ascii-wireframing  │
+│ simulation-guide   │
+│   (knowledge base) │
+└────────────────────┘
 ```
 
 Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot, Rust/Bevy, Unity, Unreal, Python, or TypeScript context is detected.
