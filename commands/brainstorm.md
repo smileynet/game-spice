@@ -77,7 +77,7 @@ If found, load it:
 Read(file_path=".game-design/<slug>/concept.yaml")
 ```
 
-The user is returning to refine an existing concept. Skip to Step 4 (probe gaps) with the existing concept as context, and display:
+The user is returning to refine an existing concept. Skip to Step 3 (present extraction for confirmation) with the existing concept as context, and display:
 
 ```
 RESUMING BRAINSTORM
@@ -152,7 +152,7 @@ Parse the user's natural language description to identify as many of these as po
 |--------|-------------|
 | `user` | The user explicitly said it. "I want a roguelike" → genre is `user`. |
 | `inferred` | You extracted it from context. "grapple through dark caverns" implies genre=roguelike, aesthetic=challenge — both are `inferred`. |
-| `suggested` | You will propose it in Step 4 and the user accepts. Not used yet in this step. |
+| `suggested` | You proposed it and the user accepted. Used in Step 4 if the user chooses "You decide" for the core loop. |
 
 Track provenance for each field internally. You will write it to `decisions.log` in Step 8.
 
@@ -172,43 +172,27 @@ Does this capture the right feel? Anything I've got wrong?
 
 Wait for the user to confirm or correct. Corrections change the origin to `user` for corrected fields.
 
-### Step 4: Probe Gaps
+### Step 4: Core Loop Check
 
-Review what is still missing or ambiguous. Only ask about things that are **genuinely needed** and **not inferrable** from what the user already said.
+If you extracted a clear core loop in Step 3, skip to Step 5.
 
-**Do NOT ask about:**
-- Fields that can be reasonably inferred (if they said "dark caverns," don't ask about visual style)
-- Fields that have sensible defaults (team_size=1 for solo dev is fine to assume)
-- Fields the user already addressed, even indirectly
-
-**DO ask about:**
-- Input method if platform is ambiguous (e.g., "PC" could be keyboard or gamepad)
-- Scope if they haven't mentioned timeline or ambition level
-- Core loop if you couldn't extract a clear one from their description
-
-**Batch gaps into a single follow-up** (do NOT ask one question at a time):
+If the core loop is missing or vague, ask ONE focused question:
 
 ```
 AskUserQuestion(questions=[{
-  question: "<Ask about the 1-3 most important gaps in a natural way. Example: 'A couple things I'd love to know — are you thinking keyboard+mouse or gamepad? And how big is this project in your mind — a weekend jam or something bigger?'>",
-  header: "Details",
+  question: "<Ask specifically about the core loop. Example: 'What does a single round or run look like — what's the player doing moment to moment?'>",
+  header: "Core loop",
   options: [
-    {label: "I'll answer", description: "Fill in the details"},
-    {label: "You decide", description: "Use your best judgment for the gaps"}
+    {label: "I'll describe it", description: "Explain what a typical play session looks like"},
+    {label: "You decide", description: "Infer the most likely loop from the genre and mechanics"}
   ],
   multiSelect: false
 }])
 ```
 
-**If the user says "You decide":** Fill gaps with sensible defaults. Mark all such decisions as `suggested` origin.
+**If "You decide":** Infer the core loop from genre conventions. Mark as `suggested` origin.
 
-**If there are no gaps:** Skip this step entirely. Do NOT manufacture questions.
-
-**Provenance balance check:** Count consecutive decisions that are `suggested` or `inferred`. If more than 5 consecutive decisions are not `user` origin, pause and prompt:
-
-```
-I've been making a lot of inferences — want to jump in and drive a few decisions? What matters most to you about this game?
-```
+For all other missing fields (scope, platform, input method, team size), use sensible defaults from the template. Mark as `inferred` origin. These can be refined in later phases.
 
 ### Step 5: Core Loop Validation
 
