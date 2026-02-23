@@ -171,7 +171,7 @@ No. Skills activate throughout the development cycle: planning (`/mise`), implem
 ## Local Development
 
 ```bash
-/plugin marketplace add /home/sam/code/game-spice
+/plugin marketplace add /path/to/game-spice
 ```
 
 ## Requirements

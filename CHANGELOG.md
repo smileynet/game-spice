@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-- `/game:balance-check` — economy and difficulty auditing is now part of `/game:status` and `/plan-audit`.
+- `/game:balance-check` — economy and difficulty auditing is covered by `plan-audit`.
 - `/game:decisions` as standalone command — use `/game:status --decisions` instead.
 
 ## [0.5.1] - 2026-02-16

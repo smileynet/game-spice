@@ -50,9 +50,9 @@ Four tests every core loop must pass:
 
 ## GDD Quality Audit
 
-### Design Document Antipatterns
+### Design Document Anti-Patterns
 
-| Antipattern | Symptom | Fix |
+| Anti-Pattern | Symptom | Fix |
 |-------------|---------|-----|
 | **The Novel** | 100+ pages of prose | Max 5 pages for MLP. Decision tables, not paragraphs |
 | **The Wishlist** | Describes v5.0, no MLP definition | Define MLP first, park the rest |
@@ -94,7 +94,7 @@ All five "Yes" → **READY TO BUILD.** Start with the tracer bullet.
 - [ ] Completeness Scorecard ≥7/10
 - [ ] Core loop passes all 4 validation tests
 - [ ] No core loop red flags present
-- [ ] GDD has none of the 6 antipatterns
+- [ ] GDD has none of the 6 anti-patterns
 - [ ] Actionability Test score ≥20
 - [ ] Scope Complexity score appropriate for team size
 - [ ] No genre-specific scope traps triggered

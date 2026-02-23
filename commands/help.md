@@ -55,7 +55,7 @@ COMMANDS
   Utilities:
     /game:help                Show this reference
 
-  Complementary (available now, works outside sessions):
+  Standalone (works outside sessions):
     /game:walkthrough [name]  Generate a 5-beat scenario walkthrough
 
 ───────────────────────────────────────────
