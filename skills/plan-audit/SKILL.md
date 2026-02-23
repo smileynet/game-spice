@@ -103,11 +103,26 @@ All five "Yes" → **READY TO BUILD.** Start with the tracer bullet.
 - [ ] Playtest plan is concrete (who, when, what)
 - [ ] Data collection strategy exists
 
+## What to Measure (Data Collection Checklist)
+
+Start at Tier 0 (observation + notes). Only add instrumentation when you need answers observation can't provide.
+
+| Category | Key Metrics |
+|----------|-------------|
+| **Session** | Duration, frequency, sessions-to-churn |
+| **Progression** | Completion rate per section, drop-off points |
+| **Difficulty** | Death/failure locations, retry counts per section |
+| **Economy** | Earning rate, spending patterns, stockpiling behavior |
+| **Feature usage** | Discovery rate, usage frequency, adoption timing |
+
+**Analytics tiers:** Tier 0 = manual observation (free, immediate). Tier 1 = local CSV logging (free, 1-2 hours setup). Tier 2 = free SDK (GameAnalytics, Unity Analytics). Tier 3 = custom backend (rarely needed for indie games).
+
+**Evidence chain:** Observation → Diagnosis → Hypothesis → Design Change → Verification. Without this chain, you're guessing.
+
 ## Deep Dives
 
 - `(see plan-audit/detailed-audits.md for MLP Scope Audit, Economy/Balance Audit, Difficulty Curve Assessment, Playtest Readiness Audit, Data Strategy Audit)`
 - `(see plan-audit/questionnaires.md for validated playtest frameworks and templates)`
-- `(see plan-audit/telemetry.md for data collection and analysis methods)`
 
 ## See Also
 

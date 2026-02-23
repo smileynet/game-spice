@@ -123,18 +123,47 @@ Flow state, difficulty curves, challenge types, accessibility, recovery mechanic
 - **Challenge types** — kinesthetic, strategic, puzzle, knowledge, social
 - **Accessibility** — removing barriers to reach challenge, not eliminating challenge
 
+## Player Motivation (SDT)
+
+Three innate psychological needs driving intrinsic motivation:
+
+| Need | Definition | Game Design Application |
+|------|-----------|----------------------|
+| **Competence** | Feeling effective and mastering challenges | Clear skill progression, appropriate difficulty, meaningful feedback |
+| **Autonomy** | Feeling in control of your choices | Multiple valid strategies, player-driven pacing, meaningful choices |
+| **Relatedness** | Feeling connected to others | Co-op, competition, shared experiences, NPCs that feel real |
+
+**The Overjustification Effect:** Adding extrinsic rewards to an intrinsically fun activity can *reduce* motivation. If players wouldn't do the activity without the reward, the activity needs redesign.
+
+## Game Feel, Juice & Onboarding
+
+**MLP Juice Checklist** — minimum feedback to make core actions feel good:
+- Screen shake on impactful actions
+- Hit pause (1-3 frames freeze on contact)
+- Sound effect for every player action
+- Visual feedback for state changes (damage flash, pickup glow)
+- Particle effects on key moments
+
+**The Juice-Is-Not-A-Substitute Rule:** Juice makes a fun game feel amazing. It does NOT make an unfun game fun. Priority: fun mechanics → functional feedback → juice.
+
+**Onboarding Patterns:**
+
+| Pattern | Best For |
+|---------|----------|
+| **Learn-by-doing** (preferred for MLP) | Action games, platformers — first room teaches ONE mechanic, no text walls |
+| **Gated complexity** | RPGs, strategy — lock advanced mechanics until basics mastered |
+| **Guided tutorial** | Complex systems, sims — explicit instructions with practice |
+
 ## Deep Dives
 
-- `(see design-frameworks/motivation.md for Player Motivation: SDT, intrinsic vs extrinsic, overjustification effect)`
 - `(see design-frameworks/systems.md for Systems Thinking: feedback loops, emergence, interaction planning)`
 - `(see design-frameworks/narrative.md for Narrative Integration: 4 levels, choosing integration level, ludonarrative dissonance)`
-- `(see design-frameworks/polish.md for Game Feel & Juice: MLP juice checklist, onboarding patterns and guidelines)`
 - `(see design-frameworks/progression.md for Progression Systems: types, horizontal vs vertical, meta-progression, red flags)`
 
 ## See Also
 
 - **scoping** — Apply these frameworks to scope decisions `(see scoping → MLP Scoping Process)`
-- **antipatterns** — Common mistakes when applying these frameworks incorrectly `(see antipatterns/design-antipatterns.md → Kitchen Sink Design)`
+- **antipatterns** — Common mistakes when applying these frameworks incorrectly `(see antipatterns/catalog.md → Kitchen Sink Design)`
 - **economy-design** — Resource systems, taps & sinks, progression curves `(see economy-design)`
 - **playtesting** — Validate design decisions with real players `(see playtesting → The 3-Question Framework)`
 - **scenario-walkthrough** — Narrate the player experience to test framework application `(see scenario-walkthrough → The 5-Beat Structure)`

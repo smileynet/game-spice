@@ -17,7 +17,7 @@ Every mechanic in your game needs sufficient meaningful application — not a ra
 
 **MLP content target:** Minimum needed to prove core loop is fun. Usually 1-3 levels or zones.
 
-**Critical rule:** If core loop isn't fun with minimum content, more content won't save it. Fix the loop first, then build content around the proven loop `(see antipatterns/scope-antipatterns.md → Premature Content)`.
+**Critical rule:** If core loop isn't fun with minimum content, more content won't save it. Fix the loop first, then build content around the proven loop `(see antipatterns/catalog.md → Premature Content)`.
 
 ## Kishōtenketsu (Nintendo Pacing)
 
@@ -87,6 +87,6 @@ The best tutorials don't feel like tutorials. The environment teaches through pl
 - No text, no UI prompts, no tutorial screens
 - Each puzzle room introduces exactly one concept
 - Player never breaks immersion to learn
-- `(see design-frameworks/polish.md → Onboarding Patterns)`
+- `(see design-frameworks → Game Feel, Juice & Onboarding)`
 
 **Cost consideration:** Environmental teaching requires level design skill and iteration time. Budget 2-3x more time for early levels that serve as tutorials.

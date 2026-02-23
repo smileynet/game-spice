@@ -1,7 +1,0 @@
-2026-02-13 | brainstorm | Plugin name → "game" in plugin.json | Shorter /game:* prefix; repo stays "game-spice"
-2026-02-13 | brainstorm | Full plugin (commands + agents), not just skills | Need interactive tools and serve-phase review
-2026-02-13 | brainstorm | Include implementation skill in MLP | Fills cook-phase gap, prescriptive not diagnostic
-2026-02-13 | brainstorm | MLP = 2 commands + 1 agent + 1 skill | All 3 highest-value items plus implementation guidance
-2026-02-13 | scope | Sequential feature dependencies (1.1→1.2→1.3→1.4→1.5) | Maintains focus, one capability at a time
-2026-02-13 | scope | game-reviewer follows sous-chef output format | Consistent review output across agents
-2026-02-13 | scope | Commands produce artifacts in docs/planning/ | Reusable outputs, not just console output

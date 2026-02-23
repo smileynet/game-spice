@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `/game:build-plan` now generates a concise **design brief** by default (~80 lines). Use `--full` for the complete GDD + tech spec.
+- `/game:decisions` merged into `/game:status --decisions` — browse and filter decisions from the status command.
+
+### Removed
+
+- `/game:balance-check` — economy and difficulty auditing is now part of `/game:status` and `/plan-audit`.
+- `/game:decisions` as standalone command — use `/game:status --decisions` instead.
+
 ## [0.5.1] - 2026-02-16
 ### Fixed
 
@@ -26,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`/game:simulate`** — Prove your core loop works before writing code. Plays through your game moment-by-moment with ASCII wireframes, asks concrete design questions, and records decisions. Coverage-driven pacing walks through five beats (first contact → learning the verb → core loop → rising stakes → session end) so you know when the design is solid enough to build.
 - **`/game:build-plan`** — Generate a Game Design Document and Technical Specification from your simulation session. The GDD covers design pillars, mechanics, wireframes, and content requirements — with an Assumptions to Validate section flagging AI-suggested decisions for playtesting. The tech spec provides architecture recommendations and a phased implementation plan with vertical-slice task breakdowns.
 - **`/game:status`** — Inspect your current session at a glance. Shows phase, simulation progress, 5-beat coverage scores, recent decisions, and session flags — proving state persistence works across conversations.
-- **`/game:decisions`** — Browse and search past design decisions with provenance visibility. Filter by category, phase, or origin to distinguish your own decisions from AI-suggested ones.
+- **`/game:status --decisions`** — Browse and filter design decisions with provenance visibility. Filter by category, phase, or origin to distinguish your own decisions from AI-suggested ones.
 - **`/game:help`** — Command reference showing the full design workflow, quick start guide, and passive skill overview.
 - Simulations now include ASCII wireframes with genre-specific starter patterns (platformer, top-down RPG, HUD, inventory, flow diagrams) and per-project symbol conventions.
 
@@ -37,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **Interactive Commands**
 
 - **`/game:walkthrough`** — Walk through your game moment-by-moment before writing a line of code. Generates a 5-beat scenario that reveals gaps in input mapping, feedback loops, and pacing so you can fix design problems on paper instead of in a debugger.
-- **`/game:balance-check`** — Audit your economy and difficulty design on demand. Catches resource leaks, broken progression curves, and difficulty spikes early — before playtesters hit them.
+- **Economy & difficulty auditing** — Audit resource systems and challenge curves during plan review. Catches leaks, broken progression, and difficulty spikes early.
 
 **Automated Code Review**
 

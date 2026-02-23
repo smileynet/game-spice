@@ -108,4 +108,4 @@ Before building, verify the plan accounts for:
 - [ ] Analysis approach planned (qualitative, quantitative, or both)
 - [ ] Before/after measurement defined for changes
 
-`(see plan-audit/telemetry.md for collection and analysis methods)`
+`(see plan-audit → What to Measure)`

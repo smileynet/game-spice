@@ -2,7 +2,7 @@
 
 ## What Makes a Good Vertical Slice?
 
-A vertical slice is a thin, end-to-end cut through all 5 game layers — from player input down to consequence. `(see scoping/tracer-bullets.md → 5-Layer Vertical Slice)`
+A vertical slice is a thin, end-to-end cut through all 5 game layers — from player input down to consequence. `(see scoping → Tracer Bullet Methodology)`
 
 **How the terms relate:**
 - **Tracer bullet** = your first vertical slice. Proves the architecture works.
@@ -214,6 +214,6 @@ Game jams reward fewer, thicker slices. A 48-hour jam gets 2-3 big slices, not 1
 
 ### Cross-References
 
-- **Scope antipatterns:** "Premature Content" is what happens when you build horizontal content instead of vertical slices. "Everything Sounds Fun" leads to The Feature Buffet. `(see antipatterns/scope-antipatterns.md)`
+- **Scope antipatterns:** "Premature Content" is what happens when you build horizontal content instead of vertical slices. "Everything Sounds Fun" leads to The Feature Buffet. `(see antipatterns/catalog.md → Scope Anti-Patterns)`
 - **MoSCoW prioritization:** Vertical slices help you identify what's truly Must Have vs Should Have — if a Must Have feature can't be expressed as a playtestable slice, it might be a system masquerading as a feature. `(see scoping/prioritization.md)`
-- **Tracer bullets:** Your first slice. Start here. `(see scoping/tracer-bullets.md)`
+- **Tracer bullets:** Your first slice. Start here. `(see scoping → Tracer Bullet Methodology)`

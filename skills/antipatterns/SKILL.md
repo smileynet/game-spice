@@ -92,9 +92,7 @@ Run this AFTER planning is complete:
 
 ## Deep Dives
 
-- `(see antipatterns/scope-antipatterns.md for Everything Sounds Fun, Feature/Future/Scope Creep, Premature Content)`
-- `(see antipatterns/design-antipatterns.md for Design in Isolation, Juice Addiction, Kitchen Sink Design, GDD Tome)`
-- `(see antipatterns/timing-antipatterns.md for Core Loop Neglect, Second System Effect, Narrative/Mechanics Disconnect)`
+- `(see antipatterns/catalog.md for full anti-pattern descriptions: scope, design, and timing anti-patterns with fixes and tests)`
 
 ## See Also
 

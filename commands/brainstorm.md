@@ -118,13 +118,13 @@ AskUserQuestion(questions=[{
 
 **If the user chose "I need inspiration":**
 
-Read the mechanics palette and exploration prompts for conversation starters:
+Read the mechanics palette for conversation starters:
 
 ```
-Read(file_path="skills/mechanics-palette/exploration-prompts.md")
+Read(file_path="skills/mechanics-palette/SKILL.md")
 ```
 
-Use 2-3 prompts from the exploration process to spark ideas. Present them conversationally, then ask the user to describe what resonates. Do NOT turn this into a category-selection menu.
+Use 2-3 prompts from the Guided Exploration Prompts to spark ideas. Present them conversationally, then ask the user to describe what resonates. Do NOT turn this into a category-selection menu.
 
 After getting inspiration, re-ask the open-ended question above.
 
@@ -196,24 +196,11 @@ For all other missing fields (scope, platform, input method, team size), use sen
 
 ### Step 5: Core Loop Validation
 
-Read the core loop validation checklist:
-
 ```
 Read(file_path="skills/scoping/SKILL.md")
 ```
 
-Use the **one-sentence test** from scoping:
-
-> "The player [VERB]s [OBJECT] to [REWARD], which lets them [REINVEST]."
-
-Formulate the core loop in this format. Then check against the validation checklist:
-
-- [ ] Can be stated in one sentence
-- [ ] Involves player agency (not watching)
-- [ ] Has a clear reinvestment path
-- [ ] Is inherently repeatable
-- [ ] Can be prototyped with programmer art
-- [ ] Is fun with zero content
+Formulate the core loop using the **one-sentence test** and check against the **Core Loop Validation Checklist** from scoping `(see scoping → Core Loop Identification)`.
 
 **If the core loop passes:** Present the one-sentence version to the user for confirmation.
 
@@ -271,129 +258,29 @@ AskUserQuestion(questions=[{
 
 ### Step 8: Write Outputs
 
-Write the output files. Read templates first:
+Read templates first, then write all output files:
 
 ```
 Read(file_path="templates/concept.yaml")
 ```
 
-**8a: concept.yaml**
-
-Populate every field from the extracted/confirmed data:
+**8a: concept.yaml** — Populate using `templates/concept.yaml` schema. Fill all fields from extracted/confirmed data. Leave `""` only if genuinely unknown.
 
 ```
 Write(file_path=".game-design/<slug>/concept.yaml", content=<populated concept>)
 ```
 
-Use the exact schema from the template. Fill in all fields. Leave empty string `""` only if genuinely unknown after the full conversation.
-
-Example:
-```yaml
-genre: "roguelike"
-subgenre: "action"
-
-core_loop: "Grapple through procedurally generated caverns, fight creatures, collect upgrades, descend deeper"
-
-aesthetics:
-  - challenge
-  - discovery
-  - sensation
-
-platform: "PC"
-input_method: "keyboard+mouse"
-
-mechanics:
-  - name: "grapple"
-    description: "Launch a hook to swing between platforms and traverse gaps"
-  - name: "combat"
-    description: "Melee and ranged attacks against cave creatures"
-
-scope:
-  target: "small"
-  team_size: 1
-  engine: "godot"
-
-pitch: "A roguelike where you grapple through dark procedural caverns, fighting creatures and collecting upgrades as you descend into the unknown."
-```
-
-**8b: brainstorm.md**
-
-Write a design brief summarizing the brainstorm session. This is a human-readable document, not YAML.
+**8b: brainstorm.md** — Write using `templates/brainstorm-output.md` structure. Include: elevator pitch, one-sentence core loop with validation summary, aesthetics (MDA mapping), key mechanics, scope, design notes from Step 6, open questions, and decision summary with origin breakdown.
 
 ```
 Write(file_path=".game-design/<slug>/brainstorm.md", content=<design brief>)
 ```
 
-Structure:
-```markdown
-# <Title> — Design Brief
-
-## Elevator Pitch
-
-<pitch — 1-3 sentences>
-
-## Core Loop
-
-<one-sentence core loop>
-
-**Validation:** <pass/fail summary against checklist>
-
-## Aesthetics
-
-Target experience: <aesthetics in plain language>
-
-MDA mapping: <mechanics> → <dynamics> → <aesthetics>
-
-## Key Mechanics
-
-<list each mechanic with a one-line description>
-
-## Scope
-
-- Target: <scope target>
-- Team: <team size>
-- Engine: <engine>
-- Platform: <platform> (<input method>)
-
-## Design Notes
-
-<Any enrichment observations from Step 6 — mashup patterns, mechanic synergies, risks>
-
-## Open Questions
-
-<Anything that remains unresolved or worth revisiting in simulation>
-
-## Decision Summary
-
-<count> decisions logged. Origins: <user>/<suggested>/<inferred> breakdown.
-```
-
-**8c: Seed decisions.log**
-
-Append decisions to the existing decisions.log (header row created by `/game:start`).
-
-```
-Read(file_path=".game-design/<slug>/decisions.log")
-```
-
-Append one row per decision. Each decision corresponds to a concept.yaml field established during the brainstorm.
-
-Row format: `id|date|phase|category|origin|decision|rationale|alternatives`
-
-- `id`: Sequential integer starting from 1 (or continuing from the last entry)
-- `date`: Today's date (ISO 8601)
-- `phase`: `brainstorm`
-- `category`: The concept field (e.g., `genre`, `core_loop`, `mechanics`, `scope.target`)
-- `origin`: `user`, `suggested`, or `inferred`
-- `decision`: What was decided (e.g., "Genre: roguelike")
-- `rationale`: Why (e.g., "User described grappling through caverns with permadeath")
-- `alternatives`: Other options considered, or empty
+**8c: Seed decisions.log** — Append one row per decision (one per concept.yaml field established). Row format: `id|date|phase|category|origin|decision|rationale|alternatives`. Phase = `brainstorm`. Apply the provenance rules from Step 3.
 
 ```
 Write(file_path=".game-design/<slug>/decisions.log", content=<header + all rows>)
 ```
-
-Count decisions by origin for the state update.
 
 ### Step 9: Update State
 

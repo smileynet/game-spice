@@ -1,16 +1,19 @@
 ---
-description: Show the current state of your game design session
-argument-hint: [slug]
+description: Show session state, progress, and design decisions
+argument-hint: [slug] [--decisions [filter]]
 allowed-tools: Read, Glob, Grep
 ---
 
 ## Summary
 
-**Session status dashboard — show phase, progress, coverage, and recent decisions.** Read-only inspection of the active game design session.
+**Session status dashboard — show phase, progress, coverage, and decisions.** Read-only inspection of the active game design session.
 
-**Arguments:** `$ARGUMENTS` (optional) - Session slug to inspect (defaults to the most recently updated session)
+**Arguments:** `$ARGUMENTS` (optional)
+- Session slug to inspect (defaults to most recently updated session)
+- `--decisions` — show full decision log instead of dashboard
+- `--decisions <filter>` — filter decisions by category, phase, or origin
 
-**Output:** Structured summary of the session's current state.
+**Output:** Session dashboard (default) or full decision log (with `--decisions`).
 
 ---
 
@@ -266,6 +269,58 @@ View another: /game:status <slug>
 
 Only show this section if there are 2+ sessions. List up to 4 other sessions, sorted by `updated` descending.
 
+## Decisions View (--decisions)
+
+If `$ARGUMENTS` contains `--decisions`, skip the dashboard and show the full decision log instead. Steps 1-2 (find session, load state) remain the same.
+
+### Parse and Filter
+
+Load `.game-design/<slug>/decisions.log` (pipe-delimited, header: `id|date|phase|category|origin|decision|rationale|alternatives`).
+
+If a filter word follows `--decisions`, determine the field:
+- **Phase values:** `brainstorm`, `simulate`, `build-plan`
+- **Origin values:** `user`, `suggested`, `inferred`
+- **Category:** anything else (e.g., `genre`, `mechanics`, `core_loop`)
+
+Filter rows by the matching field (case-insensitive).
+
+**If no decisions exist or filter matches nothing:**
+
+```
+NO DECISIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<If no log: "No design decisions logged yet. Decisions are recorded during brainstorm and simulation.">
+<If filter matched nothing: "No decisions matching '<filter>'. Available categories: <list>">
+```
+
+### Present Decision Table
+
+Mark provenance: `suggested` and `inferred` origins get prefixed on the decision text.
+
+```
+DECISIONS<if filtered: " — <filter>">
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Session: <title>
+<If filtered: "Showing <filtered_count> of <total_count> decisions">
+
+  ID   │ Date       │ Category    │ Origin    │ Decision                        │ Rationale
+  ─────┼────────────┼─────────────┼───────────┼─────────────────────────────────┼──────────────────
+  ...
+
+SUMMARY
+───────────────────────────────────────────
+Total: <count>  By origin: user <n>, suggested <n>, inferred <n>
+By category: <category>: <count>, ...
+```
+
+If >50% of decisions are AI-proposed (suggested + inferred), append:
+
+```
+⚠ <pct>% of decisions were AI-proposed. Review during playtesting.
+```
+
 ## Error Handling
 
 **If state.yaml has missing or unexpected fields:**
@@ -283,6 +338,9 @@ Consider re-initializing: /game:start
 ## Example Usage
 
 ```
-/game:status                    # Show most recently updated session
-/game:status dungeon-crawler    # Show specific session by slug
+/game:status                           # Show most recently updated session
+/game:status dungeon-crawler           # Show specific session by slug
+/game:status --decisions               # Full decision log
+/game:status --decisions mechanics     # Filter by category
+/game:status --decisions suggested     # Filter by origin
 ```

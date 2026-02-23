@@ -24,20 +24,9 @@ Audit game code architecture for correctness, performance, and maintainability. 
 
 ## Game Loop Patterns
 
-**The correct answer for most games: Fixed Update with Variable Rendering.**
+**The correct answer for most games: Fixed Update with Variable Rendering** `(see implementation → Game Loop Setup for the accumulator pattern and code)`.
 
-Decouples physics from rendering. Physics runs at a fixed rate using an accumulator. Rendering interpolates between states with alpha. Deterministic, framerate-independent, network-syncable.
-
-### Four Patterns Compared
-
-| Pattern | When Correct | Critical Flaw |
-|---------|-------------|---------------|
-| Fixed timestep, no sync | Never (game speed = hardware speed) | Unplayable on fast/slow machines |
-| Fixed with sleep | Mobile/battery-sensitive | Frame drops = game slowdown |
-| Variable delta time | Very simple games, no physics | **Physics becomes framerate-dependent** (springs explode, tunneling) |
-| **Fixed update + variable render** | Most games | Complexity of interpolation (worth it) |
-
-### Architecture Smells
+### Audit Smells
 
 | Smell | What's Wrong | Fix |
 |-------|-------------|-----|

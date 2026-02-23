@@ -88,11 +88,27 @@ How a player recovers from failure shapes perceived difficulty more than the cha
 | **Rewind** | None (undo) | Low | Puzzle, strategy (Braid, Into the Breach) |
 | **Soft fail** | Variable | Low-Medium | Story games (fail forward) |
 
+## Difficulty Anti-Patterns
+
+**Fake difficulty** = challenge that doesn't come from interesting gameplay decisions.
+
+| Type | Example | Fix |
+|------|---------|-----|
+| **Enemy spam** | 50 enemies where 5 would do | Fewer, smarter enemies |
+| **Unclear feedback** | Player doesn't know what killed them | Clear death cause indicators |
+| **Unfair camera** | Can't see threats before they hit | Camera shows relevant threats |
+| **Input lag** | Controls feel sluggish | Responsive, tight controls |
+| **Hidden information** | Required knowledge never provided | Teach before testing |
+| **RNG deaths** | Unavoidable random damage | Ensure every death is avoidable |
+
+**The fairness test:** After each death, "Could the player have succeeded with better play?" If yes → fair. If no → fake difficulty.
+
+**Other anti-patterns:** Developer blind spot (you're too good at your own game), number inflation (prefer relatable HP ranges), difficulty as content padding (grind walls), punishing experimentation (reduce cost of trying new strategies).
+
 ## Deep Dives
 
 - `(see difficulty-design/difficulty-modes.md for Traditional Difficulty Modes, Assist Mode Design (Celeste Model), Accessibility Planning)`
 - `(see difficulty-design/design-depth.md for Difficulty Curve Guidelines, Recovery Design Guidelines, Boss Design Principles)`
-- `(see difficulty-design/anti-patterns.md for Fake Difficulty Taxonomy, developer blind spot, number inflation, grind gates)`
 
 ## See Also
 

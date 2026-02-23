@@ -24,7 +24,7 @@ Narrate:
 - The first time they use it successfully
 - The feedback they receive (what do they see/hear?)
 
-**Key question:** Could a player discover this without text instructions? `(see design-frameworks/polish.md → Onboarding Patterns)`
+**Key question:** Could a player discover this without text instructions? `(see design-frameworks → Game Feel, Juice & Onboarding)`
 
 **Good example:** "The gap is too wide to walk across. The player notices the character's legs bend slightly near edges. They press space — the character jumps. They clear the gap. A subtle chime plays."
 

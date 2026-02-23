@@ -48,7 +48,7 @@ Rationale: <!-- why this engine fits the project -->
 
 <!-- First end-to-end vertical slice through all 5 layers.
      Goal: prove the architecture works for one action.
-     Source: scoping/tracer-bullets.md → 5-Layer Vertical Slice -->
+     Source: scoping → Tracer Bullet Methodology -->
 
 **Goal:** <!-- one sentence describing the tracer bullet -->
 

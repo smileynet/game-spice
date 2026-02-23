@@ -49,16 +49,14 @@ COMMANDS
     /game:start [title]       Start a new session or resume an existing one
     /game:brainstorm          Explore ideas, define concept, log decisions
     /game:simulate            Play through the core loop in ASCII turns
-    /game:build-plan          Generate GDD and tech spec from session data
-    /game:status [slug]       Show session progress and coverage
+    /game:build-plan          Generate design brief (or --full for GDD + tech spec)
+    /game:status [slug]       Show session progress, coverage, and decisions
 
   Utilities:
-    /game:decisions           Browse and search design decisions
     /game:help                Show this reference
 
-  Complementary (available now, work outside sessions):
+  Complementary (available now, works outside sessions):
     /game:walkthrough [name]  Generate a 5-beat scenario walkthrough
-    /game:balance-check       Audit economy balance and difficulty curves
 
 ───────────────────────────────────────────
 QUICK START
@@ -79,10 +77,10 @@ QUICK START
 
   Check progress any time:
        /game:status
+       /game:status --decisions
 
-  Run a walkthrough or balance audit any time:
+  Run a walkthrough any time:
        /game:walkthrough first-session
-       /game:balance-check --report
 
 ───────────────────────────────────────────
 SKILLS (PASSIVE)

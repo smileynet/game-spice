@@ -49,5 +49,5 @@ Plan content scope before building. Content is the most expensive part of most g
 - **scenario-walkthrough** — Narrate content before building it `(see scenario-walkthrough → The 5-Beat Structure)`
 - **economy-design** — Content as economy scope `(see economy-design)`
 - **antipatterns** — Premature Content anti-pattern `(see antipatterns)`
-- **design-frameworks** — Onboarding patterns for tutorial level design `(see design-frameworks/polish.md)`
+- **design-frameworks** — Onboarding patterns for tutorial level design `(see design-frameworks → Game Feel, Juice & Onboarding)`
 - **playtesting** — Content batching should match playtest cadence `(see playtesting)`

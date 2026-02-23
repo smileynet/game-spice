@@ -132,75 +132,19 @@ We'll walk through the 5-Beat Structure:
 Let's begin with First Contact.
 ```
 
-Create initial `game-state.yaml`:
+Initialize simulation files:
 
 ```
-Write(file_path=".game-design/<slug>/simulation/game-state.yaml", content=<initial game state>)
+Write(file_path=".game-design/<slug>/simulation/game-state.yaml", content=<initial state: turn 0, beat "first_contact", empty player/world/elements>)
+Write(file_path=".game-design/<slug>/simulation/legend.yaml", content=<seed with genre-appropriate symbols from ascii-wireframing skill>)
 ```
-
-Initial game-state.yaml format:
-
-```yaml
-# Game State — tracks the simulated game world
-# Updated each turn by /game:simulate
-
-turn: 0
-beat: "first_contact"
-
-# Player state (grows as simulation reveals game elements)
-player: {}
-
-# World state (grows as simulation reveals game elements)
-world: {}
-
-# Active elements introduced during simulation
-elements: []
-```
-
-Create initial `legend.yaml`:
-
-```
-Write(file_path=".game-design/<slug>/simulation/legend.yaml", content=<initial legend>)
-```
-
-Initial legend.yaml format — seed from concept if possible:
-
-```yaml
-# ASCII Legend — project symbol conventions
-# Source of truth for all wireframes in this session
-# Updated as new game elements appear during simulation
-
-# Seeded from concept — adjust as simulation evolves
-```
-
-If the concept mentions a genre, seed with genre-appropriate starter symbols from the ascii-wireframing skill. For example, a roguelike might start with:
-
-```yaml
-player: "@"
-wall: "#"
-floor: "."
-```
-
-A platformer might start with:
-
-```yaml
-player: "@"
-platform: "="
-ground: "#"
-spike: "^"
-collectible: "*"
-```
-
-Keep it minimal — the legend grows organically during simulation.
-
-Create initial `coverage.yaml` from the template:
 
 ```
 Read(file_path="templates/coverage.yaml")
-Write(file_path=".game-design/<slug>/simulation/coverage.yaml", content=<coverage template contents>)
+Write(file_path=".game-design/<slug>/simulation/coverage.yaml", content=<coverage template>)
 ```
 
-This initializes the detailed coverage tracking schema with 5-Beat and System coverage areas, all starting at `uncovered` with confidence `0.0`.
+Keep the legend minimal — it grows organically during simulation. Seed from genre conventions (e.g., roguelike: `@ # .`, platformer: `@ = # ^ *`).
 
 **If turn files exist (continuing):**
 
@@ -437,128 +381,35 @@ Write(file_path=".game-design/<slug>/decisions.log", content=<updated log>)
 
 ### Step 7: Update State Files
 
-After recording decisions, update all state files:
+After recording decisions, update all state files. Write using the template structures from `templates/simulation-turn.md`.
 
-**7a: Write the turn file**
+**7a: Write turn file and wireframe**
 
 ```
 Write(file_path=".game-design/<slug>/simulation/turns/turn-<NNN>.md", content=<populated turn template>)
-```
-
-Use the simulation-turn template format. `<NNN>` is zero-padded to 3 digits (001, 002, etc.).
-
-Fill in all sections:
-- Turn number, beat, and focus
-- The ASCII wireframe with inline legend
-- The narrative description
-- The questions asked
-- The user's responses (in "Designer Response" section)
-- Decisions made this turn (in "Decisions" section)
-
-**7b: Extract the wireframe**
-
-Save the ASCII wireframe as a standalone file for easy reference:
-
-```
 Write(file_path=".game-design/<slug>/simulation/wireframes/wf-<NNN>-<description>.txt", content=<wireframe with legend>)
 ```
 
-`<description>` is a short kebab-case label for the wireframe content (e.g., `first-screen`, `combat-encounter`, `inventory-open`).
+`<NNN>` is zero-padded to 3 digits. `<description>` is a short kebab-case label (e.g., `first-screen`, `combat-encounter`).
 
-**7c: Update legend.yaml**
+**7b: Update legend and game-state**
 
-If new symbols were introduced this turn, append them to the legend:
+If new symbols were introduced, append to `legend.yaml`. Update `game-state.yaml`: increment turn, update beat, player state, world state, and elements.
 
-```
-Read(file_path=".game-design/<slug>/simulation/legend.yaml")
-```
+**7c: Update coverage**
 
-Add new entries and write back:
+Read `coverage.yaml`. For each beat explored this turn:
+- Add turn to the beat's `turns` list
+- Recalculate confidence: `+0.2` per turn, `+0.1` per `user` decision, `+0.05` per `suggested`. Cap at `1.0`
+- Derive status: `<0.3` = uncovered, `0.3–0.69` = partial, `≥0.7` = covered
 
-```
-Write(file_path=".game-design/<slug>/simulation/legend.yaml", content=<updated legend>)
-```
+Apply same logic to system coverage (base `+0.15` per turn, `+0.1` per decision).
 
-**7d: Update game-state.yaml**
+**Transition criteria:** Minimum = all beats `≥0.3`. Recommended = all beats `≥0.7` and all systems `≥0.3`.
 
-Update the simulated game world state based on this turn's events:
+**7d: Update state.yaml**
 
-```
-Read(file_path=".game-design/<slug>/simulation/game-state.yaml")
-```
-
-Update:
-- `turn`: increment by 1
-- `beat`: current beat name
-- `player`: any player state changes (new abilities, inventory, position)
-- `world`: any world state changes (areas discovered, NPCs encountered)
-- `elements`: any new game elements introduced
-
-```
-Write(file_path=".game-design/<slug>/simulation/game-state.yaml", content=<updated game state>)
-```
-
-**7e: Update coverage**
-
-Update both the detailed `coverage.yaml` and the summary in `state.yaml`.
-
-```
-Read(file_path=".game-design/<slug>/simulation/coverage.yaml")
-```
-
-**Calculate confidence for the current beat:**
-
-For each beat explored this turn:
-1. Add the turn number to the beat's `turns` list
-2. Recalculate confidence:
-   - Base: `+0.2` per turn that explores the beat (from `turns` list length)
-   - Bonus: `+0.1` per decision with origin `user` recorded in the beat
-   - Bonus: `+0.05` per decision with origin `suggested`
-   - No bonus for `inferred` decisions (unconfirmed)
-   - Cap at `1.0`
-3. Derive status from confidence:
-   - `confidence < 0.3` → `uncovered`
-   - `confidence 0.3–0.69` → `partial`
-   - `confidence >= 0.7` → `covered`
-
-**Update system coverage** if the turn touched any cross-cutting systems:
-
-For each system explored this turn:
-1. Add the turn number to the system's `turns` list
-2. Recalculate confidence:
-   - Base: `+0.15` per turn that touches the system
-   - Bonus: `+0.1` per decision related to the system
-   - Cap at `1.0`
-3. Derive status using the same thresholds as beats
-
-```
-Write(file_path=".game-design/<slug>/simulation/coverage.yaml", content=<updated coverage>)
-```
-
-**Check transition criteria** from coverage.yaml:
-- **Minimum** met: all beats have confidence `>= 0.3` (all at least `partial`)
-- **Recommended** met: all beats have confidence `>= 0.7` (all `covered`) and all systems `>= 0.3`
-
-**Update state.yaml summary:**
-
-```
-Read(file_path=".game-design/<slug>/state.yaml")
-```
-
-Update:
-- `progress.turn_count`: increment by 1
-- `progress.last_turn`: filename of the turn just completed
-- `progress.beats_covered`: count of beats at `covered` status
-- `coverage.<beat>`: sync status from coverage.yaml (derived from confidence)
-- `decisions.total`: new total count
-- `decisions.by_origin.user`: updated count
-- `decisions.by_origin.suggested`: updated count
-- `decisions.by_origin.inferred`: updated count
-- `updated`: today's date
-
-```
-Write(file_path=".game-design/<slug>/state.yaml", content=<updated state>)
-```
+Sync `progress.turn_count`, `progress.beats_covered`, `coverage.<beat>`, `decisions.*` counts, and `updated` date.
 
 ### Step 8: Multi-Turn Flow
 
@@ -631,32 +482,8 @@ Read(file_path=".game-design/<slug>/decisions.log")
 
 **9b: Update state for build-plan phase**
 
-```
-Read(file_path=".game-design/<slug>/state.yaml")
-```
-
-Update:
-- `phase`: change to `build-plan`
-- `flags.plan_ready`: `true`
-- `updated`: today's date
-
-```
-Write(file_path=".game-design/<slug>/state.yaml", content=<updated state>)
-```
-
-Also update sessions index:
-
-```
-Read(file_path=".game-design/sessions.yaml")
-```
-
-Update the matching entry:
-- `phase`: `build-plan`
-- `updated`: today's date
-
-```
-Write(file_path=".game-design/sessions.yaml", content=<updated index>)
-```
+Update `state.yaml`: set `phase` to `build-plan`, `flags.plan_ready` to `true`, `updated` to today.
+Update `sessions.yaml`: set matching entry's `phase` to `build-plan` and `updated` to today.
 
 **9c: Present completion summary**
 

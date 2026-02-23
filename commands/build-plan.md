@@ -1,18 +1,20 @@
 ---
-description: Generate a Game Design Document and Technical Specification from simulation data
-argument-hint:
+description: Generate a design brief (or full GDD + tech spec) from simulation data
+argument-hint: [--full]
 allowed-tools: Read, Write, Glob, Grep, AskUserQuestion, Skill
 ---
 
 ## Summary
 
-**Output generation — transform simulation data into a GDD and tech spec.** Part of the session lifecycle: start → brainstorm → simulate → **build-plan**.
+**Output generation — transform simulation data into actionable design documents.** Part of the session lifecycle: start → brainstorm → simulate → **build-plan**.
 
-**Arguments:** None (operates on the active session from `/game:start`)
+**Arguments:** `$ARGUMENTS` (optional)
+- Default: generate a concise **design brief** (~80 lines) — core loop, MLP features, key decisions, technical constraints, first vertical slice
+- `--full`: generate the complete **GDD + tech spec** (monolithic documents with full detail)
 
-**Output:** `gdd.md`, `tech-spec.md` in `.game-design/<slug>/output/`, updated `state.yaml`.
+**Output:** `design-brief.md` (default) or `gdd.md` + `tech-spec.md` (with `--full`) in `.game-design/<slug>/output/`, updated `state.yaml`.
 
-**CRITICAL:** Populate documents from session data only. Flag gaps with placeholders rather than inventing content the simulation did not explore. Every section must trace back to concept.yaml, decisions.log, turn files, or wireframes.
+**CRITICAL:** Populate documents from session data only. Flag gaps with placeholders rather than inventing content the simulation did not explore.
 
 ---
 
@@ -197,75 +199,27 @@ Data loaded:
 Generating plan...
 ```
 
-### Step 3: Generate GDD
+**If `$ARGUMENTS` does NOT contain `--full`:** Skip to Step 3B (Design Brief).
 
-Populate the GDD template (`templates/gdd.md`) using the loaded session data. Map simulation data to each GDD section:
+**If `$ARGUMENTS` contains `--full`:** Continue to Step 3 (Full GDD).
 
-**3a: Design Pillars**
+### Step 3: Generate GDD (--full only)
 
-Derive 2-4 design pillars from:
-- `brainstorm.md` → Aesthetics and MDA mapping
-- `decisions.log` → recurring themes across decision categories
-- `concept.yaml` → aesthetics list
+Populate the GDD template (`templates/gdd.md`) using session data. Each GDD section maps to specific session artifacts:
 
-Each pillar: bold name + one-sentence description of what it means for design decisions.
+| GDD Section | Primary Source |
+|-------------|---------------|
+| Design Pillars | `concept.yaml` aesthetics + `decisions.log` recurring themes |
+| Success Criteria | Core loop validation + simulation decisions on "done" |
+| Game Overview | `concept.yaml` (pitch, platform, core_loop) |
+| Mechanics | `decisions.log` mechanic category + `concept.yaml` mechanics |
+| Game World | Simulation turns + wireframes |
+| UI/UX | Wireframe files + `legend.yaml` + input decisions |
+| Economy & Progression | Only if simulation decisions touch these topics; omit otherwise |
+| Content Requirements | Coverage data + content-planning production ratios |
+| Appendix | Decision log summary, coverage report, wireframe index |
 
-**3b: Success Criteria**
-
-Define measurable criteria from:
-- The core loop validation ("Is it fun?")
-- Simulation decisions about what "done" looks like
-- Observable player behavior targets
-
-**3c: Game Overview**
-
-- **Concept**: from `concept.yaml → pitch`
-- **Audience**: from `concept.yaml → scope`, simulation decisions about target players
-- **Platform**: from `concept.yaml → platform, input_method`
-- **Core Loop**: from `concept.yaml → core_loop`, validated format from brainstorm
-
-**3d: Mechanics**
-
-Parse `decisions.log` for decisions in the `mechanic` category. Cross-reference with `concept.yaml → mechanics` and simulation turns.
-
-- **Core Mechanics**: mechanics essential to the core loop, with references to simulation turns that explored them
-- **Supporting Mechanics (MLP)**: up to 3 amplifier features (per the 3-Feature Rule from scoping)
-- **Deferred Mechanics**: mechanics identified but deferred beyond MLP, with reasons
-
-**3e: Game World**
-
-From simulation turns and wireframes:
-- **Setting**: world description, narrative context, tone
-- **Areas/Environments**: distinct areas encountered during simulation, with world structure type
-- **Visual Style**: art direction from wireframes and brainstorm aesthetics
-
-**3f: UI/UX**
-
-From wireframe files and simulation turns:
-- **HUD Layout**: primary gameplay HUD wireframe with legend (from legend.yaml)
-- **Screen Flow**: screen-to-screen navigation based on simulation turn progression
-- **Input Mapping**: from concept.yaml and simulation decisions about input
-- **Additional Wireframes**: all wireframes from `.game-design/<slug>/simulation/wireframes/`, organized by screen/state
-
-**3g: Economy & Progression**
-
-Include this section only if simulation decisions touch economy or progression topics. From decisions with category `progression` or related `mechanic` decisions:
-- **Resources**: source/sink/decision table
-- **Progression**: how the player advances
-
-Omit this section entirely if no economy-related decisions exist.
-
-**3h: Content Requirements**
-
-From simulation coverage and content-planning production ratios:
-- Content needed at each quality level (L0 tracer → L1 MLP → L2 alpha → L3 release)
-- Derived from what the simulation explored and what remains
-
-**3i: Appendix**
-
-- **Decision Log Summary**: group decisions by category, include origin. Reference full log.
-- **Coverage Report**: from coverage.yaml — beat and system status/confidence/turns
-- **Wireframe Index**: all wireframes with turn references and descriptions
+For Mechanics: list core mechanics (essential to loop), up to 3 MLP amplifiers `(see scoping → The 3-Feature Rule)`, and deferred mechanics with reasons.
 
 ### Step 4: Assumptions to Validate
 
@@ -315,123 +269,60 @@ Insert this section after the main content sections and before the Appendix:
 
 If a priority level has zero assumptions, omit that subsection.
 
-### Step 5: Generate Tech Spec
+### Step 3B: Generate Design Brief (default)
 
-Populate the tech spec template (`templates/tech-spec.md`) using the GDD output and simulation data:
+```
+Read(file_path="templates/design-brief.md")
+```
 
-**5a: Architecture Overview**
+Populate the design brief template using session data. The brief is concise (~80 lines) and focuses on what's needed to start building:
 
-- **Engine/Framework**: from `concept.yaml → scope.engine` with rationale derived from scope target, team size, platform, and genre
-- **Module Decomposition**: derive module structure from the GDD mechanics. Each core and supporting mechanic maps to a module.
+- **Core Loop**: one-sentence format from concept.yaml
+- **MLP Features**: 3 max, each with one-line description and why it amplifies the loop
+- **Key Decisions**: 5-10 most impactful decisions (mechanic > feedback > progression > content)
+- **Technical Constraints**: engine, platform, input, team size
+- **First Vertical Slice**: the tracer bullet — first thing to build
+- **Assumptions to Validate**: high-priority AI-proposed decisions only
+- **Deferred**: ideas parked for post-MLP with reasons
 
-**5b: Implementation Phases**
+```
+Write(file_path=".game-design/<slug>/output/design-brief.md", content=<populated brief>)
+```
 
-Follow the tracer bullet → core loop → content → polish progression from scoping:
+Skip to Step 6 (Quality Review).
 
-- **Phase 0: Tracer Bullet** — first end-to-end vertical slice through all 5 layers (input → core mechanic → game state → feedback → consequence). Use `scoping/tracer-bullets.md` for the 5-Layer Slice structure.
-- **Phase 1: Core Loop (MLP)** — complete core loop + up to 3 supporting features from the GDD. Goal: validate fun.
-- **Phase 2: Content Alpha** — add variety (enemies, levels, items). Derived from GDD Content Requirements L2 targets.
-- **Phase 3: Systems & Polish** — progression, meta-game, saves, UI polish. Derived from GDD Economy & Progression and deferred mechanics.
+### Step 5: Generate Tech Spec (--full only)
 
-**5c: Per-Phase Task Breakdown**
+Populate the tech spec template (`templates/tech-spec.md`) using GDD output and simulation data:
 
-Create detailed tasks for each phase. Each task is a vertical slice (player-facing outcome), not a horizontal system. Tasks follow the verb test: "Player [verb]s..."
-
-Include estimates, dependencies between tasks, and exit criteria.
-
-**5d: Technical Decisions**
-
-From simulation decisions in the technical category and engine constraints:
-- Rendering approach
-- State management pattern
-- Input handling
-- Audio approach
-- Save/load strategy
-
-**5e: Risk Register**
-
-From:
-- Brainstorm open questions
-- Simulation coverage gaps
-- Scope analysis
-- The Assumptions to Validate section
-
-Include:
-- Technical risks with likelihood, impact, and mitigation plans
-- Design risks (assumptions that could invalidate the plan)
+| Tech Spec Section | Source |
+|-------------------|--------|
+| Architecture Overview | `concept.yaml` engine + module decomposition from GDD mechanics |
+| Implementation Phases | Tracer bullet → Core Loop (MLP) → Content Alpha → Systems & Polish `(see scoping → Post-MLP Iteration Phases)` |
+| Per-Phase Tasks | Vertical slices (player-facing outcomes), not horizontal systems. Each task: "Player [verb]s..." |
+| Technical Decisions | Simulation decisions + engine constraints (rendering, state management, input, audio, saves) |
+| Risk Register | Brainstorm open questions + coverage gaps + Assumptions to Validate |
 
 ### Step 6: Quality Review
 
-Reference the plan-audit skill to validate completeness of the generated documents.
+Run the plan-audit checks against the generated documents `(see plan-audit → Game Plan Completeness Scorecard)`:
 
-Run the **Plan Completeness Scorecard** (10 checks):
-
-1. Core loop defined in one sentence
-2. Target aesthetics identified (1-2 from MDA)
-3. MLP has ≤3 features beyond core loop
-4. Tracer bullet defined
-5. Economy complexity decided
-6. Difficulty approach selected
-7. Scenario walkthrough written (simulation acts as this)
-8. Playtest plan exists
-9. Over-scope score ≤2
-10. Content scope estimated with production ratios
-
-Run the **Core Loop Validation Tests**:
-- Sentence Test
-- Verb Chain Test
-- Reinvestment Test
-- 30-Second Test
-
-Run the **GDD Actionability Test** (7 checks, score 1-5 each):
-1. Verb Test
-2. Prototype Test
-3. Decision Test
-4. Feedback Test
-5. Scope Test
-6. Cut Test
-7. Pillar Test
-
-**Present quality results:**
-
-```
-QUALITY REVIEW
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Plan Completeness: <score>/10
-  ✓ Core loop defined
-  ✓ Aesthetics identified
-  ✗ Playtest plan missing          (if any check fails)
-
-Core Loop Validation: <pass/fail count>/4
-  ✓ Sentence Test
-  ✓ Verb Chain Test
-  ✓ Reinvestment Test
-  ✓ 30-Second Test
-
-GDD Actionability: <total>/35
-  Verb Test: <score>/5
-  Prototype Test: <score>/5
-  Decision Test: <score>/5
-  Feedback Test: <score>/5
-  Scope Test: <score>/5
-  Cut Test: <score>/5
-  Pillar Test: <score>/5
-
-Overall: <READY TO BUILD / MINOR GAPS / NEEDS WORK>
-```
+1. **Plan Completeness Scorecard** (10 checks, target ≥7/10)
+2. **Core Loop Validation Tests** (Sentence, Verb Chain, Reinvestment, 30-Second)
+3. **GDD Actionability Test** (7 checks scored 1-5, target ≥28/35)
 
 **Interpretation:**
 - Completeness ≥7 AND Actionability ≥28 = READY TO BUILD
-- Completeness ≥7 AND Actionability 20-27 = MINOR GAPS
-- Completeness <7 OR Actionability <20 = NEEDS WORK
+- Completeness ≥7 AND Actionability 20-27 = MINOR GAPS (note as advisory)
+- Completeness <7 OR Actionability <20 = NEEDS WORK (note specific gaps)
 
-- **MINOR GAPS**: Note the gaps as advisory.
-- **NEEDS WORK**: Note the specific gaps as items to address before building.
+Present results with ✓/✗ per check and overall assessment.
 
 ### Step 7: Write Outputs
 
-Write the generated documents to the output directory:
+**Default mode:** Brief was already written in Step 3B.
+
+**--full mode:** Write the generated documents:
 
 ```
 Write(file_path=".game-design/<slug>/output/gdd.md", content=<populated GDD>)
@@ -481,8 +372,7 @@ Session: <title>
 Phase: complete ✓
 
 Files written:
-  .game-design/<slug>/output/gdd.md
-  .game-design/<slug>/output/tech-spec.md
+  .game-design/<slug>/output/<design-brief.md or gdd.md + tech-spec.md>
   .game-design/<slug>/state.yaml (updated)
   .game-design/sessions.yaml (updated)
 
@@ -503,8 +393,7 @@ AskUserQuestion(questions=[{
   question: "What would you like to do next?",
   header: "Next step",
   options: [
-    {label: "Review GDD", description: "Read through the Game Design Document"},
-    {label: "Review tech spec", description: "Read through the Technical Specification"},
+    {label: "Review output", description: "Read through the generated design document(s)"},
     {label: "Review assumptions", description: "Look at the assumptions that need playtesting"},
     {label: "Done", description: "Session complete — start building!"}
   ],
@@ -512,27 +401,14 @@ AskUserQuestion(questions=[{
 }])
 ```
 
-**If "Review GDD":**
-```
-Read(file_path=".game-design/<slug>/output/gdd.md")
-```
-Display the GDD and wait for user feedback. Then re-present the "What would you like to do next?" menu.
+**If "Review output":** Read and display the generated document(s). For default mode, show the design brief. For `--full`, show GDD then tech spec. Re-present the menu.
 
-**If "Review tech spec":**
-```
-Read(file_path=".game-design/<slug>/output/tech-spec.md")
-```
-Display the tech spec and wait for user feedback. Then re-present the "What would you like to do next?" menu.
-
-**If "Review assumptions":**
-Display the Assumptions to Validate section from the GDD and wait for user feedback. Then re-present the "What would you like to do next?" menu.
+**If "Review assumptions":** Display assumptions from the output. Re-present the menu.
 
 **If "Done":**
 ```
-Session complete. Your game design documents are ready in:
-  .game-design/<slug>/output/
-
-Start building with the tracer bullet from the tech spec!
+Session complete. Your design documents are in .game-design/<slug>/output/
+Start building with the tracer bullet!
 ```
 
 **Stop here.**
@@ -600,7 +476,8 @@ Options:
 ## Example Usage
 
 ```
-/game:build-plan        # Generate plan for the active session
+/game:build-plan          # Generate concise design brief (default)
+/game:build-plan --full   # Generate full GDD + tech spec
 ```
 
 This command is typically chained from `/game:simulate` and produces the final outputs of the game design workflow.

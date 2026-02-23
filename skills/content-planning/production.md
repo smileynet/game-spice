@@ -88,13 +88,13 @@ The most polished games reuse content intelligently. Players don't notice reuse 
 - "Players will love the game once they reach world 3"
 - If world 1 isn't fun, world 3 won't save it
 - Content adds variety but cannot substitute for a fun core loop
-- `(see antipatterns/timing-antipatterns.md → Core Loop Neglect)`
+- `(see antipatterns/catalog.md → Core Loop Neglect)`
 
 **Premature content production:**
 - Building levels before the core loop is proven fun
 - Content built around mechanics that later change → wasted work
 - Validate fun first, then produce content
-- `(see antipatterns/scope-antipatterns.md → Premature Content)`
+- `(see antipatterns/catalog.md → Premature Content)`
 
 ## Content Sequencing in Development
 

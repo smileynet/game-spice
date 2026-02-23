@@ -75,7 +75,6 @@ Each question comes from a different skill, but they flow as a natural conversat
 - Implementing game systems (game loop, state machines, input handling)
 - Reviewing game code for architecture issues
 - Running `/game:walkthrough` to visualize player experience
-- Running `/game:balance-check` to audit economy and difficulty
 - Auditing your plan for anti-patterns, completeness, or architecture issues
 
 **Skip it when:**
@@ -89,15 +88,15 @@ Game-spice includes an interactive design workflow that takes you from idea to i
 ```
 /game:start → /game:brainstorm → /game:simulate → /game:build-plan
     │              │                    │                  │
-    │              │                    │                  └─ GDD + Tech Spec
+    │              │                    │                  └─ Design brief (or --full GDD)
     │              │                    └─ Wizard of Oz playtest
     │              └─ Concept definition
     └─ Session creation
 ```
 
-Start a session, brainstorm your concept through natural conversation, prove the core loop works with an interactive simulation, then generate production-ready design documents. Use `/game:status` to check progress and `/game:decisions` to review the decision trail at any point.
+Start a session, brainstorm your concept through natural conversation, prove the core loop works with an interactive simulation, then generate a design brief (or full GDD with `--full`). Use `/game:status` to check progress and `/game:status --decisions` to review the decision trail.
 
-`/game:walkthrough` and `/game:balance-check` are complementary tools — use them at any stage to stress-test your design. Walkthroughs reveal gaps in moment-to-moment experience; balance checks catch economy and difficulty issues.
+`/game:walkthrough` is a complementary tool — use it at any stage to stress-test your design by narrating the player experience.
 
 ## Commands
 
@@ -108,17 +107,10 @@ Start a session, brainstorm your concept through natural conversation, prove the
 | `/game:start` | Start a new session or resume an existing one | Beginning a new game design |
 | `/game:brainstorm` | Explore and define a game concept through conversation | Turning an idea into a structured concept |
 | `/game:simulate` | Run a Wizard of Oz gameplay simulation with ASCII wireframes | Proving the core loop works before coding |
-| `/game:build-plan` | Generate a GDD and Technical Specification from simulation data | Turning design into implementation documents |
-| `/game:status` | Show current session state and progress | Checking where you are in the workflow |
-| `/game:decisions` | Browse and search design decisions with provenance | Reviewing what was decided and why |
-| `/game:help` | Command reference and workflow overview | Quick orientation |
-
-### On-Demand Tools
-
-| Command | Description | When to Use |
-|---------|-------------|-------------|
+| `/game:build-plan` | Generate a design brief (or `--full` for GDD + tech spec) | Turning design into implementation documents |
+| `/game:status` | Show session state, progress, and decisions (`--decisions`) | Checking where you are in the workflow |
 | `/game:walkthrough` | Generate a structured 5-beat scenario walkthrough | Visualize player experience before building |
-| `/game:balance-check` | Audit economy balance and difficulty curves | Catch design issues before they become code problems |
+| `/game:help` | Command reference and workflow overview | Quick orientation |
 
 ## Agents
 
@@ -145,73 +137,11 @@ Start a session, brainstorm your concept through natural conversation, prove the
 | **ascii-wireframing** | `/game:simulate`, wireframe creation | Box-drawing toolkit, common primitives, genre-specific starter patterns, legend.yaml conventions |
 | **simulation-guide** | `/game:simulate`, gameplay simulation | Facilitator stance, turn structure, coverage pacing, scope control, decision recording |
 
-14 skills, 9 commands, 1 agent.
+14 skills, 7 commands, 1 agent.
 
 ## How It Works
 
-Game-spice has two layers: **interactive commands** that guide you through game design, and **passive skills** that enrich Line Cook phases with game knowledge.
-
-### Interactive Design Commands
-
-The `/game:*` commands form a linear workflow with utility commands available at any point:
-
-```
- /game:start ──> /game:brainstorm ──> /game:simulate ──> /game:build-plan
-     │                │                     │                    │
-     │                │                     │                    └─ GDD + Tech Spec
-     │                │                     └─ Wizard of Oz playtest
-     │                └─ Concept + decision log
-     └─ Session + state tracking
-
- Available anytime:
-   /game:status    /game:decisions    /game:help
-   /game:walkthrough    /game:balance-check
-```
-
-### Passive Skills
-
-Skills load automatically when Line Cook commands detect game project context. No configuration needed — skill descriptions contain trigger keywords that Claude matches against.
-
-```
- /brainstorm               /scope                        Plan Review
-┌────────────────────┐    ┌──────────────────────────┐    ┌──────────────────┐
-│ design-frameworks  │    │ scoping                  │    │ antipatterns      │
-│ mechanics-palette  │───>│ economy-design           │───>└──────────────────┘
-│ economy-design     │    │ difficulty-design         │
-└────────────────────┘    │ content-planning          │
-                          │ playtesting               │
-                          │ scenario-walkthrough      │
-                          └──────────────────────────┘
-
- /plan-audit                /architecture-audit
-┌────────────────────┐    ┌──────────────────────────┐
-│ plan-audit         │    │ architecture-audit        │
-│   questionnaires.md│    │   godot.md               │
-│   telemetry.md     │    │   rust.md                │
-└────────────────────┘    │   unity.md               │
-                          │   unreal.md              │
-                          │   python.md              │
-                          │   typescript.md          │
-                          └──────────────────────────┘
-
- /line:cook                 /line:serve
-┌────────────────────┐    ┌──────────────────────────┐
-│ implementation     │    │ game-reviewer (agent)     │
-│   (coding guidance)│    │   (architecture review)   │
-└────────────────────┘    └──────────────────────────┘
-
- /game:walkthrough          /game:balance-check
-┌────────────────────┐    ┌──────────────────────────┐
-│ Scenario generation│    │ Economy & difficulty      │
-│   (5-beat template)│    │   audit on demand         │
-└────────────────────┘    └──────────────────────────┘
-
- /game:simulate
-┌────────────────────┐
-│ ascii-wireframing  │
-│ simulation-guide   │
-└────────────────────┘
-```
+Game-spice has two layers: **interactive commands** (`/game:*`) that guide you through game design, and **passive skills** that enrich Line Cook phases with game knowledge. Skills load automatically — no configuration needed. They activate during `/brainstorm`, `/scope`, `/plan-audit`, `/architecture-audit`, `/line:cook`, and `/line:serve` based on context.
 
 Skills can activate in multiple phases — `economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot, Rust/Bevy, Unity, Unreal, Python, or TypeScript context is detected.
 
@@ -230,7 +160,7 @@ The frameworks are genre-agnostic. MDA, core loops, difficulty curves, and econo
 MVP (minimum viable product) asks "what's the least we can ship?" MLP (minimum lovable product) asks "what's the least that's *worth playing*?" Games need to be fun, not just functional. Game-spice uses MLP throughout because a game that works but isn't fun has failed.
 
 **Does game-spice only work during planning?**
-No. Skills activate throughout the development cycle: planning (`/mise`), implementation (`/line:cook`), review (`/line:serve`), and auditing (`/plan-audit`, `/architecture-audit`). Commands like `/game:walkthrough` and `/game:balance-check` are available on demand.
+No. Skills activate throughout the development cycle: planning (`/mise`), implementation (`/line:cook`), review (`/line:serve`), and auditing (`/plan-audit`, `/architecture-audit`). Commands like `/game:walkthrough` are available on demand.
 
 ## Learn More
 

@@ -109,17 +109,59 @@ MLP includes: Core + up to 3 Amplifiers. Everything else waits.
 - [ ] Playtest plan: who will test, when, what you're testing for `(see playtesting → Playtest Planning Checklist)`
 - [ ] MLP scenario walkthrough written `(see scenario-walkthrough)`
 
+## Tracer Bullet Methodology
+
+A tracer bullet proves your game works end-to-end through all 5 layers:
+
+```
+┌─────────────────────────────────────┐
+│  Layer 1: INPUT                     │
+│  Player presses button / clicks     │
+├─────────────────────────────────────┤
+│  Layer 2: CORE MECHANIC             │
+│  Game responds (jump, card play)    │
+├─────────────────────────────────────┤
+│  Layer 3: GAME STATE                │
+│  World updates (HP, position)       │
+├─────────────────────────────────────┤
+│  Layer 4: FEEDBACK                  │
+│  Player sees/hears result           │
+├─────────────────────────────────────┤
+│  Layer 5: OUTPUT / CONSEQUENCE      │
+│  Game state creates new situation   │
+└─────────────────────────────────────┘
+```
+
+**Rule:** First build touches all 5 layers for ONE action. Don't build Layer 1 for all actions before starting Layer 2.
+
+| Genre | Tracer Bullet |
+|-------|---------------|
+| Platformer | Run, jump on one platform, fall, respawn |
+| Roguelike | Enter room, fight enemy, pick up item |
+| Puzzle | Manipulate element, solve puzzle |
+| Tower Defense | Place tower, enemy walks path |
+| Card Game | Draw hand, play card, see effect |
+
+A tracer bullet is NOT: a polished demo, feature-complete, balanced, or content-rich.
+
+## Genre-Specific Scoping Tips
+
+| Genre | MLP Must Have | Common Over-Scope | Hidden Complexity |
+|-------|--------------|-------------------|-------------------|
+| **Platformer** | Run, jump, platforms, one hazard, one level | Wall jump, double jump, dash, multiple worlds | Jump feel (coyote time, buffering, variable height) |
+| **Roguelike** | One floor, one enemy type, one item, permadeath | Meta-progression, 10+ enemies, proc-gen | Proc-gen that feels good is a project itself |
+| **Puzzle** | One mechanic, 5-10 handcrafted puzzles, clear win state | Proc-gen puzzles, hint system, multiple mechanics | Difficulty curves require extensive playtesting |
+| **Tower Defense** | One path, one tower type, waves, win/lose | Tech trees, multiple maps, hero units | Tower cost vs enemy HP balance is iterative |
+
 ## Deep Dives
 
-- `(see scoping/tracer-bullets.md for Tracer Bullet Methodology: 5-layer vertical slice, genre examples, what it's NOT)`
 - `(see scoping/vertical-slices.md for Vertical Slice Decomposition: best practices, antipatterns, SPIDR technique, 5-beat slicing)`
 - `(see scoping/prioritization.md for MoSCoW Prioritization, 30% Rule, cutting heuristics, scope creep signals)`
-- `(see scoping/genre-tips.md for Genre-Specific Scoping Tips: Platformer, Roguelike, Puzzle, Tower Defense)`
 
 ## See Also
 
 - **design-frameworks** — MDA, core loop theory, player motivation (the "why" behind scoping decisions) `(see design-frameworks → MDA Framework)`
-- **antipatterns** — Common planning mistakes to avoid during scoping `(see antipatterns/scope-antipatterns.md)`
+- **antipatterns** — Common planning mistakes to avoid during scoping `(see antipatterns/catalog.md → Scope Anti-Patterns)`
 - **economy-design** — Plan resource systems and balance before building `(see economy-design)`
 - **playtesting** — Structure your playtest plan and iteration methodology `(see playtesting → Playtest Planning Checklist)`
 - **scenario-walkthrough** — Narrate the player experience before implementation `(see scenario-walkthrough → The 5-Beat Structure)`
