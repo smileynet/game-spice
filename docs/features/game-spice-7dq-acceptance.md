@@ -29,7 +29,7 @@
 |-------------------|--------|----------|
 | Data format consistency (state.yaml, sessions.yaml, decisions.log) | PASS | Templates define schema; start writes it; status reads it. Format is consistent. |
 | Phase progression (start → brainstorm → simulate → build-plan) | PASS | start.md, status.md, and help.md all agree on phase names and order. |
-| Skill cross-references (ascii-wireframing ↔ simulation-guide) | PASS | Bidirectional See Also links. Both reference game-scenario-walkthrough 5-Beat Structure. |
+| Skill cross-references (ascii-wireframing ↔ simulation-guide) | PASS | Bidirectional See Also links. Both reference scenario-walkthrough 5-Beat Structure. |
 | Decision log format (8-field canonical: id\|date\|phase\|category\|origin\|decision\|rationale\|alternatives) | PASS | Consistent across start.md (creates), status.md (parses), simulation-guide (defines schema). |
 
 ## Quality Sign-Off

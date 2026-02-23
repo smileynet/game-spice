@@ -54,8 +54,8 @@ Read any found documents to understand:
 
 Also read the walkthrough skill knowledge for reference:
 ```
-Read(file_path="skills/game-scenario-walkthrough/template.md")
-Read(file_path="skills/game-scenario-walkthrough/SKILL.md")
+Read(file_path="skills/scenario-walkthrough/template.md")
+Read(file_path="skills/scenario-walkthrough/SKILL.md")
 ```
 
 **Summarize context found:**

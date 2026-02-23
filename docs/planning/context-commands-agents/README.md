@@ -17,7 +17,7 @@ Evolve game-spice from skills-only to full plugin with commands + agents + imple
   - Feature 1.1: Scenario Walkthrough Command (`/game:walkthrough`)
   - Feature 1.2: Game-Aware Code Review Agent (`game-reviewer`)
   - Feature 1.3: Economy Balance Audit Command (`/game:balance-check`)
-  - Feature 1.4: Implementation Phase Guidance (`game-implementation` skill)
+  - Feature 1.4: Implementation Phase Guidance (`implementation` skill)
   - Feature 1.5: Documentation & Release
 
 ## Key Decisions

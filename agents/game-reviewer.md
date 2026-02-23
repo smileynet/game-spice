@@ -68,18 +68,18 @@ Glob(pattern="**/*.py")                 # Check for pygame import → Pygame/Pyt
 Based on detected engine, read the relevant sub-file:
 
 ```
-Read(file_path="skills/game-architecture-audit/godot.md")       # Godot
-Read(file_path="skills/game-architecture-audit/unity.md")       # Unity
-Read(file_path="skills/game-architecture-audit/unreal.md")      # Unreal
-Read(file_path="skills/game-architecture-audit/rust.md")        # Bevy/Rust
-Read(file_path="skills/game-architecture-audit/typescript.md")  # Phaser/TypeScript
-Read(file_path="skills/game-architecture-audit/python.md")      # Pygame/Python
+Read(file_path="skills/architecture-audit/godot.md")       # Godot
+Read(file_path="skills/architecture-audit/unity.md")       # Unity
+Read(file_path="skills/architecture-audit/unreal.md")      # Unreal
+Read(file_path="skills/architecture-audit/rust.md")        # Bevy/Rust
+Read(file_path="skills/architecture-audit/typescript.md")  # Phaser/TypeScript
+Read(file_path="skills/architecture-audit/python.md")      # Pygame/Python
 ```
 
 Always also load the core scorecard:
 ```
-Read(file_path="skills/game-architecture-audit/SKILL.md")
-Read(file_path="skills/game-architecture-audit/detailed-audits.md")
+Read(file_path="skills/architecture-audit/SKILL.md")
+Read(file_path="skills/architecture-audit/detailed-audits.md")
 ```
 
 ### Step 3: Apply 8-Category Health Scorecard

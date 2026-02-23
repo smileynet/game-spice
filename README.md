@@ -25,7 +25,7 @@ You: I want to make a roguelike dungeon crawler.
 
 Claude: Let's explore that! First, some questions to shape the concept:
 
-**What aesthetic are you targeting?**                     ← game-design-frameworks
+**What aesthetic are you targeting?**                     ← design-frameworks
 MDA gives us 8 aesthetics. For a roguelike, the primary
 candidates are Challenge, Discovery, and Sensation.
 Which 1-2 resonate most?
@@ -34,7 +34,7 @@ You: Challenge and Discovery.
 
 Claude: Good combo. Now let's nail the core loop:
 
-**Can you describe your core loop in one sentence?**     ← game-scoping
+**Can you describe your core loop in one sentence?**     ← scoping
 Format: "Player [verbs] to [goal], earning [reward]
 that enables [reinvestment]."
 
@@ -44,7 +44,7 @@ You: Player explores rooms to find loot, earning gear
 Claude: That's a clean loop. Let's browse mechanics
 that could make exploration feel distinct:
 
-**What movement style fits your vision?**                ← game-mechanics-palette
+**What movement style fits your vision?**                ← mechanics-palette
 From the palette: grid-based, free movement,
 auto-runner, teleport, grapple/swing...
 Grid-based is classic roguelike. Free movement
@@ -54,7 +54,7 @@ You: Grid-based, turn-based.
 
 Claude: Classic choice. For the economy:
 
-**How complex should the resource system be?**           ← game-economy-design
+**How complex should the resource system be?**           ← economy-design
 ┌─────────────────┬─────────────────────────────────┐
 │ None            │ Pure action, no currency         │
 │ Single resource │ Gold only — simple, clear        │
@@ -130,18 +130,18 @@ Start a session, brainstorm your concept through natural conversation, prove the
 
 | Skill | Activates During | Key Topics |
 |-------|-------------------|------------|
-| **game-scoping** | `/scope`, MLP planning | MLP vs MVP, 3-feature rule, tracer bullets, MoSCoW, 30% rule |
-| **game-design-frameworks** | `/brainstorm`, idea exploration | MDA framework, core loops, player motivation, systems thinking |
-| **game-mechanics-palette** | `/brainstorm`, mechanic selection | 54 mechanics in 10 categories, mashup patterns, guided exploration |
-| **game-economy-design** | `/brainstorm`, `/scope` | Taps & sinks, currency tiers, progression curves, genre patterns |
-| **game-difficulty-design** | `/scope`, challenge design | Flow state, difficulty curves, accessibility, recovery mechanics |
-| **game-content-planning** | `/scope`, world structure | World structure, pacing, procedural vs handcrafted, content reuse |
-| **game-playtesting** | `/scope`, plan review | 3-question framework, MVPt, build-test-learn, pivot decisions |
-| **game-scenario-walkthrough** | `/scope`, `/finalize` | 5-beat template, input/feedback mapping, experience narration |
-| **game-antipatterns** | Plan review, scope audits | Top 10 anti-patterns, over-scoped rubric, pre/post-planning audits |
-| **game-plan-audit** | `/plan-audit`, plan review | Plan completeness, GDD quality, scope scoring, economy/difficulty/playtest readiness |
-| **game-architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
-| **game-implementation** | `/line:cook`, coding game systems | Game loop setup, state management, input handling, frame budget, entity architecture, delta time |
+| **scoping** | `/scope`, MLP planning | MLP vs MVP, 3-feature rule, tracer bullets, MoSCoW, 30% rule |
+| **design-frameworks** | `/brainstorm`, idea exploration | MDA framework, core loops, player motivation, systems thinking |
+| **mechanics-palette** | `/brainstorm`, mechanic selection | 54 mechanics in 10 categories, mashup patterns, guided exploration |
+| **economy-design** | `/brainstorm`, `/scope` | Taps & sinks, currency tiers, progression curves, genre patterns |
+| **difficulty-design** | `/scope`, challenge design | Flow state, difficulty curves, accessibility, recovery mechanics |
+| **content-planning** | `/scope`, world structure | World structure, pacing, procedural vs handcrafted, content reuse |
+| **playtesting** | `/scope`, plan review | 3-question framework, MVPt, build-test-learn, pivot decisions |
+| **scenario-walkthrough** | `/scope`, `/finalize` | 5-beat template, input/feedback mapping, experience narration |
+| **antipatterns** | Plan review, scope audits | Top 10 anti-patterns, over-scoped rubric, pre/post-planning audits |
+| **plan-audit** | `/plan-audit`, plan review | Plan completeness, GDD quality, scope scoring, economy/difficulty/playtest readiness |
+| **architecture-audit** | `/architecture-audit` | Game loop, state machines, entity architecture, performance, Godot, Rust/Bevy, Unity, Unreal, Python, TypeScript patterns |
+| **implementation** | `/line:cook`, coding game systems | Game loop setup, state management, input handling, frame budget, entity architecture, delta time |
 | **ascii-wireframing** | `/game:simulate`, wireframe creation | Box-drawing toolkit, common primitives, genre-specific starter patterns, legend.yaml conventions |
 | **simulation-guide** | `/game:simulate`, gameplay simulation | Facilitator stance, turn structure, coverage pacing, scope control, decision recording |
 
@@ -175,17 +175,17 @@ Skills load automatically when Line Cook commands detect game project context. N
 ```
  /brainstorm               /scope                        Plan Review
 ┌────────────────────┐    ┌──────────────────────────┐    ┌──────────────────┐
-│ game-design-       │    │ game-scoping             │    │ game-antipatterns │
-│   frameworks       │    │ game-economy-design      │    └──────────────────┘
-│ game-mechanics-    │───>│ game-difficulty-design    │───>
-│   palette          │    │ game-content-planning    │
-│ game-economy-      │    │ game-playtesting         │
-│   design           │    │ game-scenario-walkthrough│
+│ game-design-       │    │ scoping             │    │ antipatterns │
+│   frameworks       │    │ economy-design      │    └──────────────────┘
+│ game-mechanics-    │───>│ difficulty-design    │───>
+│   palette          │    │ content-planning    │
+│ game-economy-      │    │ playtesting         │
+│   design           │    │ scenario-walkthrough│
 └────────────────────┘    └──────────────────────────┘
 
  /plan-audit                /architecture-audit
 ┌────────────────────┐    ┌──────────────────────────┐
-│ game-plan-audit    │    │ game-architecture-audit   │
+│ plan-audit    │    │ architecture-audit   │
 │   questionnaires.md│    │   godot.md               │
 │   telemetry.md     │    │   rust.md                │
 └────────────────────┘    │   unity.md               │
@@ -196,7 +196,7 @@ Skills load automatically when Line Cook commands detect game project context. N
 
  /line:cook                 /line:serve
 ┌────────────────────┐    ┌──────────────────────────┐
-│ game-implementation│    │ game-reviewer (agent)     │
+│ implementation│    │ game-reviewer (agent)     │
 │   (coding guidance)│    │   (architecture review)   │
 └────────────────────┘    └──────────────────────────┘
 
@@ -213,7 +213,7 @@ Skills load automatically when Line Cook commands detect game project context. N
 └────────────────────┘
 ```
 
-Skills can activate in multiple phases — `game-economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot, Rust/Bevy, Unity, Unreal, Python, or TypeScript context is detected.
+Skills can activate in multiple phases — `economy-design` appears in both brainstorm and scope because resource decisions start broad and get concrete. Audit skills include engine-specific sub-files loaded on demand when Godot, Rust/Bevy, Unity, Unreal, Python, or TypeScript context is detected.
 
 ## FAQ
 

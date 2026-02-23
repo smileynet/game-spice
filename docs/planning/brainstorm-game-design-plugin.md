@@ -107,9 +107,9 @@ Solo/indie game developer using Claude Code with line-cook and beads for project
 ### Option B: Three Focused Skills (Recommended)
 
 **Description:** Three skills aligned to the planning workflow:
-1. **game-scoping** — MLP methodology, tracer bullets, scope management, prioritization
-2. **game-design-frameworks** — MDA, core loops, systems thinking, engagement, difficulty, narrative
-3. **game-antipatterns** — Common planning mistakes, decision tables for what to avoid
+1. **scoping** — MLP methodology, tracer bullets, scope management, prioritization
+2. **design-frameworks** — MDA, core loops, systems thinking, engagement, difficulty, narrative
+3. **antipatterns** — Common planning mistakes, decision tables for what to avoid
 
 **Pros:**
 - Each skill fits context budget
@@ -176,7 +176,7 @@ Solo/indie game developer using Claude Code with line-cook and beads for project
 
 ### Chosen Approach
 
-**Option B: Three Focused Skills** — `game-scoping`, `game-design-frameworks`, and `game-antipatterns`, packaged as a Claude plugin that extends line-cook's planning workflow.
+**Option B: Three Focused Skills** — `scoping`, `design-frameworks`, and `antipatterns`, packaged as a Claude plugin that extends line-cook's planning workflow.
 
 ### Rationale
 
@@ -186,7 +186,7 @@ This approach balances comprehensiveness with context efficiency. Three skills a
 
 | Scope | Recommendation |
 |-------|----------------|
-| MLP | Three skills (game-scoping, game-design-frameworks, game-antipatterns) + plugin manifest. Genre-agnostic. Focused on planning phase only. |
+| MLP | Three skills (scoping, design-frameworks, antipatterns) + plugin manifest. Genre-agnostic. Focused on planning phase only. |
 | Full Feature | Add genre-specific supplementary docs within each skill folder. Add worked examples (e.g., "scoping an idle game" walkthrough). |
 | Epic | Full genre-specific skill modules. Game design review agent. Custom commands that extend mise workflow. |
 

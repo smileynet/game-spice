@@ -22,7 +22,7 @@
 | Walkthrough generation | User invokes `/game:walkthrough` to produce a 5-beat scenario artifact | Verified |
 | Balance audit | User invokes `/game:balance-check` to audit economy and difficulty | Verified |
 | Code review | game-reviewer activates during `/line:serve` for game-specific architecture review | Verified |
-| Implementation guidance | game-implementation skill activates during `/line:cook` for coding patterns | Verified |
+| Implementation guidance | implementation skill activates during `/line:cook` for coding patterns | Verified |
 | Discoverability | User finds all capabilities via README, installs via install.sh | Verified |
 
 ## Structural Integrity
@@ -37,10 +37,10 @@
 
 ## Cross-Feature Integration
 
-- `/game:walkthrough` cross-references `skills/game-scenario-walkthrough/` (both files exist)
+- `/game:walkthrough` cross-references `skills/scenario-walkthrough/` (both files exist)
 - `/game:balance-check` cross-references 3 skill files (all exist)
-- `game-reviewer` cross-references 8 files in `skills/game-architecture-audit/` (all exist)
-- `game-implementation` cross-references 3 other skills (all exist)
+- `game-reviewer` cross-references 8 files in `skills/architecture-audit/` (all exist)
+- `implementation` cross-references 3 other skills (all exist)
 - README skill table matches actual skill directories exactly
 - install.sh copies all 4 content directories
 

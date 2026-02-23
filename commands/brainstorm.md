@@ -121,7 +121,7 @@ AskUserQuestion(questions=[{
 Read the mechanics palette and exploration prompts for conversation starters:
 
 ```
-Read(file_path="skills/game-mechanics-palette/exploration-prompts.md")
+Read(file_path="skills/mechanics-palette/exploration-prompts.md")
 ```
 
 Use 2-3 prompts from the exploration process to spark ideas. Present them conversationally, then ask the user to describe what resonates. Do NOT turn this into a category-selection menu.
@@ -199,10 +199,10 @@ For all other missing fields (scope, platform, input method, team size), use sen
 Read the core loop validation checklist:
 
 ```
-Read(file_path="skills/game-scoping/SKILL.md")
+Read(file_path="skills/scoping/SKILL.md")
 ```
 
-Use the **one-sentence test** from game-scoping:
+Use the **one-sentence test** from scoping:
 
 > "The player [VERB]s [OBJECT] to [REWARD], which lets them [REINVEST]."
 
@@ -217,15 +217,15 @@ Formulate the core loop in this format. Then check against the validation checkl
 
 **If the core loop passes:** Present the one-sentence version to the user for confirmation.
 
-**If the core loop is weak or unclear:** Discuss it with the user. Suggest alternatives referencing the genre's expected loop from game-scoping's genre examples table. Keep it conversational — "Your core loop feels a bit vague — in most roguelikes the loop is something like 'enter room → fight → collect → go deeper.' Does something like that match what you're imagining?"
+**If the core loop is weak or unclear:** Discuss it with the user. Suggest alternatives referencing the genre's expected loop from scoping's genre examples table. Keep it conversational — "Your core loop feels a bit vague — in most roguelikes the loop is something like 'enter room → fight → collect → go deeper.' Does something like that match what you're imagining?"
 
 ### Step 6: Enrich with Frameworks
 
-Reference game-mechanics-palette and game-design-frameworks to **validate and enrich** the concept. Do NOT use them to interrogate the user.
+Reference mechanics-palette and design-frameworks to **validate and enrich** the concept. Do NOT use them to interrogate the user.
 
 ```
-Read(file_path="skills/game-design-frameworks/SKILL.md")
-Read(file_path="skills/game-mechanics-palette/SKILL.md")
+Read(file_path="skills/design-frameworks/SKILL.md")
+Read(file_path="skills/mechanics-palette/SKILL.md")
 ```
 
 **Enrichment checklist (internal — do NOT show this to the user):**

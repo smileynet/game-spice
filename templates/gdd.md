@@ -152,7 +152,7 @@ Legend: <symbol> <meaning>
 
 <!-- Include this section if the game has resource systems or progression.
      Omit entirely if not applicable (e.g. pure action games with no progression).
-     Source: simulation decisions on economy, game-economy-design guidance -->
+     Source: simulation decisions on economy, economy-design guidance -->
 
 ### Resources
 
@@ -170,7 +170,7 @@ Legend: <symbol> <meaning>
 <!-- Content needed at each quality level.
      L0 = tracer bullet (prove architecture), L1 = MLP (prove fun),
      L2 = content alpha (prove variety), L3 = full release.
-     Source: simulation coverage, game-content-planning production ratios -->
+     Source: simulation coverage, content-planning production ratios -->
 
 | Content Type | L0 (Tracer) | L1 (MLP) | L2 (Alpha) | L3 (Release) |
 |-------------|-------------|----------|------------|--------------|

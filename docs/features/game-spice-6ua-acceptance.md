@@ -31,7 +31,7 @@
 | Decision provenance tracking (user/suggested/inferred) | PASS | Three origins defined identically in brainstorm, simulate, and simulation-guide skill. Rubber-stamp guards active in both commands (5 consecutive in brainstorm, 3 in simulate). |
 | Coverage-driven pacing (5-Beat Structure) | PASS | Coverage.yaml schema defines beats/systems with confidence thresholds. Simulate updates confidence per turn with deterministic formula (+0.2/turn, +0.1/user, +0.05/suggested). Natural convergence ~15 turns. |
 | Template references resolve | PASS | All 6 templates referenced by commands exist: concept.yaml, brainstorm-output.md, simulation-turn.md, coverage.yaml, session-state.yaml, sessions-index.yaml. |
-| Skill references resolve | PASS | All 7 skills referenced by commands exist: game-mechanics-palette, game-scoping, game-design-frameworks, ascii-wireframing, simulation-guide, game-scenario-walkthrough. |
+| Skill references resolve | PASS | All 7 skills referenced by commands exist: mechanics-palette, scoping, design-frameworks, ascii-wireframing, simulation-guide, scenario-walkthrough. |
 
 ## Quality Sign-Off
 

@@ -23,7 +23,7 @@
 
 ## Conventions
 
-- Skill names: kebab-case (`game-scoping`, `game-design-frameworks`, `game-antipatterns`)
+- Skill names: kebab-case (`scoping`, `design-frameworks`, `antipatterns`)
 - File structure follows godot-meta plugin pattern
 - Decision tables for quick reference (Situation | Prefer | Avoid)
 - Checklists for verification steps

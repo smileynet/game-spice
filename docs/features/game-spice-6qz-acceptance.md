@@ -38,7 +38,7 @@
 - `/game:build-plan` reads all session artifacts produced by brainstorm and simulate (concept.yaml, decisions.log, turn files, wireframes, coverage.yaml)
 - `/game:decisions` reads the same decisions.log that brainstorm seeds and simulate appends to, using consistent pipe-delimited format
 - State transitions follow consistent pattern across all commands (state.yaml + sessions.yaml dual update)
-- build-plan loads game-scoping and game-plan-audit skills for enrichment and quality review
+- build-plan loads scoping and plan-audit skills for enrichment and quality review
 - Templates (gdd.md, tech-spec.md) cross-reference simulation turns and wireframes
 - README and CHANGELOG accurately reflect all 9 commands, 12 skills, 1 agent
 

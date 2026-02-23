@@ -174,8 +174,8 @@ Read(file_path="templates/tech-spec.md")
 Load skill references for enrichment:
 
 ```
-Read(file_path="skills/game-scoping/SKILL.md")
-Read(file_path="skills/game-plan-audit/SKILL.md")
+Read(file_path="skills/scoping/SKILL.md")
+Read(file_path="skills/plan-audit/SKILL.md")
 ```
 
 Display loading status:
@@ -229,7 +229,7 @@ Define measurable criteria from:
 Parse `decisions.log` for decisions in the `mechanic` category. Cross-reference with `concept.yaml → mechanics` and simulation turns.
 
 - **Core Mechanics**: mechanics essential to the core loop, with references to simulation turns that explored them
-- **Supporting Mechanics (MLP)**: up to 3 amplifier features (per the 3-Feature Rule from game-scoping)
+- **Supporting Mechanics (MLP)**: up to 3 amplifier features (per the 3-Feature Rule from scoping)
 - **Deferred Mechanics**: mechanics identified but deferred beyond MLP, with reasons
 
 **3e: Game World**
@@ -257,7 +257,7 @@ Omit this section entirely if no economy-related decisions exist.
 
 **3h: Content Requirements**
 
-From simulation coverage and game-content-planning production ratios:
+From simulation coverage and content-planning production ratios:
 - Content needed at each quality level (L0 tracer → L1 MLP → L2 alpha → L3 release)
 - Derived from what the simulation explored and what remains
 
@@ -326,9 +326,9 @@ Populate the tech spec template (`templates/tech-spec.md`) using the GDD output 
 
 **5b: Implementation Phases**
 
-Follow the tracer bullet → core loop → content → polish progression from game-scoping:
+Follow the tracer bullet → core loop → content → polish progression from scoping:
 
-- **Phase 0: Tracer Bullet** — first end-to-end vertical slice through all 5 layers (input → core mechanic → game state → feedback → consequence). Use `game-scoping/tracer-bullets.md` for the 5-Layer Slice structure.
+- **Phase 0: Tracer Bullet** — first end-to-end vertical slice through all 5 layers (input → core mechanic → game state → feedback → consequence). Use `scoping/tracer-bullets.md` for the 5-Layer Slice structure.
 - **Phase 1: Core Loop (MLP)** — complete core loop + up to 3 supporting features from the GDD. Goal: validate fun.
 - **Phase 2: Content Alpha** — add variety (enemies, levels, items). Derived from GDD Content Requirements L2 targets.
 - **Phase 3: Systems & Polish** — progression, meta-game, saves, UI polish. Derived from GDD Economy & Progression and deferred mechanics.
@@ -362,7 +362,7 @@ Include:
 
 ### Step 6: Quality Review
 
-Reference the game-plan-audit skill to validate completeness of the generated documents.
+Reference the plan-audit skill to validate completeness of the generated documents.
 
 Run the **Plan Completeness Scorecard** (10 checks):
 

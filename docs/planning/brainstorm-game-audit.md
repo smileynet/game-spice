@@ -57,16 +57,16 @@ New convention: skill directories can contain sub-files for on-demand depth. Mai
 ## Solution Shape
 
 Two new skills:
-- `game-plan-audit` — Activates during `/plan-audit` with game project context
-- `game-architecture-audit` — Activates during `/architecture-audit` with game project context
+- `plan-audit` — Activates during `/plan-audit` with game project context
+- `architecture-audit` — Activates during `/architecture-audit` with game project context
 
-Plus expansion of existing `game-playtesting` skill with RITE method, FFWWDD framework, session structure, and data-driven workflow.
+Plus expansion of existing `playtesting` skill with RITE method, FFWWDD framework, session structure, and data-driven workflow.
 
 Sub-files for progressive disclosure:
-- `game-plan-audit/questionnaires.md` — Playtest questionnaire frameworks
-- `game-plan-audit/telemetry.md` — Data collection and analysis methods
-- `game-architecture-audit/godot.md` — Godot-specific patterns
-- `game-architecture-audit/rust.md` — Rust/Bevy-specific patterns
+- `plan-audit/questionnaires.md` — Playtest questionnaire frameworks
+- `plan-audit/telemetry.md` — Data collection and analysis methods
+- `architecture-audit/godot.md` — Godot-specific patterns
+- `architecture-audit/rust.md` — Rust/Bevy-specific patterns
 
 ---
 

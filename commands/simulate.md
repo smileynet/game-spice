@@ -98,7 +98,7 @@ This provides continuity context for the next turn.
 ```
 Read(file_path="skills/ascii-wireframing/SKILL.md")
 Read(file_path="skills/simulation-guide/SKILL.md")
-Read(file_path="skills/game-scenario-walkthrough/SKILL.md")
+Read(file_path="skills/scenario-walkthrough/SKILL.md")
 ```
 
 These provide facilitation stance, wireframe conventions, and beat structure.

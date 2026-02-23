@@ -42,8 +42,8 @@ phases:
               - For each of 5 beats, prompt user with beat-specific questions
               - Collect input/feedback mapping for core actions
               - Write complete walkthrough to docs/planning/walkthrough-<name>.md
-              - Reference: skills/game-scenario-walkthrough/template.md
-              - Reference: skills/game-scenario-walkthrough/SKILL.md
+              - Reference: skills/scenario-walkthrough/template.md
+              - Reference: skills/scenario-walkthrough/SKILL.md
             deliverable: "commands/walkthrough.md that produces a complete 5-beat artifact"
 
       - id: feature-1.2
@@ -72,7 +72,7 @@ phases:
               - Apply 8-category health scorecard
               - Check for architecture smells
               - Output matches sous-chef format exactly
-              - Reference: skills/game-architecture-audit/SKILL.md + engine sub-files
+              - Reference: skills/architecture-audit/SKILL.md + engine sub-files
               - Reference: line-cook agents/sous-chef.md
             deliverable: "agents/game-reviewer.md with engine detection and 8-category review"
 
@@ -105,9 +105,9 @@ phases:
               - Apply balance heuristics (TTFV, session-end progress, etc.)
               - Score difficulty curve if exists
               - Output structured report, optional --report to file
-              - Reference: skills/game-economy-design/balance.md
-              - Reference: skills/game-plan-audit/detailed-audits.md
-              - Reference: skills/game-difficulty-design/SKILL.md
+              - Reference: skills/economy-design/balance.md
+              - Reference: skills/plan-audit/detailed-audits.md
+              - Reference: skills/difficulty-design/SKILL.md
             deliverable: "commands/balance-check.md with economy audit and difficulty scoring"
 
       - id: feature-1.4
@@ -119,24 +119,24 @@ phases:
           - "Skill activates during /line:cook when game project context detected"
           - "Provides quick-reference patterns for the 6 core game architecture areas"
           - "Content is prescriptive ('do this') not diagnostic ('check for this')"
-          - "Does not duplicate game-architecture-audit content (implementation vs audit framing)"
+          - "Does not duplicate architecture-audit content (implementation vs audit framing)"
           - "Engine-agnostic core with optional engine-specific sub-files"
         tracer_strategy:
           minimal_flow: "Create skill → verify activation during cook → confirm guidance is actionable"
-          layers: "skills/game-implementation/SKILL.md → optional engine sub-files"
+          layers: "skills/implementation/SKILL.md → optional engine sub-files"
           expansion: "Engine-specific sub-files, code snippet templates (deferred)"
 
         tasks:
-          - title: "Create game-implementation skill"
+          - title: "Create implementation skill"
             priority: 2
             tracer: "First cook-phase skill — proves implementation guidance works"
             description: |
-              - Create skills/game-implementation/SKILL.md
+              - Create skills/implementation/SKILL.md
               - Prescriptive content for 6 areas: game loop, state management,
                 input handling, frame budget, entity architecture, delta time
-              - Distill from game-architecture-audit, reframe as "how to build"
-              - Cross-reference game-architecture-audit for detailed patterns
-            deliverable: "skills/game-implementation/SKILL.md with 6-area quick reference"
+              - Distill from architecture-audit, reframe as "how to build"
+              - Cross-reference architecture-audit for detailed patterns
+            deliverable: "skills/implementation/SKILL.md with 6-area quick reference"
 
       - id: feature-1.5
         title: "Documentation & Release"

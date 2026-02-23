@@ -10,7 +10,7 @@ Game development planning with line-cook's mise workflow lacks game-specific gui
 
 ## Approach
 
-Create a skills-only Claude plugin extending line-cook with three focused knowledge bases: game-scoping (MLP + tracer bullets), game-design-frameworks (MDA, core loops, systems thinking), and game-antipatterns (scope creep, feature bloat, common mistakes). Skills load on-demand during brainstorm/scope phases to provide game-specific planning guidance.
+Create a skills-only Claude plugin extending line-cook with three focused knowledge bases: scoping (MLP + tracer bullets), design-frameworks (MDA, core loops, systems thinking), and antipatterns (scope creep, feature bloat, common mistakes). Skills load on-demand during brainstorm/scope phases to provide game-specific planning guidance.
 
 ## Key Decisions
 

@@ -6,8 +6,8 @@
 game-spice/
 ├── .claude-plugin/
 │   └── plugin.json          # name: "game" (for /game:* prefix)
-├── skills/                   # 12 skills (11 existing + game-implementation)
-│   └── game-implementation/  # NEW: cook-phase guidance
+├── skills/                   # 12 skills (11 existing + implementation)
+│   └── implementation/  # NEW: cook-phase guidance
 ├── commands/                 # NEW: user-invocable commands
 │   ├── walkthrough.md        # /game:walkthrough
 │   └── balance-check.md      # /game:balance-check
@@ -21,7 +21,7 @@ game-spice/
 |----------------|---------------------|------|
 | `/line:brainstorm` | 4 planning skills | Skill (passive) |
 | `/line:scope` | 6 scoping skills | Skill (passive) |
-| `/line:cook` | game-implementation | Skill (passive) |
+| `/line:cook` | implementation | Skill (passive) |
 | `/line:serve` | game-reviewer | Agent (active) |
 | On-demand | /game:walkthrough | Command |
 | On-demand | /game:balance-check | Command |
@@ -51,7 +51,7 @@ tools: [Glob, Grep, Read]
 ## Knowledge Reuse
 
 Commands and agents reference existing skill content — they don't duplicate it.
-- walkthrough → game-scenario-walkthrough/template.md
-- game-reviewer → game-architecture-audit/ (scorecard + engine sub-files)
-- balance-check → game-economy-design/balance.md + game-plan-audit/detailed-audits.md
-- game-implementation → distilled from game-architecture-audit
+- walkthrough → scenario-walkthrough/template.md
+- game-reviewer → architecture-audit/ (scorecard + engine sub-files)
+- balance-check → economy-design/balance.md + plan-audit/detailed-audits.md
+- implementation → distilled from architecture-audit

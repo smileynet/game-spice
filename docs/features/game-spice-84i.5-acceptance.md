@@ -11,7 +11,7 @@
 |---|-----------|--------|----------|
 | 1 | README documents all commands with usage examples | PASS | Commands section (lines 85-90) with table listing both `/game:walkthrough` and `/game:balance-check`. Cross-verified against `commands/` directory. |
 | 2 | README documents game-reviewer agent and when it activates | PASS | Agents section (lines 92-96) describes game-reviewer with activation context (`/line:serve`), capabilities, and specific smells detected. |
-| 3 | Workflow diagram shows serve/cook integration | PASS | Diagram (lines 121-154) includes `/line:cook` with game-implementation and `/line:serve` with game-reviewer, plus on-demand command boxes. |
+| 3 | Workflow diagram shows serve/cook integration | PASS | Diagram (lines 121-154) includes `/line:cook` with implementation and `/line:serve` with game-reviewer, plus on-demand command boxes. |
 | 4 | FAQ updated to reflect new capabilities | PASS | FAQ entry "Does game-spice only work during planning?" replaced with comprehensive answer covering all lifecycle phases. |
 | 5 | CHANGELOG documents v0.4.0 additions | PASS | [0.4.0] section documents 2 commands, 1 agent, 1 skill, plugin rename, and README updates. |
 

@@ -4,8 +4,8 @@
 2026-02-13 | brainstorm | Two audit skills (plan + architecture) | Aligns 1:1 with Line Cook's two audit commands. Keeps concerns separated.
 2026-02-13 | brainstorm | Sub-files for progressive disclosure | Main SKILL.md stays within context budget. Engine-specific and deep-dive content loads on demand.
 2026-02-13 | brainstorm | Engine sub-files for Godot and Rust/Bevy | Most relevant engines for target users. Unity/Unreal can be added later as separate sub-files.
-2026-02-13 | brainstorm | Questionnaires and telemetry as plan-audit sub-files | These topics support playtesting but are discovered during plan audit. Cross-referenced from game-playtesting.
-2026-02-13 | brainstorm | Expand game-playtesting rather than new skill | RITE method, session structure, and FFWWDD are playtesting methodology, not a separate concern. Avoids skill proliferation.
+2026-02-13 | brainstorm | Questionnaires and telemetry as plan-audit sub-files | These topics support playtesting but are discovered during plan audit. Cross-referenced from playtesting.
+2026-02-13 | brainstorm | Expand playtesting rather than new skill | RITE method, session structure, and FFWWDD are playtesting methodology, not a separate concern. Avoids skill proliferation.
 2026-02-13 | scope | Fixed update + variable render as "correct answer" | Established best practice from Nystrom/Fiedler. Variable delta time is a known source of bugs. Stating the correct answer helps audits be actionable.
 2026-02-13 | scope | 10-factor scope complexity matrix | Covers the dimensions that actually cause scope explosion in game projects. Scoring provides actionable thresholds.
 2026-02-13 | implementation | Bumped plugin to 0.3.0 | New skills = minor version bump per semver.

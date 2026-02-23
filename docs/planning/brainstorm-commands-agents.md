@@ -38,7 +38,7 @@ Game developers using Claude Code + Line Cook who want to:
 |-----|---------------|-------------------|
 | No interactive tools | All 11 skills are passive | `/game:walkthrough`, `/game:balance-check` commands |
 | No game-specific review | Generic sous-chef during serve | `game-reviewer` agent with architecture scorecard |
-| No cook-phase guidance | Zero implementation help | `game-implementation` skill |
+| No cook-phase guidance | Zero implementation help | `implementation` skill |
 | No artifact generation | Frameworks don't produce documents | Commands output to `docs/planning/` |
 
 ### Approaches Considered
@@ -64,7 +64,7 @@ Rename plugin.json `name` to `"game"` for `/game:*` command prefix. Repository a
 1. **`/game:walkthrough`** — Interactive 5-beat scenario walkthrough generation
 2. **`game-reviewer`** — Game-aware code review agent for `/line:serve`
 3. **`/game:balance-check`** — On-demand economy and difficulty audit
-4. **`game-implementation`** — Passive cook-phase implementation guidance skill
+4. **`implementation`** — Passive cook-phase implementation guidance skill
 
 ### Future Items
 
@@ -79,4 +79,4 @@ Rename plugin.json `name` to `"game"` for `/game:*` command prefix. Repository a
 - All 3 MLP items + implementation skill included in v0.4.0
 - Commands produce artifacts in `docs/planning/`
 - game-reviewer follows sous-chef output format exactly
-- game-implementation is prescriptive ("do this") not diagnostic ("check for this")
+- implementation is prescriptive ("do this") not diagnostic ("check for this")

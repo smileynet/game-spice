@@ -24,7 +24,7 @@ mechanics: []
 # - name: "grapple"
 #   description: "Player launches a hook to swing between platforms"
 
-# Scope and ambition (informed by game-scoping skill)
+# Scope and ambition (informed by scoping skill)
 scope:
   target: ""            # "jam" (48h), "micro" (1-2wk), "small" (1-3mo), "medium" (3-6mo)
   team_size: 1          # Expected team size

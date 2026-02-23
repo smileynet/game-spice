@@ -9,7 +9,7 @@ Game-spice only activates during `/mise` planning phase. Plan and architecture a
 
 ## Approach
 
-Add two new audit skills (`game-plan-audit`, `game-architecture-audit`) that inject game-specific knowledge into Line Cook's audit commands. Expand `game-playtesting` with structured methodology (RITE, FFWWDD, session structure). Introduce sub-files convention for progressive disclosure of engine-specific and deep-dive content.
+Add two new audit skills (`plan-audit`, `architecture-audit`) that inject game-specific knowledge into Line Cook's audit commands. Expand `playtesting` with structured methodology (RITE, FFWWDD, session structure). Introduce sub-files convention for progressive disclosure of engine-specific and deep-dive content.
 
 ## Key Decisions
 
@@ -17,7 +17,7 @@ Add two new audit skills (`game-plan-audit`, `game-architecture-audit`) that inj
 - Sub-files for progressive disclosure — main SKILL.md stays within context budget, sub-files load on demand
 - Engine-specific patterns (Godot, Rust/Bevy) in sub-files, not inline — keeps core audit engine-agnostic
 - Questionnaire frameworks and telemetry methods in plan-audit sub-files — reusable across skills
-- Expanded game-playtesting with structured methods rather than creating a separate skill
+- Expanded playtesting with structured methods rather than creating a separate skill
 
 ## Artifacts
 

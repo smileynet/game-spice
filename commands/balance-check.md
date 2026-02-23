@@ -21,9 +21,9 @@ allowed-tools: Read, Glob, Grep, Bash, Write, AskUserQuestion
 **Load skill knowledge:**
 
 ```
-Read(file_path="skills/game-economy-design/balance.md")
-Read(file_path="skills/game-plan-audit/detailed-audits.md")
-Read(file_path="skills/game-difficulty-design/SKILL.md")
+Read(file_path="skills/economy-design/balance.md")
+Read(file_path="skills/plan-audit/detailed-audits.md")
+Read(file_path="skills/difficulty-design/SKILL.md")
 ```
 
 **Scan for planning documents:**

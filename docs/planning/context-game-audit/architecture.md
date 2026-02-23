@@ -13,7 +13,7 @@
 - **Progressive disclosure via sub-files**: Main SKILL.md contains engine-agnostic core audit criteria. Sub-files contain engine-specific patterns (godot.md, rust.md) or deep-dive topics (questionnaires.md, telemetry.md). Referenced with `(see skill-name/file.md → Section)`.
 - **Audit activation**: Skills activate via keywords in YAML description matching audit command context (e.g., "plan-audit", "architecture-audit", "game code architecture").
 - **Scorecard pattern**: Quick Reference section contains a health scorecard table for rapid assessment. Detailed guidance in subsequent sections and collapsible blocks.
-- **Cross-skill references**: Audit skills reference planning skills for context (e.g., plan-audit references game-scoping's MLP criteria).
+- **Cross-skill references**: Audit skills reference planning skills for context (e.g., plan-audit references scoping's MLP criteria).
 
 ## Constraints
 

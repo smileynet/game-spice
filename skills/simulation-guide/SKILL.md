@@ -63,7 +63,7 @@ Each simulation turn follows this cycle:
 
 ### Coverage-Driven Pacing
 
-Use the 5-Beat Structure to pace the simulation `(see game-scenario-walkthrough → The 5-Beat Structure)`. Each beat has a coverage goal — don't advance until it's met.
+Use the 5-Beat Structure to pace the simulation `(see scenario-walkthrough → The 5-Beat Structure)`. Each beat has a coverage goal — don't advance until it's met.
 
 | Beat | Coverage Goal | Move On When |
 |---|---|---|
@@ -98,8 +98,8 @@ Keep the simulation focused on what matters for the current design phase.
 **Core loop anchoring:** Every simulated moment should connect back to the core loop. If it doesn't, ask: "Is this part of the core loop, or a feature we're adding?"
 
 **MLP filter:** When the user introduces a new element during simulation, check:
-- Does this serve the core loop? `(see game-scoping → Core Loop Identification)`
-- Is this one of the 3 MLP features? `(see game-scoping → The 3-Feature Rule)`
+- Does this serve the core loop? `(see scoping → Core Loop Identification)`
+- Is this one of the 3 MLP features? `(see scoping → The 3-Feature Rule)`
 - If neither: acknowledge it, park it, return to core loop
 
 **Diminishing returns detection:** Signal when simulation is no longer producing new decisions:
@@ -166,10 +166,10 @@ Capture every design decision made during simulation. These become the design re
 
 ## See Also
 
-- **game-scenario-walkthrough** — The 5-Beat Structure this simulation follows `(see game-scenario-walkthrough → The 5-Beat Structure)`
-- **game-scoping** — MLP filter and core loop anchoring for scope control `(see game-scoping → MLP Scoping Process)`
-- **game-design-frameworks** — Core loop theory and game feel principles `(see game-design-frameworks → Core Loop Design)`
-- **game-antipatterns** — Design in Isolation is the anti-pattern that simulation prevents `(see game-antipatterns)`
-- **game-playtesting** — Simulation as pre-playtest validation `(see game-playtesting → The 3-Question Framework)`
-- **game-mechanics-palette** — Browse mechanics during simulation brainstorming `(see game-mechanics-palette)`
+- **scenario-walkthrough** — The 5-Beat Structure this simulation follows `(see scenario-walkthrough → The 5-Beat Structure)`
+- **scoping** — MLP filter and core loop anchoring for scope control `(see scoping → MLP Scoping Process)`
+- **design-frameworks** — Core loop theory and game feel principles `(see design-frameworks → Core Loop Design)`
+- **antipatterns** — Design in Isolation is the anti-pattern that simulation prevents `(see antipatterns)`
+- **playtesting** — Simulation as pre-playtest validation `(see playtesting → The 3-Question Framework)`
+- **mechanics-palette** — Browse mechanics during simulation brainstorming `(see mechanics-palette)`
 - **ascii-wireframing** — ASCII wireframe toolkit used during simulation turns `(see ascii-wireframing)`

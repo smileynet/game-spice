@@ -19,7 +19,7 @@ Rationale: <!-- why this engine fits the project -->
 
 <!-- High-level module breakdown of the game architecture.
      Each module: name, responsibility, key interfaces.
-     Source: GDD mechanics, game-implementation patterns -->
+     Source: GDD mechanics, implementation patterns -->
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -42,13 +42,13 @@ Rationale: <!-- why this engine fits the project -->
 
 <!-- Follows tracer bullet → core loop → content → polish progression.
      Each phase has a clear goal, deliverables, and exit criteria.
-     Source: game-scoping MLP phases, GDD mechanics and content requirements -->
+     Source: scoping MLP phases, GDD mechanics and content requirements -->
 
 ### Phase 0: Tracer Bullet
 
 <!-- First end-to-end vertical slice through all 5 layers.
      Goal: prove the architecture works for one action.
-     Source: game-scoping/tracer-bullets.md → 5-Layer Vertical Slice -->
+     Source: scoping/tracer-bullets.md → 5-Layer Vertical Slice -->
 
 **Goal:** <!-- one sentence describing the tracer bullet -->
 
@@ -173,7 +173,7 @@ Rationale: <!-- why this fits -->
 ### State Management
 
 <!-- Game state architecture: FSM, hierarchical FSM, ECS, etc.
-     Source: game-implementation → State Management -->
+     Source: implementation → State Management -->
 
 Pattern: <!-- e.g. Enum + switch FSM -->
 Rationale: <!-- why this fits the game's state complexity -->
@@ -181,7 +181,7 @@ Rationale: <!-- why this fits the game's state complexity -->
 ### Input
 
 <!-- Input handling approach.
-     Source: game-implementation → Input Handling, GDD → Input Mapping -->
+     Source: implementation → Input Handling, GDD → Input Mapping -->
 
 Pattern: <!-- e.g. Action mapping layer -->
 Supported inputs: <!-- keyboard, gamepad, touch -->

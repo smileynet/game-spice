@@ -14,7 +14,7 @@
 | 3 | ascii-wireframing skill includes genre-specific starter examples (platformer, top-down, menu screens) as inspiration, not mandates | PASS | "Genre-Specific Inspiration" section with 5 examples: side-scroller, top-down RPG, menu/HUD, inventory grid, flow diagram. Framed as "Adapt, don't copy." |
 | 4 | simulation-guide skill defines facilitator rules (sidekick not director, decision recording with provenance, coverage-driven pacing) | PASS | "Facilitator Role" section ("You are a sidekick, not a director"), "Decision Recording Protocol" with origin field (user/suggested/inferred), "Coverage-Driven Pacing" with 5-beat coverage goals. |
 | 5 | simulation-guide skill includes anti-patterns for AI-assisted creative collaboration (including suggestion rubber-stamping) | PASS | "Anti-Patterns" table with 7 entries. Rubber-stamp guard: "If 3+ consecutive decisions have origin `suggested`, pause and prompt user to drive." Resurfacing rule for inferred decisions. |
-| 6 | Both skills follow existing SKILL.md frontmatter + structure conventions | PASS | Both have YAML frontmatter with name + description + trigger phrases, H1 title, tables for structured info, See Also with `(see ...)` cross-references. Matches siblings like game-mechanics-palette. |
+| 6 | Both skills follow existing SKILL.md frontmatter + structure conventions | PASS | Both have YAML frontmatter with name + description + trigger phrases, H1 title, tables for structured info, See Also with `(see ...)` cross-references. Matches siblings like mechanics-palette. |
 
 ## Quality Sign-Off
 

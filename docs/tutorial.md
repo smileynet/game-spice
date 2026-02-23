@@ -30,10 +30,10 @@ You: A roguelike dungeon crawler.
 
 ### Targeting an aesthetic
 
-The first thing game-spice surfaces is the MDA framework from **game-design-frameworks**. Instead of jumping to features, it asks *what feeling* you're designing for:
+The first thing game-spice surfaces is the MDA framework from **design-frameworks**. Instead of jumping to features, it asks *what feeling* you're designing for:
 
 ```
-Claude: Before we go further — what should playing this        ← game-design-frameworks
+Claude: Before we go further — what should playing this        ← design-frameworks
 game feel like? MDA gives us 8 aesthetics:
 
   Sensation    — game as sensory pleasure
@@ -60,10 +60,10 @@ later, every feature should serve one of these two.
 
 ### Defining the core loop
 
-Next, **game-scoping** activates to pin down the core loop — what the player does every 30-60 seconds:
+Next, **scoping** activates to pin down the core loop — what the player does every 30-60 seconds:
 
 ```
-Claude: Now let's nail the core loop. Can you describe it      ← game-scoping
+Claude: Now let's nail the core loop. Can you describe it      ← scoping
 in one sentence?
 
 Format: "Player [verbs] to [goal], earning [reward]
@@ -86,10 +86,10 @@ everything we scope later must serve it.
 
 ### Browsing the mechanics palette
 
-With the loop defined, **game-mechanics-palette** helps explore *how* the core verbs will feel:
+With the loop defined, **mechanics-palette** helps explore *how* the core verbs will feel:
 
 ```
-Claude: Your core verbs are "explore" and "fight." Let's       ← game-mechanics-palette
+Claude: Your core verbs are "explore" and "fight." Let's       ← mechanics-palette
 browse mechanics that could bring those to life.
 
 Movement style — how does the player navigate?
@@ -131,10 +131,10 @@ AI or many weapon types.
 
 ### Economy complexity
 
-**game-economy-design** steps in to right-size the resource system:
+**economy-design** steps in to right-size the resource system:
 
 ```
-Claude: How complex should the economy be?                     ← game-economy-design
+Claude: How complex should the economy be?                     ← economy-design
 
   ┌─────────────────┬─────────────────────────────────┐
   │ None            │ Pure action, no currency         │
@@ -184,7 +184,7 @@ Claude: Here's your brainstorm summary:
   Ready for /line:scope when you are.
 ```
 
-**Skills that activated:** game-design-frameworks, game-scoping, game-mechanics-palette, game-economy-design
+**Skills that activated:** design-frameworks, scoping, mechanics-palette, economy-design
 
 ---
 
@@ -198,10 +198,10 @@ You: /line:scope
 
 ### The 3-feature rule
 
-**game-scoping** immediately constrains the plan:
+**scoping** immediately constrains the plan:
 
 ```
-Claude: Time to scope your MLP. Rule: your core loop +         ← game-scoping
+Claude: Time to scope your MLP. Rule: your core loop +         ← scoping
 three features, maximum. More than 3 means you're
 building content, not validating fun.
 
@@ -246,7 +246,7 @@ on the core loop:
 Next, the 5-layer vertical slice — the smallest thing you can build that proves the game works end-to-end:
 
 ```
-Claude: Your tracer bullet — the first thing you build:        ← game-scoping
+Claude: Your tracer bullet — the first thing you build:        ← scoping
 
   ┌─────────────────────────────────────┐
   │ Layer 1: INPUT                      │
@@ -278,10 +278,10 @@ Claude: Your tracer bullet — the first thing you build:        ← game-scopin
 
 ### Economy design
 
-**game-economy-design** adds specifics to the dual-currency decision from brainstorming:
+**economy-design** adds specifics to the dual-currency decision from brainstorming:
 
 ```
-Claude: Let's map the economy flow:                            ← game-economy-design
+Claude: Let's map the economy flow:                            ← economy-design
 
   Gold (per-run):
     Taps: enemy drops (primary), room discovery bonus
@@ -302,10 +302,10 @@ Claude: Let's map the economy flow:                            ← game-economy-
 
 ### Difficulty design
 
-**game-difficulty-design** shapes the challenge curve:
+**difficulty-design** shapes the challenge curve:
 
 ```
-Claude: For difficulty approach — which fits?                   ← game-difficulty-design
+Claude: For difficulty approach — which fits?                   ← difficulty-design
 
   • Fixed curve (designer-controlled)
   • Player-driven (choose your own difficulty)
@@ -336,10 +336,10 @@ Claude: Good. For a 3-floor MLP with a boss:
 
 ### Content planning
 
-**game-content-planning** right-sizes the content scope:
+**content-planning** right-sizes the content scope:
 
 ```
-Claude: Content for MLP — resist the urge to build lots:       ← game-content-planning
+Claude: Content for MLP — resist the urge to build lots:       ← content-planning
 
   World structure: Linear (floor 1 → 2 → 3 → boss)
   No hub, no branching. Linear is fastest to build
@@ -366,10 +366,10 @@ Claude: Content for MLP — resist the urge to build lots:       ← game-conten
 
 ### Scenario walkthrough
 
-**game-scenario-walkthrough** narrates what a player actually *experiences*:
+**scenario-walkthrough** narrates what a player actually *experiences*:
 
 ```
-Claude: Let's walk through the 5 beats of a play session:      ← game-scenario-walkthrough
+Claude: Let's walk through the 5 beats of a play session:      ← scenario-walkthrough
 
   BEAT 1 — FIRST CONTACT (first 10 seconds)
   Player launches the game. Title screen: "Dungeon of
@@ -417,10 +417,10 @@ Claude: Let's walk through the 5 beats of a play session:      ← game-scenario
 
 ### Playtest planning
 
-**game-playtesting** defines when and how to validate:
+**playtesting** defines when and how to validate:
 
 ```
-Claude: Playtest plan for MLP:                                 ← game-playtesting
+Claude: Playtest plan for MLP:                                 ← playtesting
 
   First playtest target: after tracer bullet (1 room,
   1 enemy, movement + combat). Tester: yourself.
@@ -472,7 +472,7 @@ Claude: Here's your MLP scope:
   leaderboard, 5+ enemy types
 ```
 
-**Skills that activated:** game-scoping, game-economy-design, game-difficulty-design, game-content-planning, game-scenario-walkthrough, game-playtesting
+**Skills that activated:** scoping, economy-design, difficulty-design, content-planning, scenario-walkthrough, playtesting
 
 ---
 
@@ -480,10 +480,10 @@ Claude: Here's your MLP scope:
 
 ### Anti-pattern audit
 
-Before finalizing, **game-antipatterns** runs the over-scope rubric:
+Before finalizing, **antipatterns** runs the over-scope rubric:
 
 ```
-Claude: Let's audit your plan against the over-scope           ← game-antipatterns
+Claude: Let's audit your plan against the over-scope           ← antipatterns
 rubric:
 
   More than 3 features beyond core loop?      No   +0

@@ -245,6 +245,6 @@ Arrows: ───→ player-initiated transition
 ## See Also
 
 - **simulation-guide** — Turn structure that uses these wireframes during Wizard of Oz simulation `(see simulation-guide → Turn Structure)`
-- **game-scoping** — Vertical slice planning for what to prototype `(see game-scoping/vertical-slices.md → Vertical Slice Decomposition)`
-- **game-scenario-walkthrough** — 5-Beat Structure that wireframes illustrate `(see game-scenario-walkthrough)`
-- **game-design-frameworks** — Game feel principles for what wireframes should convey `(see game-design-frameworks)`
+- **scoping** — Vertical slice planning for what to prototype `(see scoping/vertical-slices.md → Vertical Slice Decomposition)`
+- **scenario-walkthrough** — 5-Beat Structure that wireframes illustrate `(see scenario-walkthrough)`
+- **design-frameworks** — Game feel principles for what wireframes should convey `(see design-frameworks)`
