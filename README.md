@@ -175,17 +175,17 @@ Skills load automatically when Line Cook commands detect game project context. N
 ```
  /brainstorm               /scope                        Plan Review
 ┌────────────────────┐    ┌──────────────────────────┐    ┌──────────────────┐
-│ game-design-       │    │ scoping             │    │ antipatterns │
-│   frameworks       │    │ economy-design      │    └──────────────────┘
-│ game-mechanics-    │───>│ difficulty-design    │───>
-│   palette          │    │ content-planning    │
-│ game-economy-      │    │ playtesting         │
-│   design           │    │ scenario-walkthrough│
-└────────────────────┘    └──────────────────────────┘
+│ design-frameworks  │    │ scoping                  │    │ antipatterns      │
+│ mechanics-palette  │───>│ economy-design           │───>└──────────────────┘
+│ economy-design     │    │ difficulty-design         │
+└────────────────────┘    │ content-planning          │
+                          │ playtesting               │
+                          │ scenario-walkthrough      │
+                          └──────────────────────────┘
 
  /plan-audit                /architecture-audit
 ┌────────────────────┐    ┌──────────────────────────┐
-│ plan-audit    │    │ architecture-audit   │
+│ plan-audit         │    │ architecture-audit        │
 │   questionnaires.md│    │   godot.md               │
 │   telemetry.md     │    │   rust.md                │
 └────────────────────┘    │   unity.md               │
@@ -196,7 +196,7 @@ Skills load automatically when Line Cook commands detect game project context. N
 
  /line:cook                 /line:serve
 ┌────────────────────┐    ┌──────────────────────────┐
-│ implementation│    │ game-reviewer (agent)     │
+│ implementation     │    │ game-reviewer (agent)     │
 │   (coding guidance)│    │   (architecture review)   │
 └────────────────────┘    └──────────────────────────┘
 
